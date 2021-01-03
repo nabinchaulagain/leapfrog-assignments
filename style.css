@@ -1,0 +1,32 @@
+body {
+  background: #d7dbd8;
+  margin: 0;
+  padding: 0;
+}
+
+#biography {
+  text-align: center;
+  background: white;
+  width: 50%;
+  border-radius: 8px;
+  padding: 10px;
+  margin: auto;
+  margin-top: 16px;
+}
+#biography > h1,
+#biography > h2 {
+  margin: 4px 0;
+}
+#assigments-table {
+  width: 50%;
+  margin: auto;
+  margin-top: 12px;
+  border-collapse: collapse;
+}
+#assigments-table th,
+#assigments-table td {
+  font-size: 120%;
+  border: 1px solid black;
+  padding: 5px 10px;
+  text-align: center;
+}
