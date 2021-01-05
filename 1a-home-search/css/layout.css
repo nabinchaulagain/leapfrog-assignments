@@ -1,0 +1,200 @@
+body {
+  background: lightgrey;
+}
+.header-container,
+.navbar-container,
+.main-container,
+.footer-container {
+  width: 1000px;
+  margin: auto;
+}
+.header-container {
+  background: skyblue;
+  height: 69px;
+  padding: 8px;
+}
+.header-logo {
+  background: red;
+  width: 230px;
+  height: 100%;
+  float: left;
+  margin: 0 8px;
+}
+.header-form {
+  height: 100%;
+  width: 350px;
+  background: green;
+  float: left;
+}
+.header-profile {
+  height: 100%;
+  width: 150px;
+  margin-right: 8px;
+  background: blue;
+  float: right;
+}
+.profile-info {
+  width: 90%;
+  height: 27px;
+  background: plum;
+  margin: 5px auto;
+}
+.profile-links {
+  width: 90%;
+  height: 27px;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  background: gold;
+}
+.navbar-container {
+  background: grey;
+  height: 30px;
+  padding: 5px 0;
+}
+.navbar-links {
+  height: 100%;
+  background: yellow;
+  width: 480px;
+  margin: 0 8px;
+  float: left;
+}
+.navbar-news {
+  float: right;
+  width: 320px;
+  height: 100%;
+  margin-right: 8px;
+  background: orange;
+}
+.main {
+  margin: 64px 0;
+}
+.main-container {
+  margin: auto;
+  height: 601px;
+  padding: 12px 0;
+  background: brown;
+}
+.main-left {
+  height: 100%;
+  width: 200px;
+  margin-left: 8px;
+  background: indigo;
+  float: left;
+}
+.left-sidebar-1 {
+  width: 90%;
+  height: 184px;
+  margin: 8px auto;
+  background: red;
+}
+
+.left-sidebar-2 {
+  width: 90%;
+  height: 394px;
+  margin: auto;
+  margin-bottom: 8px;
+  background: violet;
+}
+
+.sidebar-item {
+  margin: auto;
+  margin-bottom: 4px;
+  height: 40px;
+  background: white;
+}
+.sidebar-header {
+  padding: 4px 0;
+  background: skyblue;
+}
+
+.main-mid {
+  height: 100%;
+  width: 520px;
+  margin: 0 32px;
+  background: palegreen;
+  float: left;
+}
+.main-header {
+  width: 95%;
+  height: 42px;
+  margin-top: 8px;
+  margin-left: 16px;
+  background: chocolate;
+}
+.entries-nav {
+  width: 95%;
+  height: 126px;
+  padding: 4px 0;
+  margin: 8px auto;
+  background: tomato;
+}
+.entries-nav-left {
+  height: 100%;
+  width: 44%;
+  margin: 0 4%;
+  background: pink;
+  float: left;
+}
+.entries-nav-right {
+  height: 100%;
+  width: 44%;
+  margin-right: 4%;
+  background: blue;
+  float: left;
+}
+.entries-list {
+  width: 95%;
+  padding: 8px 0;
+  height: 376px;
+  margin: auto;
+  margin-bottom: 8px;
+  background: orange;
+}
+.entry {
+  height: 16.3%;
+  width: 91%;
+  padding: 1% 2%;
+  background: slateblue;
+  margin: auto;
+  margin-bottom: 8px;
+}
+.entry .entry-img {
+  height: 100%;
+  width: 25%;
+  background: lightgreen;
+  float: left;
+}
+.entry .entry-content {
+  height: 100%;
+  width: 73%;
+  margin-left: 2%;
+  float: left;
+  background: skyblue;
+}
+.main-right {
+  height: 600px;
+  width: 200px;
+  background: yellowgreen;
+  margin-right: 8px;
+  float: right;
+}
+
+.footer-container {
+  height: 37px;
+  padding: 4px 0;
+  background: blueviolet;
+}
+.footer-nav {
+  width: 340px;
+  height: 100%;
+  float: left;
+  background: turquoise;
+  margin-left: 8px;
+}
+.footer-trademark {
+  width: 340px;
+  height: 100%;
+  float: right;
+  background: orangered;
+  margin-right: 8px;
+}
