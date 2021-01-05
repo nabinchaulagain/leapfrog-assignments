@@ -1,47 +1,44 @@
 body {
   background: lightgrey;
 }
-.header-container,
-.navbar-container,
-.main-container,
-.footer-container {
+.container {
   width: 1000px;
   margin: auto;
 }
 .header-container {
   background: skyblue;
   height: 69px;
-  padding: 8px;
+  padding: 8px 0;
+}
+.header-item {
+  height: 100%;
+  float: left;
 }
 .header-logo {
   background: red;
   width: 230px;
-  height: 100%;
-  float: left;
   margin: 0 8px;
 }
 .header-form {
-  height: 100%;
   width: 350px;
   background: green;
-  float: left;
 }
 .header-profile {
-  height: 100%;
   width: 150px;
   margin-right: 8px;
   background: blue;
   float: right;
 }
-.profile-info {
+.profile-info,
+.profile-links {
   width: 90%;
   height: 27px;
+}
+.profile-info {
   background: plum;
   margin: 5px auto;
 }
 .profile-links {
-  width: 90%;
-  height: 27px;
   margin: 0 auto;
   margin-bottom: 5px;
   background: gold;
@@ -51,8 +48,11 @@ body {
   height: 30px;
   padding: 5px 0;
 }
-.navbar-links {
+.navbar-links,
+.navbar-news {
   height: 100%;
+}
+.navbar-links {
   background: yellow;
   width: 480px;
   margin: 0 8px;
@@ -74,25 +74,28 @@ body {
   padding: 12px 0;
   background: brown;
 }
-.main-left {
+.main-left,
+.main-mid,
+.main-right {
   height: 100%;
+}
+.main-left {
   width: 200px;
   margin-left: 8px;
   background: indigo;
   float: left;
 }
-.left-sidebar-1 {
+.left-sidebar {
   width: 90%;
-  height: 184px;
   margin: 8px auto;
+}
+.left-sidebar-1 {
+  height: 184px;
   background: red;
 }
 
 .left-sidebar-2 {
-  width: 90%;
   height: 394px;
-  margin: auto;
-  margin-bottom: 8px;
   background: violet;
 }
 
@@ -108,45 +111,46 @@ body {
 }
 
 .main-mid {
-  height: 100%;
   width: 520px;
   margin: 0 32px;
   background: palegreen;
   float: left;
 }
-.main-header {
+.main-header,
+.entries-nav,
+.entries-list {
   width: 95%;
+  margin: auto;
+}
+.main-header {
   height: 42px;
   margin-top: 8px;
   margin-left: 16px;
   background: chocolate;
 }
 .entries-nav {
-  width: 95%;
   height: 126px;
   padding: 4px 0;
   margin: 8px auto;
   background: tomato;
 }
-.entries-nav-left {
-  height: 100%;
-  width: 44%;
-  margin: 0 4%;
-  background: pink;
-  float: left;
-}
+.entries-nav-left,
 .entries-nav-right {
   height: 100%;
   width: 44%;
-  margin-right: 4%;
-  background: blue;
+  margin: 0 4%;
   float: left;
 }
+.entries-nav-left {
+  background: pink;
+}
+.entries-nav-right {
+  margin: 0 0 4% 0;
+  background: blue;
+}
 .entries-list {
-  width: 95%;
   padding: 8px 0;
   height: 376px;
-  margin: auto;
   margin-bottom: 8px;
   background: orange;
 }
@@ -172,7 +176,6 @@ body {
   background: skyblue;
 }
 .main-right {
-  height: 600px;
   width: 200px;
   background: yellowgreen;
   margin-right: 8px;
@@ -184,17 +187,17 @@ body {
   padding: 4px 0;
   background: blueviolet;
 }
-.footer-nav {
-  width: 340px;
-  height: 100%;
-  float: left;
-  background: turquoise;
-  margin-left: 8px;
-}
+.footer-nav,
 .footer-trademark {
   width: 340px;
   height: 100%;
+  float: left;
+  margin: 0 8px;
+}
+.footer-nav {
+  background: turquoise;
+}
+.footer-trademark {
   float: right;
   background: orangered;
-  margin-right: 8px;
 }
