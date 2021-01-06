@@ -1,14 +1,13 @@
 body {
-  background: #ffffff;
+  width: 100%;
+  min-width: 1002px;
 }
 .container {
   width: 1002px;
-  max-width: 1002px;
   margin: auto;
 }
 .header {
   background: #7dd9e8;
-  width: 100vw;
 }
 .header img {
   margin-top: 8px;
