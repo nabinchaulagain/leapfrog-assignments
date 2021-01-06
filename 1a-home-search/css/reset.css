@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Muli", Helvetica, sans-serif;
 }
 a {
   text-decoration: none;
@@ -12,4 +12,33 @@ a {
 }
 .right {
   float: right;
+}
+.clearfix::after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+ul li {
+  display: inline;
+}
+input:focus {
+  outline: none;
+}
+.text-red {
+  color: #d5411a;
+  font-weight: bold;
+  cursor: pointer;
+}
+.text-blue {
+  color: #52afc6;
+  font-weight: bold;
+  cursor: pointer;
+}
+.text-green {
+  color: #709720;
+  font-weight: bold;
+  cursor: pointer;
+}
+.sidebar li {
+  font-size: 12px;
 }
