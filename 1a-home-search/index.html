@@ -10,78 +10,230 @@
   <body>
     <div class="head">
       <div class="header">
-        <div class="header-container container">
-          <div class="header-logo header-item">Logo</div>
-          <div class="header-form header-item">Form</div>
-          <div class="header-profile header-item">
-            <div class="profile-info">User's name</div>
-            <div class="profile-links">User setting links</div>
+        <div class="header-container container clearfix">
+          <div class="header-logo left">
+            <img src="images/logo.jpg" alt="TuTangle" />
+          </div>
+          <form class="header-form left" action="#">
+            <div class="input-search-container">
+              <img src="images/input-left.png" alt="" class="input-search-left">
+              <input type="text" class="input-search" placeholder="Search by Term, Member or Entry Titile" />
+              <img src="images/cross-icon.png" alt="" class="input-search-right">
+              <img src="images/search-icon.png" alt="" class="input-search-right-btn">
+              <div class="input-search-right"></div>  
+            </div>
+            <div class="search-btn">
+              <img src="images/search-left.jpg" alt="" class="search-btn-left">
+              <span class="search-btn-mid">SEARCH</span>
+              <img src="images/search-right.jpg" alt="" class="search-btn-right">
+            </div>
+          </form>
+          <div class="header-profile left">
+            <h2 class="profile-info">Joe Borrus</h2>
+            <ul class="profile-links">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Settings</a></li>
+              <li><a href="#">Logout</a></li>
+            </ul>
           </div>
         </div>
       </div>
       <div class="navbar">
-        <div class="navbar-container container">
-          <div class="navbar-links">Navigation links</div>
-          <div class="navbar-news">Notifications</div>
+        <div class="navbar-container container clearfix">
+          <ul class="navbar-links">
+            <li><a href="#"></a>Create new entry</li>
+            <li><a href="#"></a>My Topic boxes</li>
+            <li><a href="#"></a>Friends</li>
+            <li><a href="#"></a>Invite new member</li>
+          </ul>
+          <ul class="navbar-news">
+            <li>
+              <a href="#"
+                ><img src="images/topic-box-logo.png" alt="" /> Topic box
+                invites - 2</a
+              >
+            </li>
+            <li>
+              <a href="#"
+                ><img src="images/user-logo.png" alt="" /> Friend Requests - 0
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
     <div class="main">
       <div class="main-container container">
         <div class="main-left">
-          <div class="left-sidebar-1 left-sidebar">
-            <div class="sidebar-item sidebar-header">Category header</div>
-            <div class="sidebar-item">Category item</div>
-            <div class="sidebar-item">Category item</div>
-          </div>
-          <div class="left-sidebar-2 left-sidebar">
-            <div class="sidebar-item sidebar-header">Category header</div>
-            <div class="sidebar-item">Category item</div>
-            <div class="sidebar-item">Category item</div>
-          </div>
+          <ul class="left-sidebar-1 sidebar">
+            <li class="sidebar-item sidebar-header">
+              <h3>Recent Searches</h3>
+            </li>
+            <li class="sidebar-item">
+              <img src="images/download-icon.png" alt="" />
+              <span>Nick Cave and the Bad Seeds</span>
+            </li>
+            <li class="sidebar-item">
+              <img src="images/download-icon.png" alt="" />
+              <span>Africal Animal</span>
+            </li>
+          </ul>
+          <ul class="left-sidebar-2 sidebar">
+            <li class="sidebar-item sidebar-header">
+              <h3>Search</h3>
+            </li>
+            <li class="sidebar-item">
+              <img src="images/hamburger-icon.png" alt="" />
+              <span>Different Versions of the Tristan Und Isolde Prelude</span>
+            </li>
+            <li class="sidebar-item">
+              <img src="images/hamburger-icon.png" alt="" />
+              <span>Music</span>
+            </li>
+            <li class="sidebar-item">
+              <img src="images/hamburger-icon.png" alt="" />
+              <span>Guitar</span>
+            </li>
+            <li class="sidebar-item">
+              <img src="images/hamburger-icon.png" alt="" />
+              <span>Bob Cohen</span>
+            </li>
+            <li class="sidebar-item">
+              <img src="images/hamburger-icon.png" alt="" />
+              <span>Mark Schnack</span>
+            </li>
+            <li class="sidebar-item">
+              <img src="images/hamburger-icon.png" alt="" />
+              <span>Jefferson Dickey</span>
+            </li>
+          </ul>
         </div>
         <div class="main-mid">
-          <h1 class="main-header">Middle Header</h1>
-          <div class="entries-nav">
-            <div class="entries-nav-left">Card 1</div>
-            <div class="entries-nav-right">Card 2</div>
+          <h1 class="main-header">Entries</h1>
+          <div class="entries-nav clearfix">
+            <img
+              class="entries-nav-left left"
+              src="images/entry-nav-left.jpg"
+              alt=""
+            />
+            <div class="entry-nav-card left">
+              <h3>All Entries</h3>
+              <div class="entry-nav-btns">
+                <div href="#" class="btn left">
+                  <img src="images/active-btn-left.jpg" class="left btn-left"></img>
+                  <div class="left btn-mid active">All members</div>
+                  <img src="images/active-btn-right.jpg" class="right btn-right"></img>
+                </div>
+                <div href="#" class="btn right">
+                  <img src="images/active-btn-left.jpg" class="left btn-left"></img>
+                  <div class="left btn-mid active">Friends</div>
+                  <img src="images/active-btn-right.jpg" class="right btn-right"></img>
+                </div>
+              </div>
+            </div>
+            <div class="entry-nav-card left">
+              <h3>Subscribed</h3>
+              <div class="entry-nav-btns">
+                <div href="#" class="btn left">
+                  <img src="images/active-btn-left.jpg" class="left btn-left"></img>
+                  <div class="left btn-mid active">New Entries</div>
+                  <img src="images/active-btn-right.jpg" class="right btn-right"></img>
+                </div>
+                <div href="#" class="btn right">
+                  <img src="images/active-btn-left.jpg" class="left btn-left"></img>
+                  <div class="left btn-mid active">New Comments</div>
+                  <img src="images/active-btn-right.jpg" class="right btn-right"></img>
+                </div>
+              </div>
+            </div>
+            <img
+              class="entries-nav-right left"
+              src="images/entry-nav-right.jpg"
+              alt=""
+            />
           </div>
           <div class="entries-list">
-            <div class="entry">
-              <div class="entry-img">Entry image</div>
-              <div class="entry-content">Entry content</div>
+            <div class="entry clearfix">
+              <img src="images/entry-pic-1.jpg" class="entry-img">
+              <div class="entry-content">             
+                <h4>Day for Night by François Truffaut, a ground breaking film</h4>
+                <ul class="entry-info">
+                  <li>By Alan Coe</li>
+                  <li>February 10, 2012</li>
+                  <li>Subscribed</li>
+                </ul>
+                <div>From Topic Boxes: My Favorite Movies</div>
+              </div>
             </div>
-            <div class="entry">
-              <div class="entry-img">Entry image</div>
-              <div class="entry-content">Entry content</div>
+            <div class="entry clearfix">
+              <img src="images/entry-pic-2.jpg" class="entry-img">
+              <div class="entry-content">             
+                <h4>Day for Night by François Truffaut, a ground breaking film</h4>
+                <ul class="entry-info">
+                  <li>By Alan Coe</li>
+                  <li>February 10, 2012</li>
+                  <li>Subscribed</li>
+                </ul>
+                <div>From Topic Boxes: My Favorite Movies</div>
+              </div>
             </div>
-            <div class="entry">
-              <div class="entry-img">Entry image</div>
-              <div class="entry-content">Entry content</div>
+            <div class="entry clearfix">
+              <img src="images/entry-pic-3.jpg" class="entry-img">
+              <div class="entry-content">   
+                <div>NEW ENTRY!!!</div>          
+                <h4>Day for Night by François Truffaut, a ground breaking film</h4>
+                <ul class="entry-info">
+                  <li>By Alan Coe</li>
+                  <li>February 10, 2012</li>
+                  <li>Subscribed</li>
+                </ul>
+                <div>From Topic Boxes: My Favorite Movies</div>
+              </div>
             </div>
-            <div class="entry">
-              <div class="entry-img">Entry image</div>
-              <div class="entry-content">Entry content</div>
+            <div class="entry clearfix">
+              <img src="images/entry-pic-4.jpg" class="entry-img">
+              <div class="entry-content">             
+                <h4>Day for Night by François Truffaut, a ground breaking film</h4>
+                <ul class="entry-info">
+                  <li>By Alan Coe</li>
+                  <li>February 10, 2012</li>
+                  <li>Subscribed</li>
+                </ul>
+                <div>From Topic Boxes: My Favorite Movies</div>
+              </div>
             </div>
-            <div class="entry">
-              <div class="entry-img">Entry image</div>
-              <div class="entry-content">Entry content</div>
+            <div class="entry clearfix">
+              <img src="images/entry-pic-5.jpg" class="entry-img">
+              <div class="entry-content">             
+                <h4>Day for Night by François Truffaut, a ground breaking film</h4>
+                <ul class="entry-info">
+                  <li>By Alan Coe</li>
+                  <li>February 10, 2012</li>
+                  <li>Subscribed</li>
+                </ul>
+                <div>From Topic Boxes: My Favorite Movies</div>
+              </div>
             </div>
-          </div>
+          </div> 
         </div>
-        <div class="main-right">
-          <div class="sidebar-item sidebar-header">
-            Tutorials section header
-          </div>
-          <div class="sidebar-item">Tutorial 1</div>
-          <div class="sidebar-item">Tutorial 2</div>
-        </div>
-      </div>
+        <ul class="main-right sidebar">
+          <li class="sidebar-item sidebar-header">
+            <h3>Video Tutorials</h3> 
+          </li>
+          <li class="sidebar-item">Tutorial 1</li>
+          <li class="sidebar-item">Tutorial 2</li>
+        </ul>
     </div>
     <div class="footer">
-      <div class="footer-container container">
-        <div class="footer-nav">Navigation links</div>
-        <div class="footer-trademark">Company trademark</div>
+      <div class="footer-container container clearfix">
+        <ul class="footer-nav">
+          <li>About Us</li>
+          <li>Contact Us</li>
+          <li>Terms of Use</li>
+          <li>Privacy Policy</li>
+          <li>Feedback</li>
+        </ul>
+        <div class="footer-trademark">&copy; Tutangle 2013</div>
       </div>
     </div>
   </body>

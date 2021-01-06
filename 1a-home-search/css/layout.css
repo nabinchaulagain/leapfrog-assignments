@@ -1,109 +1,128 @@
+.clearfix::after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+ul li {
+  display: inline;
+}
 body {
-  background: lightgrey;
+  background: #ffffff;
 }
 .container {
-  width: 1000px;
+  width: 1002px;
   margin: auto;
 }
+.header {
+  background: #7dd9e8;
+}
+.header img {
+  margin-top: 8px;
+}
 .header-container {
-  background: skyblue;
-  height: 69px;
   padding: 8px 0;
 }
 .header-item {
-  height: 100%;
   float: left;
 }
 .header-logo {
-  background: red;
-  width: 230px;
   margin: 0 8px;
 }
-.header-form {
-  width: 350px;
-  background: green;
+.input-search-container {
+  padding-top: 10px;
+  float: left;
+}
+.input-search {
+  background: #caeff7;
+  padding: 0 30px;
+  border: none;
+  height: 20px;
+}
+.input-search-left,
+.search-btn-left {
+  transform: translate(5px, 6px);
+}
+.input-search-right,
+.search-btn-right {
+  transform: translate(-5px, 6px);
+}
+.input-search-right-btn {
+  transform: translate(-10px, 6px);
+}
+.search-btn {
+  padding-top: 10px;
+  float: right;
+}
+.search-btn-mid {
+  background: #244c54;
+  padding-bottom: 3px;
 }
 .header-profile {
-  width: 150px;
   margin-right: 8px;
-  background: blue;
   float: right;
 }
 .profile-info,
 .profile-links {
-  width: 90%;
-  height: 27px;
+  margin: 0 auto;
 }
 .profile-info {
-  background: plum;
   margin: 5px auto;
 }
 .profile-links {
-  margin: 0 auto;
   margin-bottom: 5px;
-  background: gold;
+}
+
+.profile-links li::after {
+  content: "|";
+  margin: 0 4px;
+}
+.profile-links li:last-child::after {
+  content: "";
+}
+.navbar {
+  background: #f5f5f5;
 }
 .navbar-container {
-  background: grey;
-  height: 30px;
   padding: 5px 0;
 }
-.navbar-links,
-.navbar-news {
-  height: 100%;
-}
 .navbar-links {
-  background: yellow;
-  width: 480px;
-  margin: 0 8px;
   float: left;
+}
+.navbar-links li {
+  margin-right: 35px;
 }
 .navbar-news {
   float: right;
-  width: 320px;
   height: 100%;
   margin-right: 8px;
-  background: orange;
+}
+.navbar-news li {
+  margin-right: 8px;
 }
 .main {
-  margin: 64px 0;
+  margin: 32px 0;
 }
 .main-container {
   margin: auto;
   height: 601px;
   padding: 12px 0;
-  background: brown;
-}
-.main-left,
-.main-mid,
-.main-right {
-  height: 100%;
 }
 .main-left {
-  width: 200px;
   margin-left: 8px;
-  background: indigo;
   float: left;
 }
-.left-sidebar {
-  width: 90%;
-  margin: 8px auto;
+.sidebar {
+  width: 200px;
 }
-.left-sidebar-1 {
-  height: 184px;
-  background: red;
+.sidebar li {
+  display: block;
 }
-
-.left-sidebar-2 {
-  height: 394px;
-  background: violet;
-}
-
 .sidebar-item {
   margin: auto;
   margin-bottom: 4px;
-  height: 40px;
-  background: white;
+}
+.sidebar-item img {
+  float: right;
 }
 .sidebar-header {
   padding: 4px 0;
@@ -113,91 +132,70 @@ body {
 .main-mid {
   width: 520px;
   margin: 0 32px;
-  background: palegreen;
   float: left;
 }
-.main-header,
-.entries-nav,
-.entries-list {
-  width: 95%;
-  margin: auto;
-}
+
 .main-header {
-  height: 42px;
   margin-top: 8px;
   margin-left: 16px;
-  background: chocolate;
 }
 .entries-nav {
-  height: 126px;
-  padding: 4px 0;
   margin: 8px auto;
-  background: tomato;
 }
-.entries-nav-left,
-.entries-nav-right {
-  height: 100%;
-  width: 44%;
-  margin: 0 4%;
+
+.entry-nav-card {
   float: left;
+  padding-top: 5px;
+
+  background: #f5f5f5;
 }
-.entries-nav-left {
-  background: pink;
-}
-.entries-nav-right {
-  margin: 0 0 4% 0;
-  background: blue;
+.btn .active {
+  background: #5cc2da;
+  padding-bottom: 9px;
 }
 .entries-list {
   padding: 8px 0;
   height: 376px;
   margin-bottom: 8px;
-  background: orange;
 }
 .entry {
-  height: 16.3%;
-  width: 91%;
-  padding: 1% 2%;
-  background: slateblue;
-  margin: auto;
+  padding-bottom: 8px;
   margin-bottom: 8px;
+  border-bottom: 2px solid #d8d8d8;
 }
 .entry .entry-img {
-  height: 100%;
-  width: 25%;
-  background: lightgreen;
   float: left;
 }
 .entry .entry-content {
-  height: 100%;
-  width: 73%;
-  margin-left: 2%;
-  float: left;
-  background: skyblue;
+}
+.entry-info li::after {
+  content: "|";
+  margin: 0 4px;
+}
+
+.entry-info li:last-child::after {
+  content: "";
 }
 .main-right {
   width: 200px;
-  background: yellowgreen;
-  margin-right: 8px;
   float: right;
 }
 
+.footer {
+  background: #727272;
+}
 .footer-container {
-  height: 37px;
+  /* height: 37px; */
   padding: 4px 0;
-  background: blueviolet;
 }
 .footer-nav,
 .footer-trademark {
-  width: 340px;
   height: 100%;
   float: left;
   margin: 0 8px;
 }
 .footer-nav {
-  background: turquoise;
 }
 .footer-trademark {
   float: right;
-  background: orangered;
 }
