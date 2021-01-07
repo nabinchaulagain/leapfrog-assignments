@@ -143,23 +143,29 @@
     font-size: 12px;
     padding: 0;
   }
+  .main-left {
+    width: 90%;
+  }
   .main-mid {
-    width: 65%;
+    width: 60%;
     float: left;
   }
   .main-right {
-    width: 20%;
+    width: 25%;
     float: right;
     display: block;
     margin-right: 8px;
   }
   .sidebar .sidebar-header {
     font-size: 70%;
-    padding: 10px 6px;
+    padding: 10px 4px;
+  }
+  .sidebar {
+    margin-bottom: 8px;
   }
   .sidebar .sidebar-item {
     font-size: 60%;
-    padding: 8px 4px;
+    padding: 8px 2px;
   }
   .entry-content > div,
   .entry-content .entry-info {
@@ -197,8 +203,10 @@
     margin-right: 8px;
   }
   .main-left {
+    margin-left: 8px;
     width: 25%;
     display: initial;
+    float: left;
   }
   .main-mid {
     margin: 0 8px;
@@ -235,6 +243,12 @@
   }
   .footer-nav {
     display: block;
+  }
+  .footer-nav li {
+    display: inline;
+  }
+  .footer-nav li::after {
+    content: "\25CF";
   }
 }
 @media only screen and (min-width: 992px) {
