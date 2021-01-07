@@ -129,8 +129,10 @@
   margin-top: 8px;
   padding: 0;
   box-sizing: content-box;
-  border-bottom: 3px solid #5cc2da;
   font-size: 0;
+}
+.entries-nav-right {
+  transform: translate(-5px, -2px);
 }
 
 .entry-nav-card {
@@ -181,14 +183,7 @@
 .footer-nav a {
   color: #ffffff;
 }
-.footer-nav li::after {
-  content: "\00B7";
-  color: #ffffff;
-  margin: 0 12px;
-}
-.footer-nav li:last-child::after {
-  content: "";
-}
+
 .footer-trademark {
   float: right;
 }
