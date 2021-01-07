@@ -1,0 +1,60 @@
+.input-search {
+  background: #caeff7;
+  padding: 0 30px;
+  border: none;
+  height: 20px;
+}
+.search-btn {
+  height: 20px;
+  padding-top: 15px;
+  float: right;
+}
+
+.search-btn-mid {
+  background: #244c54;
+  font-size: 11px;
+  padding: 4px 2px 2px 2px;
+  color: #ffffff;
+}
+a:hover {
+  text-decoration: underline;
+}
+.profile-info {
+  margin-top: 15px;
+  font-size: 20px;
+  font-weight: normal;
+  text-align: right;
+}
+.profile-links {
+  font-size: 12px;
+}
+.news-icon {
+  transform: translateY(3px);
+}
+.news-inactive {
+  opacity: 0.6;
+}
+.navbar-links {
+  font-size: 16px;
+}
+.navbar-news {
+  font-size: 14px;
+}
+.navbar-news li {
+  margin-right: 32px;
+}
+.entry-nav-card h3 {
+  font-size: 18px;
+  font-weight: normal;
+  text-align: center;
+}
+.entry img {
+  margin-right: 16px;
+}
+
+.hamburger-menu {
+  width: 16px;
+  height: 16px;
+  display: none;
+  float: left;
+}
