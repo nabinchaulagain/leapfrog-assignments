@@ -324,11 +324,17 @@
   .sidebar .sidebar-header {
     padding: 12px 8px;
   }
+  .main {
+    margin: 32px 0;
+  }
+  .main-header {
+    font-size: 2em;
+  }
   .entry-content {
-    font-size: 12px;
+    font-size: 110%;
   }
   .entry-content h4 {
-    font-size: 16px;
+    font-size: 110%;
   }
 }
 @media only screen and (min-width: 1200px) {
