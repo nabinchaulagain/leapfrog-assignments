@@ -357,3 +357,27 @@ body {
 .early-tickets .btn img {
   width: 12px;
 }
+.sponsors {
+  padding: 24px 8px 12px 8px;
+  text-align: center;
+  font-size: 90%;
+}
+.sponsors h3 {
+  font-size: 150%;
+}
+.sponsors .sponsors-text {
+  margin-bottom: 16px;
+}
+.sponsors .sponsors-group {
+  border-top: 1px solid #ebebeb;
+  padding: 16px 0;
+}
+.sponsors-list .sponsor-img {
+  display: inline-block;
+  width: 45%;
+  padding: 2em;
+}
+.sponsors-list .sponsor-img img {
+  width: 100%;
+  max-width: 100%;
+}
