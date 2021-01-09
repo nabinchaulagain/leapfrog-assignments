@@ -96,11 +96,8 @@ body {
   font-size: 60%;
   padding: 8px 20px;
 }
-
 .top-container .btns .btn:last-of-type {
-  background: #eaa71d;
-  border-color: #eaa71d;
-  color: black;
+  color: #000000;
 }
 .top-container .btns .btn:last-of-type img {
   width: 13px;
@@ -135,16 +132,17 @@ body {
   font-size: 45%;
   border-color: #df8790;
 }
-.mid-sections {
-  /* position: relative; */
-}
-.mid-sections .gradient {
+.gradient {
   background: linear-gradient(135deg, #eaa71d, #c9493b);
   height: 60px;
 }
 .speakers-container {
   position: relative;
-  height: 550px;
+  height: 570px;
+}
+.speakers {
+  text-align: center;
+  overflow: hidden;
 }
 .speakers-container .speakers {
   position: absolute;
@@ -153,7 +151,7 @@ body {
   left: 5vw;
   top: -25px;
   padding: 0;
-  height: 600px;
+  height: 620px;
   box-shadow: 0 0 5px #aaaaaa;
   text-align: center;
 }
@@ -163,8 +161,8 @@ body {
 }
 .speakers .speaker {
   display: inline-block;
-  width: 8em;
-  margin: 0 7px;
+  width: 7.8em;
+  margin: 4px 7px;
   position: relative;
 }
 .speakers .speaker img {
@@ -276,7 +274,7 @@ body {
 .schedule-container .posts {
   width: 90%;
   margin: auto;
-  margin-top: 16px;
+  margin: 16px 0;
 }
 .schedule-container .posts .post {
   margin-bottom: 16px;
@@ -299,4 +297,63 @@ body {
 .post .post-content .post-title {
   font-size: 110%;
   margin-bottom: 4px;
+}
+.speakers.past-speakers .speaker {
+  width: 9em;
+}
+.speakers.past-speakers {
+  margin-bottom: 16px;
+}
+.testimonials {
+  text-align: center;
+}
+.testimonials > p {
+  font-size: 60%;
+  margin-bottom: 16px;
+}
+.testimonial-card {
+  font-size: 50%;
+  width: 80%;
+  display: inline-block;
+  margin: 8px auto;
+  padding: 5px;
+  box-shadow: 0 0 5px #aaaaaa;
+  position: relative;
+}
+.testimonial-card .left-circle {
+  position: absolute;
+  background: #000000;
+  width: 4em;
+  height: 4em;
+  left: -2em;
+  top: 8px;
+  border-radius: 100%;
+}
+
+.testimonial-card .content {
+  padding: 0 1.5em;
+  font-size: 120%;
+  text-align: left;
+}
+
+.testimonial-card .content .info {
+  margin-top: 8px;
+}
+.testimonial-card .content .info .name {
+  font-weight: bold;
+}
+.early-tickets {
+  padding: 24px 0;
+  text-align: center;
+  height: auto;
+  color: #ffffff;
+}
+.early-tickets .news-countdown {
+  margin: 8px 0;
+}
+.early-tickets .btn {
+  font-size: 60%;
+}
+.early-tickets .btn img {
+  width: 12px;
 }
