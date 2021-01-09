@@ -1,0 +1,119 @@
+body {
+  width: 100%;
+}
+.root {
+  min-width: 100%;
+}
+.top-container {
+  background: url("../images/top_background.png");
+  color: #ffffff;
+  padding-bottom: 16px;
+}
+.header {
+  position: relative;
+}
+
+.header .header-left,
+.header .header-right {
+  height: 70px;
+  padding: 10px 5px;
+}
+.header .header-left img,
+.header .header-right img {
+  max-height: 100%;
+}
+.header .header-right {
+  padding: 20px 5px;
+}
+.header-right .nav {
+  display: none;
+  position: absolute;
+  width: 100vw;
+  left: 0;
+  top: 50px;
+  padding-bottom: 20px;
+  background: #2e2e2e;
+}
+.hamburger-menu:hover + .nav {
+  display: block;
+}
+.nav .nav-links {
+  list-style: none;
+}
+.nav-links li {
+  text-align: center;
+  margin: 5px 0;
+}
+.nav-links li a {
+  font-size: 80%;
+  color: #ffffff;
+}
+.nav-links li .btn {
+  font-size: 70%;
+}
+.news {
+  text-align: center;
+}
+.news .news-header {
+  font-size: 130%;
+}
+.news .news-info {
+  font-size: 70%;
+}
+.news .news-countdown {
+  background: #c9493b;
+  width: 15em;
+  margin: 16px auto;
+  padding: 8px;
+}
+.news-countdown .countdown,
+.news-countdown li {
+  display: inline-block;
+}
+.news-countdown .value {
+  font-weight: bold;
+  font-size: 140%;
+  padding-bottom: 4px;
+}
+.news-countdown .label {
+  margin-top: -5px;
+  font-size: 50%;
+}
+.news-countdown li::after {
+  display: inline-block;
+  vertical-align: 10px;
+  content: "\002D";
+  font-size: 140%;
+  font-weight: normal;
+  padding: 0 5px;
+}
+.news-countdown li:last-of-type:after {
+  content: "";
+  margin: 0;
+}
+.news-btns {
+  text-align: center;
+}
+.news-btns .btn {
+  color: #ffffff;
+  font-size: 60%;
+  padding: 8px 20px;
+}
+.news-btns .btn:last-of-type {
+  background: #eaa71d;
+  border-color: #eaa71d;
+  color: black;
+}
+.news-btns .btn:last-of-type img {
+  width: 13px;
+  margin-left: 2px;
+  transform: translateY(-1px);
+}
+.top-container .play-btn {
+  margin-top: 16px;
+  text-align: center;
+}
+.top-container .play-btn .play-text {
+  margin-top: -5px;
+  font-size: 50%;
+}
