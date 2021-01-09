@@ -144,7 +144,7 @@ body {
 }
 .speakers-container {
   position: relative;
-  height: 500px;
+  height: 550px;
 }
 .speakers-container .speakers {
   position: absolute;
@@ -153,7 +153,7 @@ body {
   left: 5vw;
   top: -25px;
   padding: 0;
-  height: 550px;
+  height: 600px;
   box-shadow: 0 0 5px #aaaaaa;
   text-align: center;
 }
@@ -163,8 +163,8 @@ body {
 }
 .speakers .speaker {
   display: inline-block;
-  width: 7em;
-  margin-right: 8px;
+  width: 8em;
+  margin: 0 7px;
   position: relative;
 }
 .speakers .speaker img {
@@ -224,12 +224,6 @@ body {
 .schedule-container p {
   font-size: 50%;
 }
-/* .news .news-countdown {
-  background: #c9493b;
-  width: 15em;
-  margin: 16px auto;
-  padding: 8px;
-} */
 .schedule-container .days,
 .schedule-container .days li {
   display: inline-block;
