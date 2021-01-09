@@ -91,20 +91,18 @@ body {
   content: "";
   margin: 0;
 }
-.news-btns {
-  text-align: center;
-}
-.news-btns .btn {
+.top-container .btns .btn {
   color: #ffffff;
   font-size: 60%;
   padding: 8px 20px;
 }
-.news-btns .btn:last-of-type {
+
+.top-container .btns .btn:last-of-type {
   background: #eaa71d;
   border-color: #eaa71d;
   color: black;
 }
-.news-btns .btn:last-of-type img {
+.top-container .btns .btn:last-of-type img {
   width: 13px;
   margin-left: 2px;
   transform: translateY(-1px);
@@ -116,4 +114,24 @@ body {
 .top-container .play-btn .play-text {
   margin-top: -5px;
   font-size: 50%;
+}
+.section-empowerment {
+  padding: 10px 40px;
+}
+.section-empowerment h1 {
+  text-align: center;
+  font-size: 110%;
+}
+.section-empowerment p {
+  font-size: 60%;
+  text-align: justify;
+  line-height: 16px;
+  text-justify: inter-word;
+}
+.section-empowerment .btns {
+  margin: 20px 0;
+}
+.section-empowerment .btns .btn {
+  font-size: 45%;
+  border-color: #df8790;
 }
