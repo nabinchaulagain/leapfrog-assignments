@@ -135,3 +135,174 @@ body {
   font-size: 45%;
   border-color: #df8790;
 }
+.mid-sections {
+  /* position: relative; */
+}
+.mid-sections .gradient {
+  background: linear-gradient(135deg, #eaa71d, #c9493b);
+  height: 60px;
+}
+.speakers-container {
+  position: relative;
+  height: 500px;
+}
+.speakers-container .speakers {
+  position: absolute;
+  background: white;
+  width: 90vw;
+  left: 5vw;
+  top: -25px;
+  padding: 0;
+  height: 550px;
+  box-shadow: 0 0 5px #aaaaaa;
+  text-align: center;
+}
+.speakers h3 {
+  text-align: center;
+  margin: 24px 0;
+}
+.speakers .speaker {
+  display: inline-block;
+  width: 7em;
+  margin-right: 8px;
+  position: relative;
+}
+.speakers .speaker img {
+  max-width: 100%;
+  background: transparent;
+}
+.speaker .speaker-info {
+  position: absolute;
+  font-size: 50%;
+  color: #ffffff;
+  bottom: 5px;
+  left: 5px;
+  z-index: 2;
+}
+.speaker .speaker-info .speaker-position {
+  text-align: left;
+  margin-left: 8px;
+}
+.speaker .overlay {
+  top: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0) 0,
+    rgba(0, 0, 0, 0) 70%,
+    rgba(0, 0, 0, 0.3) 80%,
+    rgba(0, 0, 0, 1) 92%
+  );
+}
+.speaker .speaker-info .speaker-name {
+  font-size: 180%;
+}
+.schedule {
+  height: 325px;
+  position: relative;
+}
+.schedule .schedule-container {
+  position: absolute;
+  height: 350px;
+  top: -25px;
+  left: 5vw;
+  width: 90vw;
+  background: #ffffff;
+  box-shadow: 0 0 5px #aaaaaa;
+  text-align: center;
+}
+.schedule-container .calendar-img {
+  width: 2.5em;
+  margin: auto;
+  margin-top: 16px;
+}
+.schedule-container .calendar-img img {
+  max-width: 100%;
+}
+.schedule-container p {
+  font-size: 50%;
+}
+/* .news .news-countdown {
+  background: #c9493b;
+  width: 15em;
+  margin: 16px auto;
+  padding: 8px;
+} */
+.schedule-container .days,
+.schedule-container .days li {
+  display: inline-block;
+}
+.schedule-container .days li {
+  padding: 0 8px;
+  border-right: 1px solid #eaeaea;
+  cursor: pointer;
+}
+.schedule-container li:last-child {
+  border: none;
+}
+.schedule-container .days .value {
+  font-weight: bold;
+  font-size: 70%;
+  padding-bottom: 4px;
+}
+.schedule-container .days .label {
+  margin-top: -5px;
+  font-size: 40%;
+}
+
+.schedule-container .days .day.active {
+  color: #dd4c5c;
+}
+.schedule-container .days .day:hover {
+  color: #d5737f;
+}
+.schedule-container .rooms {
+  display: inline-block;
+  border-radius: 10px;
+  padding: 5px 20px;
+  line-height: 10px;
+  background: #f3f3f3;
+  width: auto;
+}
+.schedule-container .rooms li {
+  display: inline;
+  font-size: 50%;
+  font-weight: bold;
+  opacity: 0.6;
+  padding-right: 8px;
+}
+.schedule-container .rooms li:hover {
+  opacity: 1;
+}
+.schedule-container .rooms .active {
+  opacity: 1;
+}
+.schedule-container .posts {
+  width: 90%;
+  margin: auto;
+  margin-top: 16px;
+}
+.schedule-container .posts .post {
+  margin-bottom: 16px;
+}
+.schedule-container .posts .post-img {
+  width: 2em;
+  height: 2em;
+  margin-right: 8px;
+}
+
+.schedule-container .posts .post-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.posts .post .post-content {
+  text-align: left;
+  font-size: 60%;
+}
+.post .post-content .post-title {
+  font-size: 110%;
+  margin-bottom: 4px;
+}
