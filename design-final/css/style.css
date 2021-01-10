@@ -130,7 +130,6 @@ body {
 }
 .section-empowerment .btns .btn {
   font-size: 45%;
-  border-color: #df8790;
 }
 .gradient {
   background: linear-gradient(135deg, #eaa71d, #c9493b);
@@ -164,6 +163,11 @@ body {
   width: 7.8em;
   margin: 4px 7px;
   position: relative;
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+.speakers .speaker:hover {
+  transform: scale(1.1);
 }
 .speakers .speaker img {
   max-width: 100%;
@@ -391,7 +395,7 @@ body {
   width: 18em;
   padding: 16px;
   font-size: 60%;
-  margin-left: 16px;
+  margin-left: 32px;
 }
 .location-box h3 {
   font-size: 200%;
@@ -449,6 +453,9 @@ body {
 }
 .bottom-top .nav li a:hover {
   color: #ffffff;
+}
+.bottom-top .pictures {
+  text-align: center;
 }
 .footer {
   background: #272928;

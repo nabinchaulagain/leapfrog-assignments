@@ -15,11 +15,27 @@
   padding: 5px 15px;
   font-weight: bold;
 }
+.btn:hover {
+  color: #000000 !important;
+  background: #ffffff;
+}
 .btn-yellow {
   background: #eaa71d;
   border-color: #eaa71d;
-  color: black;
+  color: #000000;
 }
+.btn-yellow:hover {
+  border-color: #ffbe3d;
+  background: #ffbe3d;
+}
+.btn-red {
+  border-color: #df8790;
+}
+.btn-red:hover {
+  background: #df8790;
+  color: #ffffff !important;
+}
+
 .btns {
   text-align: center;
 }
