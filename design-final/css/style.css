@@ -374,11 +374,10 @@ body {
 }
 .sponsors-list .sponsor-img {
   display: inline-block;
-  width: 45%;
+  width: 8em;
   padding: 2em;
 }
 .sponsors-list .sponsor-img img {
-  width: 100%;
   max-width: 100%;
 }
 .location-section {
