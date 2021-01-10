@@ -84,6 +84,9 @@
   .schedule-container .posts .post {
     padding: 8px;
   }
+  .post-content .post-toggle {
+    width: 1em;
+  }
 
   .speakers.past-speakers .speaker {
     width: 12em;
