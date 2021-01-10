@@ -133,3 +133,164 @@
     font-size: 60%;
   }
 }
+@media only screen and (min-width: 768px) {
+  .header .header-left,
+  .header .header-right {
+    padding: 6px 20px;
+  }
+  .header .header-right {
+    padding: 15px 10px;
+  }
+  .header-right .hamburger-menu {
+    display: none;
+  }
+  .header-right .nav {
+    display: block;
+    position: static;
+    float: right;
+    background: none;
+    width: initial;
+  }
+  .header-right .nav li {
+    display: inline;
+    padding-right: 8px;
+  }
+  .nav-links li:hover a {
+    color: #eaa71d;
+  }
+
+  .header-right .nav li a {
+    font-size: 50%;
+  }
+  .top-container {
+    font-size: 170%;
+  }
+  .top-container .btns .btn:last-of-type img {
+    width: 24px;
+    transform: none;
+  }
+  .section-empowerment {
+    padding: 32px 50px;
+    font-size: 140%;
+  }
+  .section-empowerment h1 {
+    margin-bottom: 16px;
+  }
+  .section-empowerment p {
+    line-height: 24px;
+  }
+  .gradient {
+    height: 120px;
+  }
+  .speakers h3 {
+    font-size: 160%;
+  }
+  .speakers-container {
+    height: 450px;
+    margin-top: 8px;
+  }
+  .speakers-container .speakers {
+    width: 85vw;
+    left: 7.5vw;
+    top: -55px;
+    height: 560px;
+  }
+  .speakers .speakers-list {
+    max-width: 40em;
+  }
+  .speakers .speaker {
+    width: 25%;
+    margin: 8px;
+  }
+  .speakers .speaker .speaker-info {
+    font-size: 60%;
+  }
+  .schedule-container {
+    font-size: 150%;
+  }
+  .schedule {
+    height: 480px;
+  }
+  .schedule .schedule-container {
+    width: 85vw;
+    left: 7.5vw;
+    height: 535px;
+    top: -55px;
+  }
+  .schedule-container .days {
+    margin: 8px 0;
+  }
+  .schedule-container p {
+    font-size: 70%;
+  }
+  .testimonials {
+    font-size: 140%;
+    margin-bottom: 16px;
+  }
+  .testimonial-card {
+    width: 40%;
+    margin: 16px;
+    display: inline-block;
+  }
+  .testimonial-card .left-circle {
+    width: 6em;
+    height: 6em;
+    left: -3em;
+  }
+  .testimonial-card .content {
+    padding: 0 3em;
+  }
+  .early-tickets {
+    height: auto;
+    font-size: 140%;
+  }
+  .sponsors {
+    font-size: 140%;
+  }
+  .sponsors-list .sponsor-img {
+    width: 4em;
+    height: 4em;
+    padding: 0.5em;
+  }
+  .location-section {
+    font-size: 140%;
+  }
+  .updates-section h3 {
+    font-size: 140%;
+  }
+  .bottom {
+    font-size: 120%;
+  }
+  .bottom-top {
+    text-align: center;
+  }
+  .bottom-top {
+    padding: 20px;
+  }
+  .bottom-top h3 {
+    text-align: left;
+    vertical-align: top;
+  }
+  .bottom-top .conference,
+  .bottom-top .nav,
+  .bottom-top .pictures {
+    display: inline-block;
+    width: 30%;
+    margin: 8px;
+    text-align: left;
+    padding-top: 0;
+    vertical-align: middle;
+  }
+  .bottom-top .nav {
+    width: 15%;
+  }
+  .bottom-top .social-media {
+    text-align: left;
+  }
+  .bottom-top .pictures img {
+    width: 50px;
+  }
+  .footer {
+    font-size: 80%;
+  }
+}
