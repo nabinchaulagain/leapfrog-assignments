@@ -1,0 +1,122 @@
+@media only screen and (min-width: 300px) {
+  .speakers .speakers-list {
+    max-width: 20em;
+  }
+}
+@media only screen and (min-width: 480px) {
+  .header .header-left,
+  .header .header-right {
+    height: 80px;
+    padding: 12px 10px;
+  }
+  .header .header-right {
+    padding: 20px 10px;
+  }
+  .news .news-countdown {
+    max-width: 20em;
+    margin: 20px auto;
+  }
+  .top-container {
+    font-size: 140%;
+  }
+  .top-container .btns .btn:last-of-type img {
+    width: 18px;
+    transform: none;
+  }
+  .section-empowerment {
+    padding: 20px 50px;
+    font-size: 120%;
+  }
+  .section-empowerment .btns {
+    margin: 15px 0;
+  }
+  .section-empowerment .btns .btn {
+    font-size: 60%;
+    padding: 10px 20px;
+    border-radius: 16px;
+  }
+  .gradient {
+    height: 100px;
+  }
+  .speakers h3 {
+    font-size: 120%;
+    margin: 12px 0 20px 0;
+  }
+  .speakers-container {
+    height: 380px;
+    margin-top: 8px;
+  }
+  .speakers-container .speakers {
+    top: -35px;
+    height: 450px;
+    padding: 20px 0;
+  }
+  .speakers .speakers-list {
+    max-width: 30em;
+  }
+  .speakers .speaker {
+    width: 25%;
+    margin: 8px;
+  }
+  .schedule-container {
+    font-size: 120%;
+  }
+  .schedule {
+    height: 410px;
+  }
+  .schedule .schedule-container {
+    height: 445px;
+    top: -35px;
+  }
+  .schedule-container .calendar-img {
+    width: 3em;
+  }
+  .schedule-container .rooms li {
+    font-size: 50%;
+    padding: 10px 5px;
+  }
+  .schedule-container .days {
+    margin: 8px 0;
+  }
+  .schedule-container p {
+    font-size: 70%;
+  }
+  .schedule-container .posts .post {
+    padding: 8px;
+  }
+
+  .speakers.past-speakers .speaker {
+    width: 12em;
+  }
+  .testimonials {
+    font-size: 120%;
+    margin-bottom: 16px;
+  }
+  .testimonial-card .left-circle {
+    width: 5em;
+    height: 5em;
+    left: -2.5em;
+  }
+  .testimonial-card .content {
+    padding: 0 2.5em;
+  }
+  .early-tickets {
+    height: auto;
+  }
+  .sponsors-group {
+    font-size: 130%;
+  }
+  .sponsors-list .sponsor-img {
+    width: 10em;
+    padding: 1em;
+  }
+  .location-section {
+    font-size: 120%;
+  }
+  .bottom {
+    font-size: 120%;
+  }
+  .footer {
+    font-size: 60%;
+  }
+}

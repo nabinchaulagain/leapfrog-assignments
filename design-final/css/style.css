@@ -62,7 +62,8 @@ body {
 }
 .news .news-countdown {
   background: #c9493b;
-  margin: 16px 40px;
+  max-width: 17.5em;
+  margin: 16px auto;
   padding: 8px;
   text-align: center;
 }
@@ -124,10 +125,10 @@ body {
   font-size: 60%;
   text-align: justify;
   line-height: 16px;
-  text-justify: inter-word;
+  color: #151515;
 }
 .section-empowerment .btns {
-  margin: 20px 0;
+  margin: 10px 0;
 }
 .section-empowerment .btns .btn {
   font-size: 45%;
@@ -150,22 +151,25 @@ body {
   width: 95vw;
   left: 2.5vw;
   top: -25px;
-  padding: 0;
   height: 620px;
   box-shadow: 0 0 5px #aaaaaa;
   text-align: center;
 }
 .speakers h3 {
+  margin: 10px 0 16px 0;
   text-align: center;
-  margin: 24px 0;
 }
 .speakers .speaker {
   display: inline-block;
-  width: 7.5em;
-  margin: 4px 7px;
+  width: 40%;
+  margin: 4px 0;
   position: relative;
   cursor: pointer;
   transition: transform 0.5s;
+}
+.speakers .speakers-list {
+  max-width: 15em;
+  margin: auto;
 }
 .speakers .speaker:hover {
   transform: scale(1.1);
@@ -184,7 +188,6 @@ body {
 }
 .speaker .speaker-info .speaker-position {
   text-align: left;
-  margin-left: 8px;
 }
 .speaker .overlay {
   top: 0;
@@ -201,6 +204,7 @@ body {
 }
 .speaker .speaker-info .speaker-name {
   font-size: 180%;
+  text-align: left;
 }
 .schedule {
   height: 325px;
@@ -278,8 +282,7 @@ body {
 }
 .schedule-container .posts {
   width: 90%;
-  margin: auto;
-  margin: 16px 0;
+  margin: 16px auto;
 }
 .schedule-container .posts .post {
   padding: 4px 8px;
@@ -307,7 +310,7 @@ body {
   width: 8em;
 }
 .speakers.past-speakers {
-  margin-bottom: 16px;
+  margin: 16px 0;
 }
 .testimonials {
   text-align: center;
