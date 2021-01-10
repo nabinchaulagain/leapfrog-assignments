@@ -23,3 +23,24 @@
 .btns {
   text-align: center;
 }
+.social-media {
+  text-align: center;
+  padding: 10px;
+}
+.social-media li {
+  font-size: 12px;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-right: 8px;
+}
+.social-media li:last-of-type {
+  margin-right: 0;
+}
+.social-media .icon {
+  display: inline;
+}
+.social-media .icon img {
+  max-width: 100%;
+  max-height: 100%;
+}

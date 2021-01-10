@@ -413,20 +413,48 @@ body {
 }
 .location-section .social-media {
   border-top: 1px solid #eaeaea;
-  padding: 10px;
+}
+.bottom .bottom-top {
+  padding: 16px 0;
+  background: #1c1e1d;
+  font-size: 60%;
+  color: #b5b7b6;
+}
+.bottom-top h3 {
+  font-size: 180%;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 8px;
+}
+.bottom-top .conference,
+.bottom-top .nav,
+.bottom-top .pictures {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 20px;
+}
+.bottom-top .conference p {
+  margin: 8px 0;
+}
+.bottom-top .conference .social-media {
+  padding: 5px;
+}
+.bottom-top .nav {
   text-align: center;
 }
-.location-section .social-media li {
-  display: inline-block;
-  height: 1em;
-  margin-right: 8px;
+.bottom-top .nav li {
+  padding: 4px 0;
 }
-.location-section .social-media li:last-of-type {
-  margin-right: 0;
+.bottom-top .nav li a {
+  color: #b5b7b6;
 }
-.location-section .social-media .icon {
-  display: inline;
+.bottom-top .nav li a:hover {
+  color: #ffffff;
 }
-.location-section .social-media .icon img {
-  max-height: 100%;
+.footer {
+  background: #272928;
+  color: #b5b7b6;
+  font-size: 40%;
+  text-align: center;
+  padding: 10px;
 }
