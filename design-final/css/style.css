@@ -421,6 +421,41 @@ body {
 .location-section .social-media {
   border-top: 1px solid #eaeaea;
 }
+.updates-section {
+  height: auto;
+  padding: 12px;
+  color: #ffffff;
+  text-align: center;
+}
+.updates-section h3 {
+  font-size: 110%;
+  margin-bottom: 8px;
+}
+.updates-section .input {
+  border: 2px solid #eaeaea;
+  border-radius: 10px;
+  margin: auto;
+  font-size: 60%;
+  padding: 4px 10px;
+  position: relative;
+  max-width: 20em;
+}
+.updates-section .input .mail-logo {
+  width: 2em;
+  position: absolute;
+  right: 16px;
+  bottom: 4px;
+}
+.updates-section .input .mail-logo img,
+.updates-section .input input {
+  max-width: 100%;
+}
+.updates-section .input input {
+  color: #ffffff;
+}
+.updates-section .input input::placeholder {
+  color: #f0cdb8;
+}
 .bottom .bottom-top {
   padding: 16px 0;
   background: #1c1e1d;

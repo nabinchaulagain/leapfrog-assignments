@@ -113,6 +113,16 @@
   .location-section {
     font-size: 120%;
   }
+  .updates-section h3 {
+    font-size: 120%;
+  }
+  .updates-section .input {
+    font-size: 80%;
+    max-width: 28em;
+  }
+  .updates-section .input .mail-logo {
+    bottom: 2px;
+  }
   .bottom {
     font-size: 120%;
   }

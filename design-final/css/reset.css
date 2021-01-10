@@ -11,3 +11,10 @@ a {
 ul li {
   list-style: none;
 }
+input {
+  border: none;
+  background: inherit;
+}
+input:focus {
+  outline: none;
+}
