@@ -381,3 +381,52 @@ body {
   width: 100%;
   max-width: 100%;
 }
+.location-section {
+  background: url("../images/map.jpg");
+  padding: 48px 0;
+  background-size: cover;
+}
+.location-section .location-box {
+  background: #ffffff;
+  width: auto;
+  width: 18em;
+  padding: 16px;
+  font-size: 60%;
+  margin-left: 16px;
+}
+.location-box h3 {
+  font-size: 200%;
+}
+.location-box .info-list {
+  margin: 16px 0;
+}
+.location-box .info-list li {
+  display: block;
+}
+.info-list .icon {
+  width: 1em;
+  margin-right: 2px;
+  display: inline-block;
+}
+.info-list .icon img {
+  max-width: 100%;
+}
+.location-section .social-media {
+  border-top: 1px solid #eaeaea;
+  padding: 10px;
+  text-align: center;
+}
+.location-section .social-media li {
+  display: inline-block;
+  height: 1em;
+  margin-right: 8px;
+}
+.location-section .social-media li:last-of-type {
+  margin-right: 0;
+}
+.location-section .social-media .icon {
+  display: inline;
+}
+.location-section .social-media .icon img {
+  max-height: 100%;
+}
