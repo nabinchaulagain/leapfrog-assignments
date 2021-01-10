@@ -62,9 +62,9 @@ body {
 }
 .news .news-countdown {
   background: #c9493b;
-  width: 15em;
-  margin: 16px auto;
+  margin: 16px 40px;
   padding: 8px;
+  text-align: center;
 }
 .news-countdown .countdown,
 .news-countdown li {
@@ -90,6 +90,7 @@ body {
 .news-countdown li:last-of-type:after {
   content: "";
   margin: 0;
+  padding: 0;
 }
 .top-container .btns .btn {
   color: #ffffff;
@@ -146,8 +147,8 @@ body {
 .speakers-container .speakers {
   position: absolute;
   background: white;
-  width: 90vw;
-  left: 5vw;
+  width: 95vw;
+  left: 2.5vw;
   top: -25px;
   padding: 0;
   height: 620px;
@@ -160,7 +161,7 @@ body {
 }
 .speakers .speaker {
   display: inline-block;
-  width: 7.8em;
+  width: 7.5em;
   margin: 4px 7px;
   position: relative;
   cursor: pointer;
@@ -209,8 +210,8 @@ body {
   position: absolute;
   height: 350px;
   top: -25px;
-  left: 5vw;
-  width: 90vw;
+  left: 2.5vw;
+  width: 95vw;
   background: #ffffff;
   box-shadow: 0 0 5px #aaaaaa;
   text-align: center;
@@ -303,7 +304,7 @@ body {
   margin-bottom: 4px;
 }
 .speakers.past-speakers .speaker {
-  width: 9em;
+  width: 8em;
 }
 .speakers.past-speakers {
   margin-bottom: 16px;
