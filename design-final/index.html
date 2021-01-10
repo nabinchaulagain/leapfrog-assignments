@@ -16,34 +16,100 @@
   <body>
     <div class="root">
       <div class="top-container">
-        <header class="header clearfix">
-          <div class="header-left left">
-            <a href="#" class="logo">
-              <img src="images/logo.png" alt="Events" />
-            </a>
-          </div>
-          <div class="header-right right">
-            <img
-              src="images/hamburger-menu.png"
-              alt="Menu"
-              class="hamburger-menu"
-            />
-            <nav class="nav">
-              <ul class="nav-links">
-                <li><a href="#">Speakers</a></li>
-                <li><a href="#">Location</a></li>
-                <li><a href="#">Schedule</a></li>
-                <li><a href="#">Sponsors</a></li>
-                <li><a href="#">Insights</a></li>
-                <li><a href="#" class="btn">BUY YOUR TICKET</a></li>
-              </ul>
-            </nav>
+        <div class="overlay"></div>
+        <header class="header">
+          <div class="container clearfix">
+            <div class="header-left left">
+              <a href="#" class="logo">
+                <img src="images/logo.png" alt="Events" />
+              </a>
+            </div>
+            <div class="header-right right">
+              <img
+                src="images/hamburger-menu.png"
+                alt="Menu"
+                class="hamburger-menu"
+              />
+              <nav class="nav">
+                <ul class="nav-links">
+                  <li><a href="#">Speakers</a></li>
+                  <li><a href="#">Location</a></li>
+                  <li><a href="#">Schedule</a></li>
+                  <li><a href="#">Sponsors</a></li>
+                  <li><a href="#">Insights</a></li>
+                  <li><a href="#" class="btn">BUY YOUR TICKET</a></li>
+                </ul>
+              </nav>
+            </div>
           </div>
         </header>
-        <section class="news">
-          <h1 class="news-header">Lepiza Announces New Design</h1>
-          <div class="news-info">October 11 & 12 - Berlin, Germany</div>
-          <ul class="news-countdown">
+        <div class="top-content">
+          <section class="news container">
+            <h1 class="news-header">Lepiza Announces New Design</h1>
+            <div class="news-info">October 11 & 12 - Berlin, Germany</div>
+            <ul class="news-countdown">
+              <li>
+                <div class="countdown">
+                  <div class="value">14</div>
+                  <div class="label">Days</div>
+                </div>
+              </li>
+              <li>
+                <div class="countdown">
+                  <div class="value">11</div>
+                  <div class="label">Hours</div>
+                </div>
+              </li>
+              <li>
+                <div class="countdown">
+                  <div class="value">30</div>
+                  <div class="label">Minutes</div>
+                </div>
+              </li>
+              <li>
+                <div class="countdown">
+                  <div class="value">43</div>
+                  <div class="label">Seconds</div>
+                </div>
+              </li>
+            </ul>
+          </section>
+          <div class="btns">
+            <a href="#" class="btn">LEARN MORE</a>
+            <a href="#" class="btn btn-yellow"
+              >BUY TICKETS NOW <img src="images/arrow.png" alt="BUY"
+            /></a>
+          </div>
+          <div class="play-btn">
+            <div>
+              <img src="images/play-icon.png" alt="Play" />
+              <div class="play-text">Play</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="section-empowerment container">
+        <h1>Empowering what design is</h1>
+        <p>
+          So, As the culture moves brand which moves business, we believe that
+          by making an impact in culture, we shift the relevance of a brand and
+          ultimately make that brand commercially successful. But how do you
+          make an impact in culture. The comms landscape is more complex than
+          ever. Brands are required to create an ever increasing volume of hard
+          working content and none of the traditional levers of advertising seem
+          to work efficiently anymore. In this talk, Simon Summerscales,
+          72andSunny's Director of Communication Strategy, demonstrates why
+          making an impact in culture is a successful commercial equation for
+          brands.
+        </p>
+        <div class="btns">
+          <a href="#" class="btn btn-red">ATTEND</a>
+          <a href="#" class="btn btn-red">SPONSOR</a>
+        </div>
+      </section>
+      <div class="mid-sections">
+        <div class="gradient stats">
+          <!-- <ul class="news-countdown">
             <li>
               <div class="countdown">
                 <div class="value">14</div>
@@ -68,42 +134,8 @@
                 <div class="label">Seconds</div>
               </div>
             </li>
-          </ul>
-        </section>
-        <div class="btns">
-          <a href="#" class="btn">LEARN MORE</a>
-          <a href="#" class="btn btn-yellow"
-            >BUY TICKETS NOW <img src="images/arrow.png" alt="BUY"
-          /></a>
+          </ul> -->
         </div>
-        <div class="play-btn">
-          <div>
-            <img src="images/play-icon.png" alt="Play" />
-            <div class="play-text">Play</div>
-          </div>
-        </div>
-      </div>
-      <section class="section-empowerment">
-        <h1>Empowering what design is</h1>
-        <p>
-          So, As the culture moves brand which moves business, we believe that
-          by making an impact in culture, we shift the relevance of a brand and
-          ultimately make that brand commercially successful. But how do you
-          make an impact in culture. The comms landscape is more complex than
-          ever. Brands are required to create an ever increasing volume of hard
-          working content and none of the traditional levers of advertising seem
-          to work efficiently anymore. In this talk, Simon Summerscales,
-          72andSunny's Director of Communication Strategy, demonstrates why
-          making an impact in culture is a successful commercial equation for
-          brands.
-        </p>
-        <div class="btns">
-          <a href="#" class="btn btn-red">ATTEND</a>
-          <a href="#" class="btn btn-red">SPONSOR</a>
-        </div>
-      </section>
-      <div class="mid-sections">
-        <div class="gradient stats"></div>
         <div class="speakers-container">
           <div class="speakers">
             <h3>Confirmed Speakers</h3>
@@ -174,7 +206,7 @@
               <img src="images/calendar-icon.png" alt="Calendar" />
             </div>
             <h3>Schedule</h3>
-            <p>
+            <p class="text-light">
               Highly configurable block with optional auditoriums and threads
             </p>
             <ul class="days">
@@ -262,7 +294,7 @@
             </div>
           </section>
         </div>
-        <div class="speakers past-speakers">
+        <div class="speakers past-speakers container">
           <h3>Past Speakers</h3>
           <div class="speaker">
             <img src="images/speaker4.jpg" alt="Brad K. Jackson" />
@@ -317,63 +349,71 @@
             <div class="overlay"></div>
           </div>
         </div>
-        <section class="testimonials">
+        <section class="testimonials container">
           <h3>Testimonials</h3>
-          <p>See what other people are saying about us</p>
+          <p class="text-light">See what other people are saying about us</p>
           <div class="testimonial-cards">
             <div class="testimonial-card">
               <div class="left-circle"></div>
               <div class="content">
-                <p>
+                <p class="text-light">
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                   Neque, suscipit veniam a vero ex quia illum facilis animi
                   officiis porro!
                 </p>
                 <div class="info">
                   <div class="name">DIANA</div>
-                  <div class="location">West Street 245 - Denmark</div>
+                  <div class="location text-light">
+                    West Street 245 - Denmark
+                  </div>
                 </div>
               </div>
             </div>
             <div class="testimonial-card">
               <div class="left-circle"></div>
               <div class="content">
-                <p>
+                <p class="text-light">
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                   Neque, suscipit veniam a vero ex quia illum facilis animi
                   officiis porro!
                 </p>
                 <div class="info">
                   <div class="name">DIANA</div>
-                  <div class="location">West Street 245 - Denmark</div>
+                  <div class="location text-light">
+                    West Street 245 - Denmark
+                  </div>
                 </div>
               </div>
             </div>
             <div class="testimonial-card">
               <div class="left-circle"></div>
               <div class="content">
-                <p>
+                <p class="text-light">
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                   Neque, suscipit veniam a vero ex quia illum facilis animi
                   officiis porro!
                 </p>
                 <div class="info">
                   <div class="name">DIANA</div>
-                  <div class="location">West Street 245 - Denmark</div>
+                  <div class="location text-light">
+                    West Street 245 - Denmark
+                  </div>
                 </div>
               </div>
             </div>
             <div class="testimonial-card">
               <div class="left-circle"></div>
               <div class="content">
-                <p>
+                <p class="text-light">
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                   Neque, suscipit veniam a vero ex quia illum facilis animi
                   officiis porro!
                 </p>
                 <div class="info">
                   <div class="name">DIANA</div>
-                  <div class="location">West Street 245 - Denmark</div>
+                  <div class="location text-light">
+                    West Street 245 - Denmark
+                  </div>
                 </div>
               </div>
             </div>
@@ -413,7 +453,7 @@
             /></a>
           </div>
         </section>
-        <section class="sponsors">
+        <section class="sponsors container">
           <h3>Our Event Sponsors</h3>
           <div class="sponsors-text">Check who makes the event possible</div>
           <div class="sponsors-group">
@@ -455,7 +495,7 @@
           </div>
         </section>
         <section class="location-section">
-          <div class="location-box">
+          <div class="location-box container">
             <h3>Location</h3>
             <ul class="info-list">
               <li>
@@ -527,7 +567,7 @@
         </section>
       </div>
       <div class="bottom">
-        <div class="bottom-top">
+        <div class="bottom-top container">
           <div class="conference">
             <h3>Conference & Events</h3>
             <p>

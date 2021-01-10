@@ -8,11 +8,24 @@ body {
   background: url("../images/top_background.png");
   color: #ffffff;
   padding-bottom: 16px;
+  position: relative;
+}
+.top-container .overlay {
+  position: absolute;
+  background: #000000;
+  opacity: 0.3;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
 .header {
   position: relative;
+  z-index: 2;
 }
-
+.top-content {
+  position: relative;
+  z-index: 2;
+}
 .header .header-left,
 .header .header-right {
   height: 70px;
@@ -109,6 +122,7 @@ body {
 .top-container .play-btn {
   margin-top: 16px;
   text-align: center;
+  cursor: pointer;
 }
 .top-container .play-btn .play-text {
   margin-top: -5px;
@@ -125,7 +139,8 @@ body {
   font-size: 60%;
   text-align: justify;
   line-height: 16px;
-  color: #151515;
+  opacity: 0.8;
+  color: #000000;
 }
 .section-empowerment .btns {
   margin: 10px 0;
@@ -273,6 +288,7 @@ body {
   font-weight: bold;
   opacity: 0.6;
   padding-right: 8px;
+  cursor: pointer;
 }
 .schedule-container .rooms li:hover {
   opacity: 1;
@@ -286,8 +302,10 @@ body {
 }
 .schedule-container .posts .post {
   padding: 4px 8px;
+  text-align: left;
 }
 .schedule-container .posts .post-img {
+  display: inline-block;
   width: 2em;
   height: 2em;
   margin-right: 8px;
