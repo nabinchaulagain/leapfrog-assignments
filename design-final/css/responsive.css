@@ -569,6 +569,8 @@
   }
   .speakers .speaker .speaker-info {
     font-size: 110%;
+    bottom: 10px;
+    left: 10px;
   }
   .schedule-container {
     font-size: 250%;

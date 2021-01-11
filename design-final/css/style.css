@@ -24,7 +24,7 @@ body {
 }
 .top-content {
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 .header .header-left,
 .header .header-right {
@@ -46,11 +46,14 @@ body {
   top: 50px;
   padding-bottom: 20px;
   background: #2e2e2e;
+  z-index: 2;
 }
 .hamburger-menu:hover + .nav {
   display: block;
 }
 .nav .nav-links {
+  position: relative;
+  z-index: 10;
   list-style: none;
 }
 .nav-links li {
