@@ -636,8 +636,14 @@
     height: auto;
     font-size: 200%;
   }
+  .early-tickets .btn img {
+    width: 20px;
+  }
   .sponsors {
     font-size: 160%;
+  }
+  .btn-yellow .icon {
+    margin-left: 8px;
   }
   .sponsors-list .sponsor-img {
     width: 7em;

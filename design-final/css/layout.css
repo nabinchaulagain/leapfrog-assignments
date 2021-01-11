@@ -43,6 +43,9 @@
   text-align: center;
   padding: 10px;
 }
+.btn .icon {
+  margin-left: 2px;
+}
 .social-media li {
   font-size: 10px;
   display: inline-block;
