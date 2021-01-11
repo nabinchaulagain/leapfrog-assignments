@@ -167,6 +167,7 @@
   .header-right .nav li {
     display: inline;
     padding-right: 8px;
+    cursor: pointer;
   }
   .nav-links li:hover a {
     color: #eaa71d;
@@ -215,10 +216,6 @@
   }
   .speakers .speakers-list {
     max-width: 40em;
-  }
-  .speakers .speaker {
-    width: 25%;
-    margin: 8px;
   }
   .speakers .speaker .speaker-info {
     font-size: 60%;
@@ -374,18 +371,21 @@
   .gradient.stats .news-countdown .label {
     font-size: 70%;
   }
+  .speakers .speaker {
+    margin: 16px;
+  }
   .speakers h3 {
     font-size: 200%;
   }
   .speakers-container {
-    height: 540px;
+    height: 560px;
     margin-top: 8px;
   }
   .speakers-container .speakers {
     width: 80vw;
     left: 10vw;
     top: -70px;
-    height: 680px;
+    height: 700px;
   }
   .speakers .speakers-list {
     max-width: 50em;
@@ -624,7 +624,7 @@
   }
   .location-section {
     font-size: 200%;
-    padding: 100px 0;
+    padding: 120px 0;
   }
   .location-section .location-box {
     padding: 100px 50px;
@@ -635,13 +635,17 @@
   }
   .updates-section {
     height: auto;
-    font-size: 140%;
-    padding: 32px 0;
+    font-size: 160%;
+    padding: 64px 0;
   }
   .updates-section .input {
+    width: 20em;
     padding: 8px;
     border-radius: 30px;
     transform: translateY(-5px);
+  }
+  .updates-section .input input {
+    font-size: 80%;
   }
 
   .updates-section .input .mail-logo {
