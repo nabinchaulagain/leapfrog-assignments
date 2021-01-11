@@ -123,9 +123,6 @@ body {
   margin-top: 16px;
   text-align: center;
   cursor: pointer;
-}
-.top-container .play-btn .play-text {
-  margin-top: -5px;
   font-size: 50%;
 }
 .section-empowerment {
@@ -439,7 +436,6 @@ body {
   display: block;
 }
 .info-list .icon {
-  width: 1em;
   margin-right: 2px;
   display: inline-block;
 }
@@ -448,6 +444,12 @@ body {
 }
 .location-section .social-media {
   border-top: 1px solid #eaeaea;
+}
+.location-section .icon {
+  color: #c9493b;
+}
+.location-section .social-media .icon:hover {
+  color: #ff1900;
 }
 .updates-section {
   height: auto;

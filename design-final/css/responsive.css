@@ -129,8 +129,8 @@
   .location-section {
     font-size: 120%;
   }
-  .updates-section h3 {
-    font-size: 120%;
+  .social-media li {
+    font-size: 12px;
   }
   .updates-section .input {
     font-size: 80%;
@@ -269,6 +269,9 @@
   }
   .location-section {
     font-size: 140%;
+  }
+  .social-media li {
+    font-size: 14px;
   }
   .updates-section {
     height: auto;
@@ -443,6 +446,9 @@
     font-size: 160%;
     padding: 64px 0;
   }
+  .social-media li {
+    font-size: 16px;
+  }
   .updates-section h3 {
     font-size: 160%;
   }
@@ -506,7 +512,7 @@
     margin-top: -16px;
   }
   .top-container .play-btn {
-    font-size: 150%;
+    font-size: 60%;
     margin: 80px 0;
   }
   .section-empowerment {
@@ -624,11 +630,15 @@
   }
   .location-section {
     font-size: 200%;
-    padding: 120px 0;
+    padding: 200px 0;
   }
   .location-section .location-box {
-    padding: 100px 50px;
+    padding: 50px;
     margin-left: 240px;
+  }
+  .social-media li {
+    font-size: 20px;
+    margin-right: 20px;
   }
   .updates-section h3 {
     font-size: 160%;

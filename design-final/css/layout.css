@@ -44,21 +44,18 @@
   padding: 10px;
 }
 .social-media li {
-  font-size: 12px;
+  font-size: 10px;
   display: inline-block;
-  width: 1em;
-  height: 1em;
   margin-right: 8px;
+}
+.social-media .icon {
+  color: #ffffff;
+}
+.social-media .icon:hover {
+  color: #ff1900;
 }
 .social-media li:last-of-type {
   margin-right: 0;
-}
-.social-media .icon {
-  display: inline;
-}
-.social-media .icon img {
-  max-width: 100%;
-  max-height: 100%;
 }
 .text-light {
   opacity: 0.7;
