@@ -41,6 +41,16 @@
   .gradient {
     height: 100px;
   }
+  .gradient.stats {
+    text-align: center;
+  }
+  .gradient.stats .news-countdown {
+    font-size: 80%;
+    padding: 20px 0;
+    display: inline-block;
+    margin: auto;
+    color: #ffffff;
+  }
   .speakers h3 {
     font-size: 120%;
     margin: 12px 0 20px 0;
@@ -184,6 +194,11 @@
   }
   .gradient {
     height: 120px;
+  }
+  .gradient.stats .news-countdown {
+    font-size: 100%;
+    padding: 15px 0;
+    color: #ffffff;
   }
   .speakers h3 {
     font-size: 160%;
@@ -352,6 +367,13 @@
   .gradient {
     height: 150px;
   }
+  .gradient.stats .news-countdown {
+    font-size: 120%;
+    padding: 20px 0;
+  }
+  .gradient.stats .news-countdown .label {
+    font-size: 70%;
+  }
   .speakers h3 {
     font-size: 200%;
   }
@@ -506,6 +528,21 @@
   }
   .gradient {
     height: 250px;
+  }
+  .gradient.stats .news-countdown {
+    font-size: 160%;
+    padding: 40px 0;
+  }
+  .gradient.stats .news-countdown li::after {
+    padding: 0 32px;
+    font-size: 100%;
+    content: "-";
+    opacity: 0.5;
+  }
+
+  .gradient.stats .news-countdown li:last-of-type:after {
+    content: "";
+    padding: 0;
   }
   .speakers h3 {
     font-size: 260%;

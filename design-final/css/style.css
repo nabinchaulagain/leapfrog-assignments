@@ -152,6 +152,9 @@ body {
   background: linear-gradient(135deg, #eaa71d, #c9493b);
   height: 60px;
 }
+.gradient.stats .news-countdown {
+  display: none;
+}
 .speakers-container {
   position: relative;
   height: 570px;
