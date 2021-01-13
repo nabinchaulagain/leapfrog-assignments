@@ -12,30 +12,52 @@
   .header .header-right {
     padding: 20px 10px;
   }
+  .nav-links li a {
+    font-size: 14px;
+  }
+  .btn {
+    padding: 7px 25px;
+    border-radius: 20px;
+    font-size: 12px;
+  }
+  .nav-links li .btn {
+    font-size: 12px;
+  }
+  .news .news-header {
+    font-size: 28px;
+  }
+  .news .news-info {
+    font-size: 12px;
+  }
   .news .news-countdown {
     max-width: 20em;
     margin: 20px auto;
   }
-  .top-container {
-    font-size: 140%;
+  .news-countdown .value {
+    font-size: 24px;
   }
-  .top-container .btns .btn:last-of-type img {
-    width: 18px;
-    transform: none;
+  .news-countdown .label {
+    font-size: 12px;
   }
   .top-container .btns .btn {
-    border-radius: 18px;
+    font-size: 12px;
+    margin-right: 8px;
   }
   .section-empowerment {
-    padding: 20px 50px;
-    font-size: 120%;
+    padding: 40px 50px;
+    padding-bottom: 0;
+  }
+  .section-empowerment h1 {
+    font-size: 24px;
+  }
+  .section-empowerment p {
+    font-size: 12px;
   }
   .section-empowerment .btns {
-    margin: 15px 0;
+    margin: 32px 0;
   }
   .section-empowerment .btns .btn {
-    font-size: 60%;
-    padding: 10px 20px;
+    font-size: 12px;
     border-radius: 16px;
   }
   .gradient {
@@ -45,14 +67,18 @@
     text-align: center;
   }
   .gradient.stats .news-countdown {
-    font-size: 80%;
-    padding: 20px 0;
+    padding: 15px 0;
     display: inline-block;
-    margin: auto;
     color: #ffffff;
   }
+  .gradient.stats .news-countdown .value {
+    font-size: 20px;
+  }
+  .gradient.stats .news-countdown .label {
+    font-size: 10px;
+  }
   .speakers h3 {
-    font-size: 120%;
+    font-size: 24px;
     margin: 12px 0 20px 0;
   }
   .speakers-container {
@@ -71,79 +97,115 @@
     width: 25%;
     margin: 8px;
   }
-  .schedule-container {
-    font-size: 120%;
+  .schedule-container h3 {
+    font-size: 24px;
   }
   .schedule {
-    height: 410px;
+    height: 460px;
   }
   .schedule .schedule-container {
-    height: 445px;
+    height: 495px;
     top: -35px;
   }
   .schedule-container .calendar-img {
     width: 3em;
   }
   .schedule-container .rooms li {
-    font-size: 50%;
+    font-size: 10px;
     padding: 10px 5px;
   }
   .schedule-container .days {
     margin: 8px 0;
   }
-  .schedule-container p {
-    font-size: 70%;
+  .schedule-container .days .value {
+    font-size: 16px;
+  }
+  .schedule-container .days .label {
+    font-size: 10px;
+  }
+  .schedule-container .schedule-text {
+    font-size: 12px;
   }
   .schedule-container .posts .post {
-    padding: 8px;
+    padding: 12px;
   }
   .post-content .post-toggle {
     width: 1em;
   }
-
+  .schedule-container .posts .post-img {
+    width: 3em;
+    height: 3em;
+  }
+  .posts .post .post-date {
+    font-size: 12px;
+  }
+  .post .post-content .post-title {
+    font-size: 14px;
+  }
   .speakers.past-speakers .speaker {
     width: 12em;
   }
   .testimonials {
-    font-size: 120%;
     margin-bottom: 16px;
   }
+  .testimonials h3 {
+    font-size: 24px;
+  }
   .testimonial-card .left-circle {
-    width: 5em;
-    height: 5em;
-    left: -2.5em;
+    width: 48px;
+    height: 48px;
+    left: -24px;
   }
   .testimonial-card .content {
-    padding: 0 2.5em;
+    padding: 0 24px;
   }
   .early-tickets {
     height: auto;
   }
-  .sponsors-group {
-    font-size: 130%;
+  .early-tickets h3 {
+    font-size: 24px;
+  }
+  .sponsors h3 {
+    font-size: 24px;
+  }
+  .sponsors .sponsors-text {
+    font-size: 12px;
+  }
+  .sponsors-group h5 {
+    font-size: 16px;
   }
   .sponsors-list .sponsor-img {
     width: 10em;
     padding: 1em;
   }
-  .location-section {
-    font-size: 120%;
+  .location-box h3 {
+    font-size: 24px;
+  }
+  .location-box .info-list li {
+    font-size: 12px;
+    margin: 4px 0;
   }
   .social-media li {
     font-size: 12px;
   }
+  .updates-section h3 {
+    font-size: 24px;
+  }
   .updates-section .input {
-    font-size: 80%;
-    max-width: 28em;
+    max-width: 15em;
   }
-  .updates-section .input .mail-logo {
-    bottom: 2px;
+  .updates-section .input input {
+    font-size: 14px;
   }
-  .bottom {
-    font-size: 120%;
+  .bottom-top h3 {
+    font-size: 16px;
+  }
+  .bottom-top .conference p,
+  .bottom-top .nav li {
+    font-size: 12px;
   }
   .footer {
-    font-size: 60%;
+    font-size: 10px;
   }
 }
 @media only screen and (min-width: 768px) {
@@ -152,7 +214,8 @@
     padding: 6px 20px;
   }
   .header .header-right {
-    padding: 15px 10px;
+    padding: 20px;
+    text-align: center;
   }
   .header-right .hamburger-menu {
     display: none;
@@ -172,103 +235,174 @@
   .nav-links li:hover a {
     color: #eaa71d;
   }
-
-  .header-right .nav li a {
-    font-size: 50%;
+  .nav-links li a {
+    font-size: 14px;
+  }
+  .btn {
+    padding: 8px 25px;
+    font-size: 16px;
+  }
+  .nav-links li .btn {
+    font-size: 14px;
+  }
+  .news .news-header {
+    font-size: 40px;
+  }
+  .news .news-info {
+    font-size: 16px;
+  }
+  .top-container .btns .btn {
+    font-size: 16px;
+  }
+  .top-container .play-btn {
+    padding: 16px 0;
+    font-size: 12px;
+  }
+  .news .news-countdown {
+    max-width: 22em;
+    margin: 20px auto;
+  }
+  .news-countdown .value {
+    font-size: 28px;
+  }
+  .news-countdown .label {
+    font-size: 16px;
   }
   .top-container {
-    font-size: 170%;
-  }
-  .top-container .btns .btn:last-of-type img {
-    width: 24px;
-    transform: none;
-  }
-  .section-empowerment {
-    padding: 32px 50px;
-    font-size: 140%;
+    padding-bottom: 0;
   }
   .section-empowerment h1 {
+    font-size: 40px;
     margin-bottom: 16px;
   }
   .section-empowerment p {
+    font-size: 16px;
     line-height: 24px;
+  }
+  .section-empowerment .btns .btn {
+    font-size: 16px;
   }
   .gradient {
     height: 120px;
   }
   .gradient.stats .news-countdown {
-    font-size: 100%;
-    padding: 15px 0;
-    color: #ffffff;
+    padding: 10px 0;
+  }
+  .gradient.stats .news-countdown .value {
+    font-size: 24px;
+  }
+  .gradient.stats .news-countdown .label {
+    font-size: 16px;
   }
   .speakers h3 {
-    font-size: 160%;
+    font-size: 28px;
   }
   .speakers-container {
-    height: 450px;
+    height: 460px;
     margin-top: 8px;
   }
   .speakers-container .speakers {
     width: 85vw;
     left: 7.5vw;
     top: -55px;
-    height: 560px;
+    height: 570px;
   }
   .speakers .speakers-list {
     max-width: 40em;
   }
-  .speakers .speaker .speaker-info {
-    font-size: 60%;
+  .speakers .speaker .speaker-name {
+    font-size: 18px;
   }
-  .schedule-container {
-    font-size: 150%;
+  .speakers .speaker .speaker-info {
+    font-size: 10px;
   }
   .schedule {
-    height: 480px;
+    height: 510px;
+  }
+  .schedule-container h3 {
+    font-size: 28px;
   }
   .schedule .schedule-container {
     width: 85vw;
     left: 7.5vw;
-    height: 535px;
+    height: 565px;
     top: -55px;
   }
-  .schedule-container .days {
-    margin: 8px 0;
+  .schedule-container .schedule-text {
+    font-size: 14px;
   }
-  .schedule-container p {
-    font-size: 70%;
+  .schedule-container .rooms li {
+    font-size: 12px;
+    padding: 15px 5px;
   }
-  .testimonials {
-    font-size: 140%;
-    margin-bottom: 16px;
+  .schedule-container .days li {
+    padding: 0 12px;
+  }
+  .schedule-container .days .value {
+    font-size: 18px;
+  }
+  .schedule-container .days .label {
+    font-size: 12px;
+  }
+  .schedule-container .posts .post {
+    max-width: 25em;
+  }
+  .posts .post .post-date {
+    font-size: 14px;
+  }
+  .post .post-content .post-title {
+    font-size: 16px;
+  }
+  .posts .post .post-body {
+    font-size: 12px;
+  }
+  .testimonials > p {
+    font-size: 16px;
   }
   .testimonial-card {
     width: 40%;
     margin: 16px;
     display: inline-block;
   }
-  .testimonial-card .left-circle {
-    width: 6em;
-    height: 6em;
-    left: -3em;
+  .testimonials h3 {
+    font-size: 28px;
   }
   .testimonial-card .content {
-    padding: 0 3em;
+    padding: 5px 24px;
+    font-size: 14px;
   }
   .early-tickets {
     height: auto;
-    font-size: 140%;
   }
   .sponsors {
     font-size: 140%;
   }
+  .early-tickets h3 {
+    font-size: 28px;
+  }
+  .sponsors h3 {
+    font-size: 28px;
+  }
+  .sponsors .sponsors-text {
+    font-size: 16px;
+  }
+  .sponsors-group h5 {
+    font-size: 16px;
+  }
   .sponsors-list .sponsor-img {
-    width: 4em;
-    height: 4em;
+    width: 6em;
+    height: 6em;
     padding: 0.5em;
   }
-  .location-section {
-    font-size: 140%;
+  .location-section .location-box {
+    width: 22em;
+    padding: 20px;
+  }
+  .location-box h3 {
+    font-size: 28px;
+  }
+  .location-box .info-list li {
+    font-size: 14px;
   }
   .social-media li {
     font-size: 14px;
@@ -278,15 +412,12 @@
     padding: 32px 0;
   }
   .updates-section h3 {
-    font-size: 140%;
+    font-size: 28px;
     margin-right: 16px;
   }
   .updates-section h3,
   .updates-section .input {
     display: inline-block;
-  }
-  .bottom {
-    font-size: 120%;
   }
   .bottom-top {
     text-align: center;
@@ -295,8 +426,8 @@
     padding: 20px;
   }
   .bottom-top h3 {
+    font-size: 16px;
     text-align: left;
-    vertical-align: top;
   }
   .bottom-top .conference,
   .bottom-top .nav,
@@ -308,6 +439,10 @@
     padding-top: 0;
     vertical-align: middle;
   }
+  .bottom-top .conference p,
+  .bottom-top .nav li {
+    font-size: 14px;
+  }
   .bottom-top .nav {
     width: 15%;
   }
@@ -318,12 +453,12 @@
     width: 50px;
   }
   .footer {
-    font-size: 80%;
+    font-size: 12px;
   }
 }
 @media only screen and (min-width: 998px) {
   .header {
-    padding: 16px;
+    padding: 40px 16px;
   }
   .header .header-left,
   .header .header-right {
@@ -331,54 +466,97 @@
     padding: 0 20px;
   }
   .header .header-right {
-    padding: 10px 20px;
-    text-align: center;
+    padding: 30px;
   }
   .header-right .nav li {
-    font-size: 140%;
-    padding-right: 10px;
+    padding-right: 20px;
   }
-  .top-container .btns .btn {
-    padding: 10px 20px;
-    font-size: 40%;
+  .nav-links li a {
+    font-size: 16px;
+  }
+  .btn {
+    padding: 12px 40px;
+    border-radius: 30px;
+  }
+  .nav-links li .btn {
+    font-size: 16px;
   }
   .news .news-header {
-    font-size: 180%;
+    font-size: 50px;
+  }
+  .news .news-info {
+    font-size: 18px;
+  }
+  .top-container .btns {
+    margin-top: 40px;
+  }
+  .top-container .btns .btn {
+    font-size: 16px;
+  }
+  .top-container .play-btn {
+    padding: 32px 0;
+    font-size: 12px;
   }
   .news .news-countdown {
-    font-size: 100%;
-    max-width: 15em;
-    margin: 20px auto;
+    max-width: 32em;
+    padding: 20px;
+    margin-top: 30px;
   }
-  .top-container .btns .btn:last-of-type img {
-    width: 18px;
-    transform: none;
+  .news-countdown li::after {
+    padding: 0 15px;
+    font-size: 30px;
+  }
+  .news-countdown .value {
+    font-size: 32px;
+  }
+  .news-countdown .label {
+    font-size: 16px;
   }
   .section-empowerment {
-    padding: 32px 64px;
-    font-size: 180%;
+    padding: 50px 64px;
   }
-  .section-empowerment .btns {
-    margin: 15px 0;
+  .section-empowerment h1 {
+    font-size: 50px;
+    margin-bottom: 0;
+  }
+  .section-empowerment p {
+    font-size: 16px;
+    padding: 30px 50px;
+    line-height: 24px;
   }
   .section-empowerment .btns .btn {
-    font-size: 40%;
+    font-size: 16px;
+    border-radius: 30px;
+  }
+  .section-empowerment .btns {
+    margin-bottom: 30px;
   }
   .gradient {
     height: 150px;
   }
+  .gradient.stats {
+    height: 250px;
+  }
   .gradient.stats .news-countdown {
-    font-size: 120%;
-    padding: 20px 0;
+    padding: 60px 0;
+  }
+  .gradient.stats .news-countdown .value {
+    font-size: 32px;
   }
   .gradient.stats .news-countdown .label {
-    font-size: 70%;
+    font-size: 16px;
   }
   .speakers .speaker {
     margin: 16px;
   }
   .speakers h3 {
-    font-size: 200%;
+    font-size: 36px;
+  }
+  .speakers .speaker .speaker-name {
+    font-size: 26px;
+  }
+  .speakers .speaker .speaker-info {
+    font-size: 14px;
   }
   .speakers-container {
     height: 560px;
@@ -393,54 +571,99 @@
   .speakers .speakers-list {
     max-width: 50em;
   }
-  .speakers .speaker .speaker-info {
-    font-size: 80%;
-  }
-  .schedule-container {
-    font-size: 180%;
-  }
   .schedule {
-    height: 580px;
+    height: 650px;
+  }
+  .schedule-container h3 {
+    font-size: 36px;
   }
   .schedule .schedule-container {
     width: 80vw;
     left: 10vw;
-    height: 650px;
+    height: 720px;
     top: -70px;
   }
-  .schedule-container p {
-    font-size: 80%;
+  .schedule-container .schedule-text {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+  .schedule-container .rooms {
+    margin: 8px 0;
+    padding: 10px 20px;
+    border-radius: 32px;
+  }
+  .schedule-container .rooms li {
+    font-size: 14px;
+  }
+  .schedule-container .days li {
+    padding: 0 24px;
+  }
+  .schedule-container .days .value {
+    font-size: 18px;
+  }
+  .schedule-container .days .label {
+    font-size: 12px;
+  }
+  .schedule-container .posts .post {
+    max-width: 35em;
+  }
+  .posts .post .post-date {
+    font-size: 16px;
+  }
+  .post .post-content .post-title {
+    font-size: 18px;
+  }
+  .posts .post .post-body {
+    font-size: 16px;
+    margin-left: 70px;
+  }
+  .schedule-container .posts .post-img {
+    width: 4em;
+    height: 4em;
+  }
+  .testimonials h3 {
+    font-size: 36px;
+  }
+  .testimonials > p {
+    font-size: 16px;
+  }
+  .testimonial-card .content {
+    padding: 20px 42px;
+    font-size: 18px;
   }
   .speakers.past-speakers .speaker {
     width: 18em;
   }
-  .testimonials {
-    font-size: 180%;
-    margin-bottom: 16px;
-  }
-  .testimonial-card {
-    width: 40%;
-    margin: 24px;
-    padding: 8px;
-    display: inline-block;
-  }
   .testimonial-card .left-circle {
     top: 32px;
+    width: 64px;
+    height: 64px;
+    left: -32px;
   }
   .early-tickets {
     height: auto;
-    font-size: 160%;
   }
-  .sponsors {
-    font-size: 120%;
+  .early-tickets h3 {
+    font-size: 36px;
   }
   .sponsors h3 {
-    font-size: 180%;
+    font-size: 36px;
   }
-  .sponsors-list .sponsor-img {
-    width: 6em;
-    height: 6em;
-    padding: 0.5em;
+  .sponsors .sponsors-text {
+    font-size: 16px;
+  }
+  .sponsors-group h5 {
+    font-size: 18px;
+  }
+  .location-section .location-box {
+    width: 25em;
+    padding: 30px;
+  }
+  .location-box h3 {
+    font-size: 28px;
+  }
+  .location-box .info-list li {
+    font-size: 14px;
   }
   .location-section {
     font-size: 160%;
@@ -448,16 +671,37 @@
   }
   .social-media li {
     font-size: 16px;
+    margin-right: 16px;
   }
   .updates-section h3 {
-    font-size: 160%;
+    font-size: 36px;
+    margin-bottom: 0;
   }
   .updates-section {
     height: auto;
     padding: 32px 0;
   }
-  .bottom {
-    font-size: 140%;
+  .updates-section .input {
+    max-width: 20em;
+    padding: 10px 30px;
+    border-radius: 32px;
+  }
+  .updates-section .input .mail-logo {
+    font-size: 24px;
+    bottom: 5px;
+  }
+  .updates-section .input input {
+    font-size: 16px;
+  }
+  .bottom-top h3 {
+    font-size: 18px;
+  }
+  .bottom-top .conference p,
+  .bottom-top .nav li {
+    font-size: 16px;
+  }
+  .bottom-top .pictures img {
+    width: 70px;
   }
   .bottom-top .conference,
   .bottom-top .pictures .bottom-top .pictures {
@@ -470,89 +714,108 @@
     margin: auto;
   }
   .btn {
-    font-size: 60%;
+    font-size: 18px;
     padding: 12px 30px;
   }
   .header {
-    padding: 80px 0 0 0;
-    letter-spacing: 1px;
+    padding-top: 60px;
   }
   .header-right .nav li {
-    font-size: 140%;
     padding-right: 80px;
   }
-  .top-container .btns .btn,
-  .header-right .nav .btn {
-    padding: 10px 25px;
-    font-size: 60%;
-    border-radius: 24px;
+  .nav-links li a {
+    font-size: 18px;
   }
-  .top-container .btns .btn {
-    padding: 12px 30px;
+  .btn {
+    padding: 15px 50px;
+    border-radius: 30px;
   }
-  .header-right .nav .btn {
-    font-size: 40%;
-    padding: 15px 30px;
+  .nav-links li .btn {
+    font-size: 18px;
   }
   .news .news-header {
-    font-size: 220%;
-    margin: 64px 0 0 0;
-  }
-  .news .news-countdown {
-    margin: 60px auto;
-    padding: 20px 16px;
-    max-width: 20em;
-    font-size: 100%;
-  }
-  .news-countdown li::after {
-    padding: 16px;
+    margin-top: 40px;
+    font-size: 60px;
   }
   .news .news-info {
-    font-size: 80%;
-    margin-top: -16px;
+    font-size: 18px;
+  }
+  .top-container .btns {
+    margin-top: 70px;
+  }
+  .top-container .btns .btn {
+    font-size: 18px;
   }
   .top-container .play-btn {
-    font-size: 60%;
-    margin: 80px 0;
+    font-size: 16px;
+    padding: 100px;
+  }
+  .news .news-countdown {
+    max-width: 45em;
+    padding: 40px 30px;
+    margin: 50px auto;
+  }
+  .news-countdown li::after {
+    padding: 0 30px;
+    font-size: 40px;
+  }
+  .news-countdown .value {
+    font-size: 40px;
+  }
+  .news-countdown .label {
+    font-size: 20px;
   }
   .section-empowerment {
-    padding: 100px;
-    font-size: 220%;
+    padding: 50px 64px;
   }
   .section-empowerment h1 {
-    font-size: 130%;
+    margin: 64px 0 8px 0;
   }
   .section-empowerment p {
-    line-height: 40px;
-    padding: 30px 50px;
+    font-size: 20px;
+    padding: 20px 200px;
     text-align: center;
+    line-height: 40px;
   }
   .section-empowerment .btns .btn {
-    font-size: 50%;
-    border-radius: 26px;
-    padding: 15px 44px;
+    border-width: 2px;
+    font-size: 18px;
+    border-radius: 30px;
+    margin-right: 24px;
+  }
+  .section-empowerment .btns {
+    margin-bottom: 64px;
   }
   .gradient {
     height: 250px;
   }
+  .gradient.stats {
+    height: 350px;
+  }
   .gradient.stats .news-countdown {
-    font-size: 160%;
-    padding: 40px 0;
+    padding: 80px 0;
+  }
+  .gradient.stats .news-countdown .value {
+    font-size: 40px;
+  }
+  .gradient.stats .news-countdown .label {
+    font-size: 20px;
   }
   .gradient.stats .news-countdown li::after {
-    padding: 0 32px;
-    font-size: 100%;
-    content: "-";
     opacity: 0.5;
   }
-
-  .gradient.stats .news-countdown li:last-of-type:after {
-    content: "";
-    padding: 0;
-  }
   .speakers h3 {
-    font-size: 260%;
-    margin-top: 80px;
+    font-size: 40px;
+  }
+  .speakers .speaker .speaker-info {
+    margin-left: 16px;
+    bottom: 20px;
+  }
+  .speakers .speaker .speaker-name {
+    font-size: 30px;
+  }
+  .speakers .speaker .speaker-info {
+    font-size: 16px;
   }
   .speakers-container {
     height: 1040px;
@@ -567,103 +830,145 @@
   .speakers .speakers-list {
     max-width: 90em;
   }
-  .speakers .speaker .speaker-info {
-    font-size: 110%;
-    bottom: 10px;
-    left: 10px;
-  }
-  .schedule-container {
-    font-size: 250%;
-  }
   .schedule {
-    height: 950px;
+    height: 850px;
   }
   .schedule .schedule-container {
     width: 80vw;
     left: 10vw;
-    height: 1050px;
+    height: 950px;
     padding: 80px 0;
     top: -100px;
   }
-  .schedule-container p {
-    font-size: 50%;
+  .schedule-container .calendar-img {
+    width: 6em;
+  }
+  .schedule-container h3 {
+    font-size: 40px;
+  }
+  .schedule-container .schedule-text {
+    font-size: 18px;
+    margin-bottom: 16px;
   }
   .schedule-container .days {
-    font-size: 80%;
+    margin-top: 24px;
   }
   .schedule-container .days li {
-    padding: 0 32px;
+    padding: 0 36px;
+  }
+  .schedule-container .days .value {
+    font-size: 22px;
+  }
+  .schedule-container .days .label {
+    font-size: 14px;
+  }
+  .schedule-container .posts .post {
+    max-width: 40em;
   }
   .schedule-container .rooms {
-    padding: 15px 40px;
-    font-size: 80%;
-    border-radius: 32px;
+    padding: 20px 30px;
   }
-  .schedule-container .posts {
-    width: 650px;
-    margin: auto;
+  .schedule-container .rooms li {
+    font-size: 16px;
+    padding-right: 28px;
   }
-
-  .schedule-container .posts .post {
-    padding: 32px 16px;
+  .post .post-content {
+    margin-left: 70px;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid #ebebeb;
   }
-  .schedule-container .posts .post-body {
-    margin-left: 6em;
-    font-size: 60%;
+  .posts .post .post-date {
+    font-size: 18px;
+  }
+  .post .post-content .post-title {
+    font-size: 22px;
+  }
+  .posts .post .post-body {
+    margin-left: 0px;
   }
   .speakers.past-speakers {
-    margin: 48px auto;
+    margin: 80px auto;
   }
   .speakers.past-speakers .speaker {
     width: 23em;
   }
   .testimonials {
-    font-size: 180%;
-    margin: 48px auto;
+    margin: 20px auto;
+    margin-bottom: 60px;
   }
-  .testimonial-card {
-    padding: 2em 3em;
+  .testimonials h3 {
+    font-size: 40px;
+  }
+  .testimonials > p {
+    font-size: 20px;
   }
   .testimonial-card .left-circle {
-    top: 32px;
+    width: 96px;
+    height: 96px;
+    left: -48px;
+    top: 48px;
+  }
+  .testimonial-card {
+    margin: 32px;
+  }
+  .testimonial-card .content {
+    padding: 48px 80px;
   }
   .testimonial-card .content p {
-    margin: 16px 0;
     line-height: 32px;
+    margin-bottom: 16px;
   }
   .early-tickets {
-    padding: 100px 0;
     height: auto;
-    font-size: 200%;
+    padding: 120px 0;
   }
-  .early-tickets .btn img {
-    width: 20px;
+  .early-tickets h3 {
+    font-size: 40px;
   }
-  .sponsors {
-    font-size: 160%;
+  .early-tickets .news-countdown {
+    margin: 32px 0 50px 0;
   }
-  .btn-yellow .icon {
-    margin-left: 8px;
+  .sponsors h3 {
+    margin-top: 60px;
+    font-size: 40px;
+  }
+  .sponsors .sponsors-text {
+    font-size: 20px;
+    margin: 8px 0 40px 0;
+  }
+  .sponsors-group h5 {
+    font-size: 24px;
   }
   .sponsors-list .sponsor-img {
-    width: 7em;
-    height: 7em;
+    width: 8em;
+    height: 8em;
     padding: 0.5em;
-  }
-  .location-section {
-    font-size: 200%;
-    padding: 200px 0;
+    margin: 0 1em;
   }
   .location-section .location-box {
-    padding: 50px;
-    margin-left: 240px;
+    width: 35em;
+    margin-left: 365px;
+    padding: 40px 60px;
+  }
+  .location-box h3 {
+    font-size: 40px;
+  }
+  .location-box .info-list li {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  .location-box .social-media {
+    padding: 16px 0;
+  }
+  .location-section {
+    padding: 150px 0;
   }
   .social-media li {
-    font-size: 20px;
-    margin-right: 20px;
+    font-size: 18px;
+    margin-right: 30px;
   }
   .updates-section h3 {
-    font-size: 160%;
+    font-size: 40px;
   }
   .updates-section {
     height: auto;
@@ -679,16 +984,11 @@
   .updates-section .input input {
     font-size: 80%;
   }
-
-  .updates-section .input .mail-logo {
-    width: 3em;
-    bottom: 7px;
-  }
-  .updates-section .input .mail-logo .bottom {
-    font-size: 140%;
-  }
   .bottom .bottom-top {
     padding: 80px 10px;
+  }
+  .bottom-top h3 {
+    font-size: 22px;
   }
   .bottom-top .nav,
   .bottom-top .conference,
@@ -706,5 +1006,9 @@
   }
   .bottom {
     background: #1c1e1d;
+  }
+  .footer {
+    font-size: 16px;
+    padding: 20px 0;
   }
 }
