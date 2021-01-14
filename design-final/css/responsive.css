@@ -790,10 +790,10 @@
     height: 250px;
   }
   .gradient.stats {
-    height: 350px;
+    height: 380px;
   }
   .gradient.stats .news-countdown {
-    padding: 80px 0;
+    padding: 100px 0;
   }
   .gradient.stats .news-countdown .value {
     font-size: 40px;
@@ -803,6 +803,7 @@
   }
   .gradient.stats .news-countdown li::after {
     opacity: 0.5;
+    padding: 0 32px;
   }
   .speakers h3 {
     font-size: 40px;
@@ -936,12 +937,15 @@
     font-size: 20px;
     margin: 8px 0 40px 0;
   }
+  .sponsors .sponsors-group {
+    padding: 24px 0;
+  }
   .sponsors-group h5 {
     font-size: 24px;
   }
+
   .sponsors-list .sponsor-img {
     width: 8em;
-    height: 8em;
     padding: 0.5em;
     margin: 0 1em;
   }
@@ -973,7 +977,7 @@
   .updates-section {
     height: auto;
     font-size: 160%;
-    padding: 64px 0;
+    padding: 70px 0;
   }
   .updates-section .input {
     width: 20em;
@@ -981,11 +985,14 @@
     border-radius: 30px;
     transform: translateY(-5px);
   }
+  .updates-section .input .mail-logo {
+    font-size: 28px;
+  }
   .updates-section .input input {
-    font-size: 80%;
+    font-size: 22px;
   }
   .bottom .bottom-top {
-    padding: 80px 10px;
+    padding: 100px 10px;
   }
   .bottom-top h3 {
     font-size: 22px;
