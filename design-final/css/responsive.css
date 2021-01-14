@@ -621,6 +621,9 @@
     width: 4em;
     height: 4em;
   }
+  .schedule-container .posts .post-img img {
+    width: 100%;
+  }
   .testimonials h3 {
     font-size: 36px;
   }
