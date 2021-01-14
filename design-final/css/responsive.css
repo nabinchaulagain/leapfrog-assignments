@@ -214,7 +214,7 @@
     padding: 6px 20px;
   }
   .header .header-right {
-    padding: 20px;
+    padding: 28px 20px 0 20px;
     text-align: center;
   }
   .header-right .hamburger-menu {
@@ -229,14 +229,14 @@
   }
   .header-right .nav li {
     display: inline;
-    padding-right: 8px;
+    padding-right: 4px;
     cursor: pointer;
   }
   .nav-links li:hover a {
     color: #eaa71d;
   }
   .nav-links li a {
-    font-size: 14px;
+    font-size: 12px;
   }
   .btn {
     padding: 8px 25px;
@@ -466,10 +466,10 @@
     padding: 0 20px;
   }
   .header .header-right {
-    padding: 30px;
+    padding: 28px 40px 0 20px;
   }
   .header-right .nav li {
-    padding-right: 20px;
+    padding-right: 10px;
   }
   .nav-links li a {
     font-size: 16px;
