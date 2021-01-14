@@ -139,6 +139,9 @@
   .posts .post .post-date {
     font-size: 12px;
   }
+  .post-content .post-toggle {
+    font-size: 10px;
+  }
   .post .post-content .post-title {
     font-size: 14px;
   }
@@ -350,6 +353,7 @@
   .posts .post .post-date {
     font-size: 14px;
   }
+
   .post .post-content .post-title {
     font-size: 16px;
   }
@@ -609,6 +613,9 @@
   }
   .posts .post .post-date {
     font-size: 16px;
+  }
+  .post-content .post-toggle {
+    font-size: 12px;
   }
   .post .post-content .post-title {
     font-size: 18px;

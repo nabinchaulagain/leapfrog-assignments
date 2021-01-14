@@ -351,11 +351,11 @@ body {
   font-size: 10px;
 }
 .post-content .post-toggle {
-  width: 1em;
+  font-size: 8px;
   cursor: pointer;
 }
-.post-content .post-toggle img {
-  max-width: 100%;
+.post-content .post-body.post-hidden {
+  display: none;
 }
 .speakers.past-speakers .speaker {
   width: 8em;
