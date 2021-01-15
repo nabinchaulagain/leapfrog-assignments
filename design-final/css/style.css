@@ -565,3 +565,9 @@ body {
   text-align: center;
   padding: 10px;
 }
+.footer a {
+  color: #b5b7b6;
+}
+.footer a:hover {
+  color: #ffffff;
+}
