@@ -37,3 +37,42 @@ for (const postToggle of postToggleElems) {
     postBody.classList.toggle("post-hidden");
   });
 }
+const scheduleContainerHeights = [353, 423, 439, 520, 800];
+const scheduleHeights = [328, 388, 384, 480, 780];
+window.addEventListener("resize", function () {
+  if (document.querySelectorAll(".post-hidden").length === 1) {
+    return;
+  }
+  const viewportWidth = window.innerWidth;
+  console.log(viewportWidth);
+  let heightDiff, scheduleContainerHeight, scheduleHeight;
+  if (viewportWidth < 480) {
+    heightDiff = heights[0];
+    scheduleHeight = scheduleHeights[0];
+    scheduleContainerHeight = scheduleContainerHeights[0];
+  } else if (viewportWidth < 768) {
+    heightDiff = heights[1];
+    heightDiff = heights[1];
+    scheduleHeight = scheduleHeights[1];
+    scheduleContainerHeight = scheduleContainerHeights[1];
+  } else if (viewportWidth < 998) {
+    heightDiff = heights[2];
+    heightDiff = heights[2];
+    scheduleHeight = scheduleHeights[2];
+    scheduleContainerHeight = scheduleContainerHeights[2];
+  } else if (viewportWidth < 1500) {
+    heightDiff = heights[3];
+    heightDiff = heights[3];
+    scheduleHeight = scheduleHeights[3];
+    scheduleContainerHeight = scheduleContainerHeights[3];
+  } else {
+    heightDiff = heights[4];
+    heightDiff = heights[4];
+    scheduleHeight = scheduleHeights[4];
+    scheduleContainerHeight = scheduleContainerHeights[4];
+  }
+  let numPostsOpen = 3 - document.querySelectorAll(".post-hidden").length;
+  heightDiff = heightDiff * numPostsOpen;
+  schedule.style.height = scheduleHeight + heightDiff + "px";
+  scheduleContainer.style.height = scheduleContainerHeight + heightDiff + "px";
+});
