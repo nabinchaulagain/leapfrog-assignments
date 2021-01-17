@@ -1,7 +1,11 @@
-var carousel = new Carousel(
-  document.querySelector('.carousel-container'),
-  document.querySelector('.carousel-image-wrapper'),
-  1000,
-  1000
-);
-carousel.show();
+var carouselContainers = document.querySelectorAll('.carousel-container');
+
+carouselContainers.forEach(function (carouselContainer) {
+  var carousel = new Carousel(
+    carouselContainer,
+    carouselContainer.querySelector('.carousel-image-wrapper'),
+    2000,
+    1000
+  );
+  carousel.show();
+});

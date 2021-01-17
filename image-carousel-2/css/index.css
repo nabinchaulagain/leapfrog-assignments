@@ -2,14 +2,17 @@
   margin: 0;
   padding: 0;
 }
-body {
-  max-width: 100%;
+.root {
+  max-width: 1300px;
+  margin: auto;
+  margin-top: 32px;
+  text-align: center;
 }
 .carousel-container {
-  margin: auto;
-  margin-top: 64px;
+  display: inline-block;
   position: relative;
   overflow: hidden;
+  margin: 8px;
   text-align: center;
 }
 .carousel-image-wrapper {

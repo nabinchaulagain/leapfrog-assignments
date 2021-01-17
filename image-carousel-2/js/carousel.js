@@ -1,5 +1,4 @@
 /**
- *Get left position of element
  * @param {HTMLElement} element
  * @returns {number} left position of element
  */
@@ -14,7 +13,6 @@ var DEFAULT_WIDTH = 600;
 var DEFAULT_HEIGHT = 400;
 var DEFAULT_TRANSITION_TIME = 2000;
 var DEFAULT_HOLD_TIME = 1000;
-
 var FR_TIME = 20; // how many ms 1 frame runs for
 
 /**
