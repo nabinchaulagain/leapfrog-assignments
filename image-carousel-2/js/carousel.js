@@ -1,25 +1,47 @@
+/**
+ *Get left position of element
+ * @param {HTMLElement} element
+ * @returns {number} left position of element
+ */
 var getLeftPosition = function (element) {
   var left = getComputedStyle(element).left;
   return parseInt(left.substring(0, left.length - 2));
 };
 
+// constants
 var DOT_SIZE = 20;
 var DEFAULT_WIDTH = 600;
 var DEFAULT_HEIGHT = 400;
+var DEFAULT_TRANSITION_TIME = 2000;
+var DEFAULT_HOLD_TIME = 1000;
+
 var FR_TIME = 20; // how many ms 1 frame runs for
-var ANIM_TIME = 1000; // how long 1 slide animation lasts for in ms
-var NUM_FRAMES = ANIM_TIME / FR_TIME;
+
 /**
  * Represents a carousel
  * @constructor
- * @param {HTMLElement} container - The main container
- * @param {HTMLElement} wrapper - The wrapper containing all the images
+ * @param {HTMLElement} container - main container
+ * @param {HTMLElement} wrapper - wrapper containing all the images
+ * @param {number} transitionTime - time for automatically transistining from one frame to another
+ * @param {number} holdTime - time to hold a image
+ * @param {number} width - width of image
+ * @param {number} height - height of image
  */
-var Carousel = function (container, wrapper, width, height) {
+var Carousel = function (
+  container,
+  wrapper,
+  transitionTime,
+  holdTime,
+  width,
+  height
+) {
   this.container = container;
   this.wrapper = wrapper;
   this.images = Array.from(wrapper.getElementsByTagName('img'));
   this.imagesNum = this.images.length;
+  this.transitionTime = transitionTime || DEFAULT_TRANSITION_TIME;
+  this.holdTime = holdTime || DEFAULT_HOLD_TIME;
+  this.numberFrames = transitionTime / FR_TIME;
   this.width = width || DEFAULT_WIDTH;
   this.height = height || DEFAULT_HEIGHT;
   this.maxWidth = this.width;
@@ -120,6 +142,7 @@ Carousel.prototype.show = function () {
   }
   this.container.appendChild(buttonsContainer);
   this.addEventListeners();
+  this.autoTransititon();
 };
 
 /** Slide to show image on right
@@ -133,6 +156,7 @@ Carousel.prototype.slideRight = function (newPosition, changeFactor) {
       this.setCurrDot();
       this.wrapper.style.left = newPosition + 'px'; //fix when new position is not exactly divisible by change factor.
       clearInterval(this.intervalId);
+      this.autoTransititon();
       return;
     }
     currPos -= changeFactor;
@@ -152,6 +176,7 @@ Carousel.prototype.slideLeft = function (newPosition, changeFactor) {
       this.setCurrDot();
       this.wrapper.style.left = newPosition + 'px'; //fix when new position is not exactly divisible by change factor.
       clearInterval(this.intervalId);
+      this.autoTransititon();
       return;
     }
     currPos += changeFactor;
@@ -184,13 +209,16 @@ Carousel.prototype.slide = function (idx) {
   if (this.intervalId) {
     clearInterval(this.intervalId);
   }
+  if (this.autoIntervalId) {
+    clearInterval(this.autoIntervalId);
+  }
   var newPosition = idx * -this.width;
   var currPosition = getLeftPosition(this.wrapper);
   if (this.currIdx > idx) {
-    var changeFactor = Math.abs(newPosition - currPosition) / NUM_FRAMES;
+    var changeFactor = Math.abs(newPosition - currPosition) / this.numberFrames;
     this.slideLeft(newPosition, changeFactor);
   } else if (this.currIdx < idx) {
-    var changeFactor = Math.abs(currPosition - newPosition) / NUM_FRAMES;
+    var changeFactor = Math.abs(currPosition - newPosition) / this.numberFrames;
     this.slideRight(newPosition, changeFactor);
   }
   this.currIdx = idx;
@@ -218,4 +246,12 @@ Carousel.prototype.addEventListeners = function () {
   });
   //make responsive
   window.addEventListener('resize', this.init.bind(this));
+};
+
+/** Make auto transition */
+Carousel.prototype.autoTransititon = function () {
+  var that = this;
+  that.autoIntervalId = setInterval(function () {
+    that.slide((that.currIdx + 1) % that.imagesNum);
+  }, this.holdTime);
 };
