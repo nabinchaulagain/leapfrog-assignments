@@ -187,7 +187,6 @@ Carousel.prototype.slideLeft = function (newPosition, changeFactor) {
  */
 Carousel.prototype.setCurrDot = function () {
   var currDotIdx = this.currIdx;
-  console.log(currDotIdx);
   for (var i = 0; i < this.dots.length; i++) {
     if (i == currDotIdx) {
       this.dots[i].style.transform = 'scale(1.2)';
