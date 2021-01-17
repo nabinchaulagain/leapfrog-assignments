@@ -2,7 +2,7 @@
 
 ## Usage
 
-- Download the [carousel.js file](https://github.com/nabinchaulagain/leapfrog-assignments/image-carousel/js/carousel.js) and link it.
+- Download the [carousel.js file](https://github.com/nabinchaulagain/leapfrog-assignments/tree/master/image-carousel/js/carousel.js) and link it.
 - Maintain the following html structure in your document.
   ```html
   <div class="carousel-container">
