@@ -1,32 +1,44 @@
-body {
-  background: #d7dbd8;
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #d7dbd8;
 }
 
-#biography {
-  text-align: center;
-  background: white;
+.biography {
   width: 50%;
+  min-width: 600px;
   border-radius: 8px;
-  padding: 10px;
+  padding: 10px 0;
   margin: auto;
   margin-top: 16px;
+  text-align: center;
 }
-#biography > h1,
-#biography > h2 {
-  margin: 4px 0;
+.biography > h1,
+.biography > h2 {
+  font-size: 40px;
+  margin: 8px 0;
 }
-#assigments-table {
+.biography > h2 {
+  font-size: 32px;
+}
+.assigments-table {
+  min-width: 600px;
   width: 50%;
   margin: auto;
   margin-top: 12px;
   border-collapse: collapse;
 }
-#assigments-table th,
-#assigments-table td {
-  font-size: 120%;
+.assigments-table th,
+.assigments-table td {
+  font-size: 20px;
   border: 1px solid black;
-  padding: 5px 10px;
-  text-align: center;
+  padding: 10px 20px;
+  /* text-align: center; */
+}
+.assigments-table th {
+  font-size: 24px;
+  padding: 15px 20px;
 }
