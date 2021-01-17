@@ -1,11 +1,14 @@
 var carouselContainers = document.querySelectorAll('.carousel-container');
 
-carouselContainers.forEach(function (carouselContainer) {
+var transistionTimes = [1000, 500, 2000, 3000];
+var holdTimes = [1000, 500, 1000, 2000];
+
+carouselContainers.forEach(function (carouselContainer, idx) {
   var carousel = new Carousel(
     carouselContainer,
     carouselContainer.querySelector('.carousel-image-wrapper'),
-    2000,
-    1000
+    transistionTimes[idx],
+    holdTimes[idx]
   );
   carousel.show();
 });
