@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  max-width: 100%;
+}
+.carousel-container {
+  margin: auto;
+  margin-top: 64px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.carousel-image-wrapper {
+  position: absolute;
+}
+.carousel-image-wrapper::after {
+  clear: both;
+  content: ' ';
+  display: block;
+}
+.carousel-image-wrapper img {
+  float: left;
+}
