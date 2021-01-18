@@ -1,4 +1,4 @@
 var CANVAS_WIDTH = 600;
 var CANVAS_HEIGHT = 500;
-var RADIUS_MIN = 7;
+var RADIUS_MIN = 8;
 var RADIUS_MAX = 12;

@@ -58,6 +58,6 @@ var simulation = new Simulation(
   canvas.getContext('2d'),
   CANVAS_WIDTH,
   CANVAS_HEIGHT,
-  30
+  20
 );
 simulation.start();

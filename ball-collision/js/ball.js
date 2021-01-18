@@ -40,12 +40,22 @@ Ball.prototype.update = function () {
  */
 Ball.prototype.checkWallCollision = function (width, height) {
   //top collision or bottom collision
-  if (this.y <= this.radius || this.y + this.radius >= height) {
+  if (this.y <= this.radius) {
     this.dy = -this.dy;
+    this.y = this.radius;
+  }
+  if (this.y + this.radius >= height) {
+    this.dy = -this.dy;
+    this.y = height - this.radius;
   }
   //left collison or right collision
-  if (this.x <= this.radius || this.x + this.radius >= width) {
+  if (this.x <= this.radius) {
     this.dx = -this.dx;
+    this.x = this.radius;
+  }
+  if (this.x + this.radius >= width) {
+    this.dx = -this.dx;
+    this.x = width - this.radius;
   }
 };
 
