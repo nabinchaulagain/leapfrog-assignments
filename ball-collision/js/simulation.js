@@ -20,7 +20,7 @@ Simulation.prototype.init = function () {
     var ballX = random(RADIUS_MAX, this.width - RADIUS_MAX);
     var ballY = random(RADIUS_MAX, this.height - RADIUS_MAX);
     var ballRadius = random(RADIUS_MIN, RADIUS_MAX);
-    var ballColor = 'black';
+    var ballColor = randomColor();
     var ballDirectionX = random(0, 1) == 0 ? -1 : 1;
     var ballDirectionY = random(0, 1) == 0 ? -1 : 1;
     var ball = new Ball(
@@ -41,7 +41,7 @@ Simulation.prototype.start = function () {
   this.play();
 };
 
-/** Play animation */
+/** Play simulation */
 Simulation.prototype.play = function () {
   this.ctx.clearRect(0, 0, this.width, this.height);
   for (var i = 0; i < this.ballList.length; i++) {

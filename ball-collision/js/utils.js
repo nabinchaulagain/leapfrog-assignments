@@ -17,3 +17,13 @@ function random(min, max) {
 function distance(x1, x2, y1, y2) {
   return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
 }
+
+/**
+ * Returns a random color in rgb() style
+ * @returns {string}
+ */
+function randomColor() {
+  return (
+    'rgb(' + random(0, 255) + ',' + random(0, 255) + ',' + random(0, 255) + ')'
+  );
+}
