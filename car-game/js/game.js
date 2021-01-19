@@ -26,6 +26,11 @@ Game.prototype.gameInit = function () {
     this.addObstacle.bind(this),
     OBSTACLE_DELAY
   );
+  this.score = 0;
+  this.scoreInterval = setInterval(
+    this.updateScore.bind(this),
+    SCORE_UPDATE_INTERVAL
+  );
   this.gameStarted = true;
   this.gameOver = false;
 };
@@ -46,6 +51,7 @@ Game.prototype.play = function () {
   this.player.draw(this.ctx);
   this.handleCollision();
   this.drawObstacles();
+  this.showScore();
   this.speed += this.speed * ACCELERATION;
 };
 
@@ -66,6 +72,17 @@ Game.prototype.drawObstacles = function () {
     }
   }
 };
+
+Game.prototype.updateScore = function () {
+  this.score++;
+};
+
+Game.prototype.showScore = function () {
+  this.ctx.fillStyle = '#fff';
+  this.ctx.font = '20px Georgia';
+  this.ctx.fillText('Score: ' + this.score, CANVAS_WIDTH - 50, 20);
+};
+
 /** add obstacle car*/
 Game.prototype.addObstacle = function () {
   if (this.obstacles.length > 2) {
@@ -178,5 +195,6 @@ Game.prototype.showEndScreen = function () {
 Game.prototype.endGame = function () {
   this.gameOver = true;
   clearTimeout(this.obstacleInterval);
+  clearTimeout(this.scoreInterval);
   this.addStartListener();
 };
