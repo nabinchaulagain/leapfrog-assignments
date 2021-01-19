@@ -17,6 +17,7 @@ var Game = function (ctx, width, height) {
 };
 
 Game.prototype.gameInit = function () {
+  this.highScore = parseInt(localStorage.getItem('highScore')) || 0;
   this.ctx.globalCompositeOperation = 'source-over';
   this.speed = 1;
   this.laneLineOffset = 0;
@@ -75,12 +76,17 @@ Game.prototype.drawObstacles = function () {
 
 Game.prototype.updateScore = function () {
   this.score++;
+  if (this.score > this.highScore) {
+    this.highScore = this.score;
+    localStorage.setItem('highScore', this.highScore);
+  }
 };
 
 Game.prototype.showScore = function () {
   this.ctx.fillStyle = '#fff';
   this.ctx.font = '20px Georgia';
-  this.ctx.fillText('Score: ' + this.score, CANVAS_WIDTH - 50, 20);
+  this.ctx.fillText('Score: ' + this.score, 50, 20);
+  this.ctx.fillText('High Score: ' + this.highScore, CANVAS_WIDTH - 80, 20);
 };
 
 /** add obstacle car*/
@@ -169,26 +175,12 @@ Game.prototype.showEndScreen = function () {
   this.ctx.fillStyle = '#f44';
   this.ctx.textAlign = 'center';
   this.ctx.fillText(
-    'Press any key to retry',
+    'Press any key to restart',
     CANVAS_WIDTH / 2,
     CANVAS_HEIGHT / 2
   );
   // draw over any existing pixels
   this.ctx.globalCompositeOperation = 'destination-over';
-  // this.ctx.font = '20px Georgia';
-  // this.ctx.fillText('Avoid crashing with other cars. ', CANVAS_WIDTH / 2, 250);
-  // this.ctx.fillText(
-  //   'Press a or left arrow to go left. ',
-  //   CANVAS_WIDTH / 2,
-  //   280
-  // );
-  // this.ctx.fillText(
-  //   'Press d or right arrow to go right. ',
-  //   CANVAS_WIDTH / 2,
-  //   310
-  // );
-  // this.ctx.font = '30px Georgia';
-  // this.ctx.fillText('Hit any key to start the game ', CANVAS_WIDTH / 2, 400);
 };
 
 /** end the game */
