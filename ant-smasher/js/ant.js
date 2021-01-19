@@ -14,7 +14,7 @@ function Ant(x, y, dx, dy) {
   this.dx = dx;
   this.dy = dy;
   this.image = new Image();
-  this.image.src = "../images/ant.png";
+  this.image.src = "./images/ant.png";
 }
 
 /**
