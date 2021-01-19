@@ -1,0 +1,4 @@
+var CANVAS_WIDTH = 600;
+var CANVAS_HEIGHT = 500;
+var ANT_WIDTH = 30;
+var ANT_HEIGHT = 30;

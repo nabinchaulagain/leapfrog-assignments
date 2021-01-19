@@ -1,0 +1,11 @@
+.canvas {
+  border: 1px solid black;
+  display: block;
+  margin: auto;
+  width: 600px;
+  height: 500px;
+}
+.scoreboard {
+  margin: 32px 0;
+  text-align: center;
+}
