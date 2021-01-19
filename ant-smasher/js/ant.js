@@ -15,7 +15,6 @@ function Ant(x, y, dx, dy) {
   this.dy = dy;
   this.image = new Image();
   this.image.src = "../images/ant.png";
-  this.image.style.transform = "rotate(50deg)";
 }
 
 /**
@@ -23,10 +22,7 @@ function Ant(x, y, dx, dy) {
  * @param {CanvasRenderingContext2D} ctx
  */
 Ant.prototype.draw = function (ctx) {
-  // ctx.rotate(30);
-  ctx.beginPath();
   ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
-  // ctx.setTransform(1, 0, 0, 1, 0, 0);
 };
 
 /** update ant position */
