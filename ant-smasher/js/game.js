@@ -4,14 +4,17 @@
  * @param {number} width
  * @param {number} height
  * @param {number} numAnts
+ * @param {HTMLElement} scoreboard
  */
-function Game(ctx, width, height, numAnts) {
+function Game(ctx, width, height, numAnts, scoreboard) {
   this.ctx = ctx;
   this.width = width;
   this.height = height;
   this.ctx.canvas.width = width;
   this.ctx.canvas.height = height;
+  this.orgNumAnts = numAnts;
   this.numAnts = numAnts;
+  this.scoreBoard = scoreboard;
 }
 /** Initialize ant list */
 Game.prototype.init = function () {
@@ -36,6 +39,7 @@ Game.prototype.start = function () {
 /** Play Game */
 Game.prototype.play = function () {
   this.ctx.clearRect(0, 0, this.width, this.height);
+  this.showScore();
   for (var i = 0; i < this.antList.length; i++) {
     this.antList[i].checkWallCollision(this.width, this.height);
     this.antList[i].checkAntCollision(this.antList);
@@ -65,7 +69,18 @@ Game.prototype.handleAntClick = function () {
   };
   this.ctx.canvas.addEventListener("click", handler.bind(this));
 };
+/** Show score on scoreboard */
+Game.prototype.showScore = function () {
+  this.scoreBoard.innerHTML =
+    "Ants smashed: " + (this.orgNumAnts - this.numAnts);
+};
 
 var canvas = document.querySelector(".canvas");
-var game = new Game(canvas.getContext("2d"), CANVAS_WIDTH, CANVAS_HEIGHT, 20);
+var game = new Game(
+  canvas.getContext("2d"),
+  CANVAS_WIDTH,
+  CANVAS_HEIGHT,
+  20,
+  document.querySelector(".scoreboard")
+);
 game.start();

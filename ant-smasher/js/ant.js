@@ -65,10 +65,10 @@ Ant.prototype.checkWallCollision = function (width, height) {
  */
 Ant.prototype.isColliding = function (ant) {
   return (
-    this.x < ant.x + this.width &&
-    this.x + this.width > ant.x &&
-    this.y < ant.y + this.height &&
-    this.y + this.height > ant.y
+    this.x <= ant.x + this.width &&
+    this.x + this.width >= ant.x &&
+    this.y <= ant.y + this.height &&
+    this.y + this.height >= ant.y
   );
 };
 
