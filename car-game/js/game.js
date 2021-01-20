@@ -16,6 +16,7 @@ var Game = function (ctx, width, height) {
   this.gameOver = false;
 };
 
+/**initialize the game */
 Game.prototype.gameInit = function () {
   this.highScore = parseInt(localStorage.getItem('highScore')) || 0;
   this.ctx.globalCompositeOperation = 'source-over';
