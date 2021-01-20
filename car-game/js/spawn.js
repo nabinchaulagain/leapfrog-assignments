@@ -26,3 +26,11 @@ Spawn.prototype.draw = function (ctx) {
 Spawn.prototype.update = function (speed) {
   this.y += speed;
 };
+
+/**
+ * checks if spawn item is out of screen or not
+ * @returns {boolean} whether or not item is out of screen
+ */
+Spawn.prototype.isOutOfScreen = function () {
+  return this.y >= CANVAS_HEIGHT;
+};

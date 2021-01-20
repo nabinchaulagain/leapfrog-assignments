@@ -26,3 +26,11 @@ Bullet.prototype.draw = function (ctx) {
 Bullet.prototype.update = function (speed) {
   this.y -= speed;
 };
+
+/**
+ * checks if bullet is out of screen or not
+ * @returns {boolean} whether or bullet is out of screen
+ */
+Bullet.prototype.isOutOfScreen = function () {
+  return this.y < 0;
+};

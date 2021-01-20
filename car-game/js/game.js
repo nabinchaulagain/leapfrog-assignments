@@ -51,11 +51,8 @@ Game.prototype.play = function () {
   }
   this.clear();
   this.drawLanes();
-  this.player.draw(this.ctx);
+  this.drawEntities();
   this.handleCollision();
-  this.drawObstacles();
-  this.showSpawns();
-  this.drawBullets();
   this.showInfo();
   this.speed += this.speed * ACCELERATION;
 };
@@ -67,38 +64,29 @@ Game.prototype.clear = function () {
   this.ctx.fillRect(0, 0, this.width, this.height);
 };
 
-/** draw obstacles */
-Game.prototype.drawObstacles = function () {
-  for (var i = 0; i < this.obstacles.length; i++) {
-    this.obstacles[i].draw(this.ctx);
-    this.obstacles[i].update(this.speed);
-    if (this.obstacles[i].isOutOfScreen()) {
-      this.updateScore();
-      this.obstacles.splice(i, 1);
+/** Draw a list of objects
+ * @param {Array.<Object>} objs
+ * @param {Function} outOfScreenHandler - function that specifies what to do when a single object of the screen
+ */
+Game.prototype.drawList = function (objs, outOfScreenHandler) {
+  for (var i = 0; i < objs.length; i++) {
+    objs[i].draw(this.ctx);
+    objs[i].update(this.speed);
+    if (objs[i].isOutOfScreen()) {
+      if (outOfScreenHandler) {
+        outOfScreenHandler();
+      }
+      objs.splice(i, 1);
     }
   }
 };
 
-/** show bullets */
-Game.prototype.drawBullets = function () {
-  for (var i = 0; i < this.bullets.length; i++) {
-    this.bullets[i].draw(this.ctx);
-    this.bullets[i].update(this.speed);
-    if (this.bullets[i].y <= 0) {
-      this.bullets.splice(i, 1);
-    }
-  }
-};
-
-/** Show spawns on screen */
-Game.prototype.showSpawns = function () {
-  for (var i = 0; i < this.spawns.length; i++) {
-    this.spawns[i].draw(this.ctx);
-    this.spawns[i].update(this.speed);
-    if (this.spawns[i].y >= CANVAS_HEIGHT) {
-      this.spawns.splice(i, 1);
-    }
-  }
+/** draw player, obstacles,bullets and spawns */
+Game.prototype.drawEntities = function () {
+  this.player.draw(this.ctx);
+  this.drawList(this.obstacles, this.updateScore.bind(this));
+  this.drawList(this.bullets);
+  this.drawList(this.spawns);
 };
 
 /** update score and high score if needed */
