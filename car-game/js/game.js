@@ -28,10 +28,6 @@ Game.prototype.gameInit = function () {
     OBSTACLE_DELAY
   );
   this.score = 0;
-  this.scoreInterval = setInterval(
-    this.updateScore.bind(this),
-    SCORE_UPDATE_INTERVAL
-  );
   this.bullets = [];
   this.ammo = 0;
   this.spawns = [];
@@ -77,11 +73,13 @@ Game.prototype.drawObstacles = function () {
     this.obstacles[i].draw(this.ctx);
     this.obstacles[i].update(this.speed);
     if (this.obstacles[i].isOutOfScreen()) {
+      this.updateScore();
       this.obstacles.splice(i, 1);
     }
   }
 };
 
+/** show bullets */
 Game.prototype.drawBullets = function () {
   for (var i = 0; i < this.bullets.length; i++) {
     this.bullets[i].draw(this.ctx);
@@ -195,6 +193,7 @@ Game.prototype.handleBulletCollision = function () {
       if (this.obstacles[j].isColliding(this.bullets[i])) {
         this.bullets.splice(i, 1);
         this.obstacles.splice(j, 1);
+        this.updateScore();
       }
     }
   }
@@ -283,7 +282,6 @@ Game.prototype.showEndScreen = function () {
 Game.prototype.endGame = function () {
   this.gameOver = true;
   clearTimeout(this.obstacleInterval);
-  clearTimeout(this.scoreInterval);
   clearTimeout(this.spawnInterval);
   document.removeEventListener('keydown', this.fireHandler);
   this.addStartListener();
