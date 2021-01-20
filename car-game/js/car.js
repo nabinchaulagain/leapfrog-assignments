@@ -7,7 +7,10 @@
 function Car(isPlayer, laneIdx, y) {
   this.isPlayer = isPlayer;
   this.image = new Image();
-  this.image.src = './images/car.png';
+  this.image.src = './images/car2.png';
+  if (this.isPlayer) {
+    this.image.src = './images/car.png';
+  }
   if (laneIdx === undefined) {
     laneIdx = 0;
   }

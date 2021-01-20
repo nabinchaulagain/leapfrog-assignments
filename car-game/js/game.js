@@ -19,7 +19,7 @@ var Game = function (ctx, width, height) {
 Game.prototype.gameInit = function () {
   this.highScore = parseInt(localStorage.getItem('highScore')) || 0;
   this.ctx.globalCompositeOperation = 'source-over';
-  this.speed = 1;
+  this.speed = INITIAL_SPEED;
   this.laneLineOffset = 0;
   this.player = new Car(true, 1);
   this.obstacles = [];
@@ -54,7 +54,7 @@ Game.prototype.play = function () {
   this.drawEntities();
   this.handleCollision();
   this.showInfo();
-  this.speed += this.speed * ACCELERATION;
+  this.speed += ACCELERATION;
 };
 
 /** clear screen */
