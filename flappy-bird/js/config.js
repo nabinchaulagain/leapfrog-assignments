@@ -14,5 +14,23 @@ var BIRD_LEFT_OFFSET = 40;
 var GRAVITY = 0.2;
 var LIFT = 5;
 
+var START_SC = {
+  sX: 0,
+  sY: 228,
+  width: 172,
+  height: 152,
+  dX: 110,
+  dY: 80,
+};
+
+var END_SC = {
+  sX: 175,
+  sY: 228,
+  width: 225,
+  height: 200,
+  dX: 90,
+  dY: 90,
+};
+
 var sprite = new Image();
 sprite.src = './assets/images/sprite.png';
