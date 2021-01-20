@@ -11,8 +11,10 @@ function Car(isPlayer, laneIdx, y) {
   if (laneIdx === undefined) {
     laneIdx = 0;
   }
-  this.x = (LANE_WIDTH - CAR_WIDTH) / 2 + LANE_WIDTH * laneIdx;
-  this.y = y !== undefined || CANVAS_HEIGHT - CAR_HEIGHT;
+  this.width = CAR_WIDTH;
+  this.height = CAR_HEIGHT;
+  this.x = (LANE_WIDTH - this.width) / 2 + LANE_WIDTH * laneIdx;
+  this.y = y !== undefined || CANVAS_HEIGHT - this.height;
   this.lane = laneIdx;
   if (this.isPlayer) {
     this.addControls();
@@ -24,7 +26,7 @@ function Car(isPlayer, laneIdx, y) {
  * @param {CanvasRenderingContext2D} ctx
  */
 Car.prototype.draw = function (ctx) {
-  ctx.drawImage(this.image, this.x, this.y, CAR_WIDTH, CAR_HEIGHT);
+  ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
 };
 
 /** Attach controls to car */
@@ -66,15 +68,15 @@ Car.prototype.isOutOfScreen = function () {
   return this.y >= CANVAS_HEIGHT;
 };
 
-/**checks if given car is colliding with this car
- * @param {Car} car
+/**checks if given object is colliding with this car
+ * @param {object} car
  * @returns {boolean}
  */
-Car.prototype.isColliding = function (car) {
+Car.prototype.isColliding = function (other) {
   return (
-    this.x < car.x + CAR_WIDTH &&
-    this.x + CAR_WIDTH > car.x &&
-    this.y < car.y + CAR_HEIGHT &&
-    this.y + CAR_HEIGHT > car.y
+    this.x < other.x + other.width &&
+    this.x + this.width > other.x &&
+    this.y < other.y + other.height &&
+    this.y + this.height > other.y
   );
 };

@@ -32,6 +32,12 @@ Game.prototype.gameInit = function () {
     this.updateScore.bind(this),
     SCORE_UPDATE_INTERVAL
   );
+  this.bullets = [];
+  this.ammo = 0;
+  this.spawns = [];
+  this.spawnInterval = setInterval(this.spawnAmmo.bind(this), SPAWN_INTERVAL);
+  this.fireHandler = this.handleFire.bind(this);
+  document.addEventListener('keydown', this.fireHandler);
   this.gameStarted = true;
   this.gameOver = false;
 };
@@ -52,7 +58,9 @@ Game.prototype.play = function () {
   this.player.draw(this.ctx);
   this.handleCollision();
   this.drawObstacles();
-  this.showScore();
+  this.showSpawns();
+  this.drawBullets();
+  this.showInfo();
   this.speed += this.speed * ACCELERATION;
 };
 
@@ -74,6 +82,28 @@ Game.prototype.drawObstacles = function () {
   }
 };
 
+Game.prototype.drawBullets = function () {
+  for (var i = 0; i < this.bullets.length; i++) {
+    this.bullets[i].draw(this.ctx);
+    this.bullets[i].update(this.speed);
+    if (this.bullets[i].y <= 0) {
+      this.bullets.splice(i, 1);
+    }
+  }
+};
+
+/** Show spawns on screen */
+Game.prototype.showSpawns = function () {
+  for (var i = 0; i < this.spawns.length; i++) {
+    this.spawns[i].draw(this.ctx);
+    this.spawns[i].update(this.speed);
+    if (this.spawns[i].y >= CANVAS_HEIGHT) {
+      this.spawns.splice(i, 1);
+    }
+  }
+};
+
+/** update score and high score if needed */
 Game.prototype.updateScore = function () {
   this.score++;
   if (this.score > this.highScore) {
@@ -82,10 +112,12 @@ Game.prototype.updateScore = function () {
   }
 };
 
-Game.prototype.showScore = function () {
+/** show score , highscore and ammo */
+Game.prototype.showInfo = function () {
   this.ctx.fillStyle = '#fff';
   this.ctx.font = '20px Georgia';
-  this.ctx.fillText('Score: ' + this.score, 50, 20);
+  this.ctx.fillText('Score: ' + this.score, 80, 20);
+  this.ctx.fillText('Ammo: ' + this.ammo, 250, 20);
   this.ctx.fillText('High Score: ' + this.highScore, CANVAS_WIDTH - 80, 20);
 };
 
@@ -129,8 +161,15 @@ Game.prototype.drawLanes = function () {
   this.laneLineOffset++;
 };
 
-/** handle collision with other balls */
+/** handle different types of collisions */
 Game.prototype.handleCollision = function () {
+  this.handleObstacleCollision();
+  this.handleSpawnCollision();
+  this.handleBulletCollision();
+};
+
+/** handle collision with other cars */
+Game.prototype.handleObstacleCollision = function () {
   for (var i = 0; i < this.obstacles.length; i++) {
     if (this.player.isColliding(this.obstacles[i])) {
       clearInterval(this.obstacleInterval);
@@ -138,6 +177,57 @@ Game.prototype.handleCollision = function () {
     }
   }
 };
+
+//** handle collision with spawnable items */
+Game.prototype.handleSpawnCollision = function () {
+  for (var i = 0; i < this.spawns.length; i++) {
+    if (this.player.isColliding(this.spawns[i])) {
+      this.spawns.splice(i, 1);
+      this.ammo++;
+    }
+  }
+};
+
+/** handle collision between bullets and obstacles */
+Game.prototype.handleBulletCollision = function () {
+  for (var i = 0; i < this.bullets.length; i++) {
+    for (var j = 0; j < this.obstacles.length; j++) {
+      if (this.obstacles[j].isColliding(this.bullets[i])) {
+        this.bullets.splice(i, 1);
+        this.obstacles.splice(j, 1);
+      }
+    }
+  }
+};
+
+/** Spawn ammo to collect on lane with no obstacle*/
+Game.prototype.spawnAmmo = function () {
+  var laneIdxs = [];
+  for (var i = 0; i < this.obstacles.length; i++) {
+    laneIdxs.push(this.obstacles[i].lane);
+  }
+  var freeLaneIdx;
+  [0, 1, 2].forEach(function (val) {
+    if (!laneIdxs.includes(val)) {
+      freeLaneIdx = val;
+      return;
+    }
+  });
+  this.spawns.push(new Spawn(freeLaneIdx, './images/bullet.png'));
+};
+
+/** Fire a bullet if space bar is pressed
+ * @param {KeyboardEvent} ev
+ */
+Game.prototype.handleFire = function (ev) {
+  if (ev.key === ' ') {
+    if (this.ammo > 0) {
+      this.bullets.push(new Bullet(this.player.lane));
+      this.ammo--;
+    }
+  }
+};
+
 /** Show home screen*/
 Game.prototype.showHomeScreen = function () {
   this.clear();
@@ -157,15 +247,22 @@ Game.prototype.showHomeScreen = function () {
     CANVAS_WIDTH / 2,
     310
   );
+  this.ctx.fillText('Press spacebar to shoot. ', CANVAS_WIDTH / 2, 340);
   this.ctx.font = '30px Georgia';
-  this.ctx.fillText('Hit any key to start the game ', CANVAS_WIDTH / 2, 400);
+  this.ctx.fillText(
+    'Hit "Enter" key to start the game ',
+    CANVAS_WIDTH / 2,
+    400
+  );
 };
 /** add keyboard listener to start the game */
 Game.prototype.addStartListener = function () {
   var that = this;
-  var handleGameStart = function () {
-    that.gameInit();
-    document.removeEventListener('keydown', handleGameStart);
+  var handleGameStart = function (ev) {
+    if (ev.key === 'Enter') {
+      that.gameInit();
+      document.removeEventListener('keydown', handleGameStart);
+    }
   };
   document.addEventListener('keydown', handleGameStart);
 };
@@ -175,11 +272,10 @@ Game.prototype.showEndScreen = function () {
   this.ctx.fillStyle = '#f44';
   this.ctx.textAlign = 'center';
   this.ctx.fillText(
-    'Press any key to restart',
+    'Hit "Enter" key to restart',
     CANVAS_WIDTH / 2,
     CANVAS_HEIGHT / 2
   );
-  // draw over any existing pixels
   this.ctx.globalCompositeOperation = 'destination-over';
 };
 
@@ -188,5 +284,7 @@ Game.prototype.endGame = function () {
   this.gameOver = true;
   clearTimeout(this.obstacleInterval);
   clearTimeout(this.scoreInterval);
+  clearTimeout(this.spawnInterval);
+  document.removeEventListener('keydown', this.fireHandler);
   this.addStartListener();
 };
