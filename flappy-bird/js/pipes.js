@@ -7,7 +7,7 @@ var Pipes = function () {
   this.x = CANVAS_WIDTH;
   this.width = 55;
   this.sHeight = 400;
-  this.topX = 0;
+  this.topY = 0;
   this.topHeight = random(MIN_PIPE_HEIGHT, MAX_PIPE_HEIGHT);
   this.bottomY = this.topHeight + PIPE_GAP;
   this.bottomHeight = PLATFORM_HEIGHT - this.topHeight - PIPE_GAP;
@@ -26,7 +26,7 @@ Pipes.prototype.draw = function (ctx) {
     this.width,
     this.sHeight,
     this.x,
-    0,
+    this.topY,
     this.width,
     this.topHeight
   );
@@ -47,4 +47,23 @@ Pipes.prototype.draw = function (ctx) {
 /**update pipes to move left */
 Pipes.prototype.update = function () {
   this.x--;
+};
+
+/** check collision between both pipes and the bird
+ * @param {Bird} bird
+ * @returns {boolean}
+ */
+Pipes.prototype.isColliding = function (bird) {
+  return (
+    //collision with top pipe
+    (bird.x < this.x + this.width &&
+      bird.x + bird.width > this.x &&
+      bird.y < this.topY + this.topHeight &&
+      bird.y + bird.height > this.topY) ||
+    //collision with bottom pipe
+    (bird.x < this.x + this.width &&
+      bird.x + bird.width > this.x &&
+      bird.y < this.bottomY + this.bottomHeight &&
+      bird.y + bird.height > this.bottomY)
+  );
 };

@@ -7,6 +7,7 @@ var Game = function (canvas) {
   this.canvas.width = CANVAS_WIDTH;
   this.canvas.height = CANVAS_HEIGHT;
   this.ctx = this.canvas.getContext('2d');
+  this.gameOver = false;
   this.background = new Background();
   this.ground = new Ground();
   this.frames = 0;
@@ -17,13 +18,17 @@ var Game = function (canvas) {
 
 /** play the game */
 Game.prototype.play = function () {
+  this.animationId = requestAnimationFrame(this.play.bind(this));
+  if (this.gameOver) {
+    return;
+  }
   this.frames++;
   this.draw();
-  this.animationId = requestAnimationFrame(this.play.bind(this));
 };
 
 /** draw the game objects */
 Game.prototype.draw = function () {
+  this.handleCollisons();
   this.clearScreen();
   this.ctx.beginPath();
   this.background.draw(this.ctx);
@@ -69,4 +74,20 @@ Game.prototype.attachControls = function () {
   };
   this.gameClickHandler = handleClick.bind(this);
   this.canvas.addEventListener('click', this.gameClickHandler);
+};
+
+/** Handle collisions */
+Game.prototype.handleCollisons = function () {
+  var isCollision = this.ground.isColliding(this.bird) || this.bird.y < 0; // true if car moves down too much or up too much
+  if (!isCollision) {
+    for (var i = 0; i < this.pipes.length; i++) {
+      if (this.pipes[i].isColliding(this.bird)) {
+        isCollision = true;
+        break;
+      }
+    }
+  }
+  if (isCollision) {
+    this.gameOver = true;
+  }
 };

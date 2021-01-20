@@ -42,3 +42,17 @@ Ground.prototype.draw = function (ctx) {
 Ground.prototype.update = function () {
   this.x = (this.x - 1) % this.unitSize;
 };
+
+/**
+ * checks if bird is colliding with the ground
+ * @param {Bird} bird
+ * @returns {boolean}
+ */
+Ground.prototype.isColliding = function (bird) {
+  return (
+    bird.x < this.x + this.width &&
+    bird.x + bird.width > this.x &&
+    bird.y < this.y + this.height &&
+    bird.y + bird.height > this.y
+  );
+};
