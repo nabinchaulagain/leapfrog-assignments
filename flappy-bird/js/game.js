@@ -38,6 +38,12 @@ Game.prototype.initGame = function () {
   this.pipes = [];
   this.bird = new Bird();
   this.attachControls();
+  this.score = 0;
+  this.highScore = parseInt(localStorage.getItem('highScore')) || 0;
+  this.scoreUpdateInterval = setInterval(
+    this.updateScore.bind(this),
+    SCORE_UPDATE_INTERVAL
+  );
   this.gameStarted = true;
   this.gameOver = false;
 };
@@ -55,6 +61,7 @@ Game.prototype.draw = function () {
   if (this.frames % PIPE_SPAWN_TIME === 0) {
     this.addPipes();
   }
+  this.showScore();
 };
 
 /** draw pipes */
@@ -141,6 +148,7 @@ Game.prototype.showStartScreen = function () {
 /** end game */
 Game.prototype.endGame = function () {
   this.detachControls();
+  clearInterval(this.scoreUpdateInterval);
   var that = this;
   this.restartListener = function (ev) {
     var x = ev.clientX - that.canvas.offsetLeft;
@@ -167,4 +175,29 @@ Game.prototype.showGameOverScreen = function () {
     END_SC.width,
     END_SC.height
   );
+  this.ctx.fillStyle = '#fff';
+  this.ctx.font = '32px Teko';
+  this.ctx.strokeStyle = '#000';
+  this.ctx.fillText(this.score, 270, 188);
+  this.ctx.strokeText(this.score, 270, 188);
+  this.ctx.fillText(this.highScore, 270, 230);
+  this.ctx.strokeText(this.highScore, 270, 230);
+};
+
+/** update score */
+Game.prototype.updateScore = function () {
+  this.score++;
+  if (this.score > this.highScore) {
+    this.highScore = this.score;
+    localStorage.setItem('highScore', this.highScore);
+  }
+};
+
+/** show score */
+Game.prototype.showScore = function () {
+  this.ctx.fillStyle = '#fff';
+  this.ctx.strokeStyle = '#000';
+  this.ctx.font = '50px Teko';
+  this.ctx.fillText(this.score, CANVAS_WIDTH / 2, 40);
+  this.ctx.strokeText(this.score, CANVAS_WIDTH / 2, 40);
 };

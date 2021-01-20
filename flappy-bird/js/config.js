@@ -14,6 +14,8 @@ var BIRD_LEFT_OFFSET = 40;
 var GRAVITY = 0.2;
 var LIFT = 5;
 
+var SCORE_UPDATE_INTERVAL = 1000;
+
 var START_SC = {
   sX: 0,
   sY: 228,
