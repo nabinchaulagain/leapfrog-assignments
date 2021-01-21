@@ -12,7 +12,7 @@ var PIPE_SPAWN_TIME = 200; // spawn pipes every 'PIPE_SPAWN_TIME' frame
 var BIRD_LEFT_OFFSET = 40;
 
 var GRAVITY = 0.2;
-var LIFT = 5;
+var LIFT = 4.5;
 
 var SCORE_UPDATE_INTERVAL = 1000;
 
