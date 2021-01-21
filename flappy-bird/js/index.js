@@ -1,7 +1,9 @@
+//wait for images to load before starting the game
 var imageLoadWaitInterval = setInterval(function () {
+  //if both images are loaded
   if (sprite.complete && playBtn.complete) {
     clearInterval(imageLoadWaitInterval);
-    window.game = new Game(document.querySelector('.canvas'));
+    var game = new Game(document.querySelector('.canvas'));
     game.play();
   }
 }, 100);
