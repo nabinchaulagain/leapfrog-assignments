@@ -56,7 +56,7 @@ Game.prototype.draw = function () {
   this.ground.draw(this.ctx);
   this.drawPipes();
   this.bird.draw(this.ctx);
-  this.bird.update();
+  this.bird.update(this.frames % BIRD_UPDATE_TIME === 0);
   this.ground.update();
   if (this.frames % PIPE_SPAWN_TIME === 0) {
     this.addPipes();
@@ -67,6 +67,7 @@ Game.prototype.draw = function () {
 /** draw pipes */
 Game.prototype.drawPipes = function () {
   for (var i = 0; i < this.pipes.length; i++) {
+    //if pipes moves out of screen, remove it
     if (this.pipes[i].x <= -this.pipes[i].width) {
       this.pipes.splice(i, 1);
       continue;

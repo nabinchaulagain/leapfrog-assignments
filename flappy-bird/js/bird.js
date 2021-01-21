@@ -6,12 +6,14 @@ function Bird() {
   this.x = BIRD_LEFT_OFFSET;
   this.y = PLATFORM_HEIGHT / 2;
   this.sX = 276;
-  this.sY = 112;
+  this.sY = [112, 139, 164, 139]; // source y positions of different bird images in sprite
   this.width = 34;
   this.height = 26;
   this.speed = 0;
   this.gravity = GRAVITY;
   this.lift = LIFT;
+  this.frame = 0;
+  this.birdPos = 0; // which bird image to use
 }
 /**
  * show bird
@@ -21,7 +23,7 @@ Bird.prototype.draw = function (ctx) {
   ctx.drawImage(
     sprite,
     this.sX,
-    this.sY,
+    this.sY[this.birdPos],
     this.width,
     this.height,
     this.x,
@@ -31,10 +33,17 @@ Bird.prototype.draw = function (ctx) {
   );
 };
 
-/** update bird based on gravity and lift */
-Bird.prototype.update = function () {
+/**
+ * update bird based on gravity and lift
+ * @param {boolean} shouldUpdateImage
+ */
+Bird.prototype.update = function (shouldUpdateImage) {
   this.speed += this.gravity;
   this.y += this.speed;
+  this.frame++;
+  if (shouldUpdateImage) {
+    this.birdPos = (this.birdPos + 1) % this.sY.length;
+  }
 };
 
 /** move up */
