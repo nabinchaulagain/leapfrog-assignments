@@ -40,10 +40,6 @@ Game.prototype.initGame = function () {
   this.attachControls();
   this.score = 0;
   this.highScore = parseInt(localStorage.getItem('highScore')) || 0;
-  this.scoreUpdateInterval = setInterval(
-    this.updateScore.bind(this),
-    SCORE_UPDATE_INTERVAL
-  );
   this.gameStarted = true;
   this.gameOver = false;
 };
@@ -58,6 +54,7 @@ Game.prototype.draw = function () {
   this.bird.draw(this.ctx);
   this.bird.update(this.frames % BIRD_UPDATE_TIME === 0);
   this.ground.update();
+  this.updateScore();
   if (this.frames % PIPE_SPAWN_TIME === 0) {
     this.addPipes();
   }
@@ -209,12 +206,21 @@ Game.prototype.showGameOverScreen = function () {
   this.ctx.strokeText(this.highScore, 270, 230);
 };
 
-/** update score */
+/** update score if just passed pipe */
 Game.prototype.updateScore = function () {
-  this.score++;
-  if (this.score > this.highScore) {
-    this.highScore = this.score;
-    localStorage.setItem('highScore', this.highScore);
+  var didPassPipe = false;
+  for (var i = 0; i < this.pipes.length; i++) {
+    if (this.pipes[i].x === this.bird.x) {
+      didPassPipe = true;
+      break;
+    }
+  }
+  if (didPassPipe) {
+    this.score++;
+    if (this.score > this.highScore) {
+      this.highScore = this.score;
+      localStorage.setItem('highScore', this.highScore);
+    }
   }
 };
 
