@@ -23,7 +23,7 @@ var START_SC = {
   sY: 228,
   width: 172,
   height: 152,
-  dX: 110,
+  dX: 114,
   dY: 80,
 };
 
@@ -38,3 +38,16 @@ var END_SC = {
 
 var sprite = new Image();
 sprite.src = './assets/images/sprite.png';
+
+var playBtn = new Image();
+playBtn.src = './assets/images/play-btn.png';
+var playBtnPos = {
+  sX: 0,
+  sY: 0,
+  sWidth: 55,
+  sHeight: 32,
+  dX: 145,
+  dY: 240,
+  dWidth: 110,
+  dHeight: 64,
+};

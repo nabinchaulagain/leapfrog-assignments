@@ -12,10 +12,14 @@ var Game = function (canvas) {
   this.background = new Background();
   this.ground = new Ground();
   this.initStartScreen();
+  this.frames = -1;
+  this.bird = new Bird();
+  this.bird.gravity = 0; // to avoid the bird from falling down in start screen
 };
 
 /** play the game */
 Game.prototype.play = function () {
+  this.frames++;
   this.animationId = requestAnimationFrame(this.play.bind(this));
   if (!this.gameStarted) {
     this.showStartScreen();
@@ -25,10 +29,6 @@ Game.prototype.play = function () {
     this.showGameOverScreen();
     return;
   }
-  this.clearScreen();
-  this.background.draw(this.ctx);
-  this.ground.draw(this.ctx);
-  this.frames++;
   this.draw();
 };
 
@@ -50,10 +50,10 @@ Game.prototype.initGame = function () {
 
 /** draw the game objects */
 Game.prototype.draw = function () {
-  this.handleCollisons();
   this.clearScreen();
   this.background.draw(this.ctx);
   this.ground.draw(this.ctx);
+  this.handleCollisons();
   this.drawPipes();
   this.bird.draw(this.ctx);
   this.bird.update(this.frames % BIRD_UPDATE_TIME === 0);
@@ -121,9 +121,19 @@ Game.prototype.handleCollisons = function () {
 /**Initiaize the start screen */
 Game.prototype.initStartScreen = function () {
   var that = this;
-  var gameStartHandler = function () {
-    that.initGame();
-    that.canvas.removeEventListener('click', gameStartHandler);
+  var gameStartHandler = function (ev) {
+    var x = ev.clientX - that.canvas.offsetLeft;
+    var y = ev.clientY - that.canvas.offsetTop;
+    //if clicked on play button
+    if (
+      x >= playBtnPos.dX &&
+      x <= playBtnPos.dX + playBtnPos.dWidth &&
+      y >= playBtnPos.dY &&
+      y <= playBtnPos.dY + playBtnPos.dHeight
+    ) {
+      that.canvas.removeEventListener('click', gameStartHandler);
+      that.initGame();
+    }
   };
   this.canvas.addEventListener('click', gameStartHandler);
 };
@@ -133,6 +143,8 @@ Game.prototype.showStartScreen = function () {
   this.clearScreen();
   this.background.draw(this.ctx);
   this.ground.draw(this.ctx);
+  this.bird.draw(this.ctx);
+  this.bird.update(this.frames % BIRD_UPDATE_TIME == 0);
   this.ctx.drawImage(
     sprite,
     START_SC.sX,
@@ -143,6 +155,18 @@ Game.prototype.showStartScreen = function () {
     START_SC.dY,
     START_SC.width,
     START_SC.height
+  );
+  //draw play btn
+  this.ctx.drawImage(
+    playBtn,
+    playBtnPos.sX,
+    playBtnPos.sY,
+    playBtnPos.sWidth,
+    playBtnPos.sHeight,
+    playBtnPos.dX,
+    playBtnPos.dY,
+    playBtnPos.dWidth,
+    playBtnPos.dHeight
   );
 };
 
