@@ -1,1 +1,1 @@
-const plot = new Plot(document.querySelector(".canvas"), true);
+const visualizer = new Visualizer(document.querySelector('.root'));

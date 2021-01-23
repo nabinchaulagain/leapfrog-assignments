@@ -5,11 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <canvas class="canvas"></canvas>
-    <script src="js/plot.js"></script>
+    <div class="root">
+      <canvas class="canvas"></canvas>
+      <button class="vis-btn">Train & Visualize</button>
+    </div>
+    <script src="js/constants.js"></script>
+    <script src="js/Plot.js"></script>
+    <script src="js/LogisticRegression.js"></script>
+    <script src="js/Visualizer.js"></script>
     <script src="js/index.js"></script>
   </body>
 </html>
