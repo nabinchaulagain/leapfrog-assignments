@@ -4,10 +4,18 @@ class Visualizer {
     this.algorithm = LogisticRegression;
     this.canvas = this.rootElement.querySelector('.canvas');
     this.plot = new Plot(this.canvas, true);
-    this.confusionMatrix = new ConfusionMatrix(this.rootElement);
-    this.confusionMatrix.render();
+    this.initAnalysis();
     this.addEventListeners();
   }
+
+  initAnalysis() {
+    this.analysisContainer = document.createElement('div');
+    this.analysisContainer.classList.add('analysis-container');
+    this.rootElement.appendChild(this.analysisContainer);
+    this.confusionMatrix = new ConfusionMatrix(this.analysisContainer);
+    this.confusionMatrix.render();
+  }
+
   addEventListeners() {
     const visualizeBtn = this.rootElement.querySelector('.vis-btn');
     visualizeBtn.addEventListener('click', () => {
