@@ -2,23 +2,10 @@ function sigmoid(x) {
   return 1 / (1 + Math.exp(-x));
 }
 class MinMaxScaler {
-  constructor(X) {
-    this.min = [Number.MAX_VALUE, Number.MAX_VALUE];
-    this.max = [Number.MIN_VALUE, Number.MIN_VALUE];
-    for (let i = 0; i < X.length; i++) {
-      if (X[i][0] < this.min[0]) {
-        this.min[0] = X[i][0];
-      }
-      if (X[i][0] > this.max[0]) {
-        this.max[0] = X[i][0];
-      }
-      if (X[i][1] < this.min[1]) {
-        this.min[1] = X[i][1];
-      }
-      if (X[i][1] > this.max[1]) {
-        this.max[1] = X[i][1];
-      }
-    }
+  constructor(min, max) {
+    this.min = min;
+    this.max = max;
+    console.log(max);
   }
 
   scaleSingle(x) {
@@ -31,10 +18,7 @@ class MinMaxScaler {
     const scaled = [];
     for (let i = 0; i < X.length; i++) {
       const x = X[i];
-      scaled[i] = [
-        (x[0] - this.min[0]) / (this.max[0] - this.min[0]),
-        (x[1] - this.min[1]) / (this.max[1] - this.min[1]),
-      ];
+      scaled[i] = this.scaleSingle(x);
     }
     return scaled;
   }
@@ -42,8 +26,8 @@ class MinMaxScaler {
 
 class LogisticRegression {
   constructor() {
-    this.m1 = 5;
-    this.m2 = 5;
+    this.m1 = Math.random();
+    this.m2 = Math.random();
     this.b = 0;
     this.learningRate = 0.1;
   }
@@ -69,7 +53,6 @@ class LogisticRegression {
       const prediction = this.predict(X[i]);
       results.push(outputLabels ? (prediction > 0.5 ? 1 : 0) : prediction);
     }
-    console.log(results);
     return results;
   }
 
@@ -84,7 +67,7 @@ class LogisticRegression {
         dM2 += (prediction - Y[j]) * X[j][1];
         dB += prediction - Y[j];
       }
-      console.log(`epoch ${i}: ${this.calcCost(X, Y)}`);
+      // console.log(`epoch ${i}: ${this.calcCost(X, Y)}`);
       this.m1 -= this.learningRate * dM1;
       this.m2 -= this.learningRate * dM2;
       this.b -= this.learningRate * dB;

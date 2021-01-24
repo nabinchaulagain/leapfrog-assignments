@@ -25,19 +25,18 @@ class Visualizer {
       return;
     }
     this.plot.clear();
-    this.scaler = new MinMaxScaler(this.plot.points);
+    this.scaler = new MinMaxScaler([0, 0], [this.plot.width, this.plot.height]);
     const pointsScaled = this.scaler.scale(this.plot.points);
     this.classifier = new this.algorithm();
     this.classifier.train(pointsScaled, this.plot.pointLabels, 1000);
     for (let i = 0; i <= this.plot.width - TILE_SIZE; i += TILE_SIZE) {
       for (let j = 0; j <= this.plot.height - TILE_SIZE; j += TILE_SIZE) {
-        const x = i;
-        const y = j;
-        const point = this.scaler.scaleSingle([x, y]);
-        const pred = this.classifier.predict(point);
+        const x = i / this.plot.width;
+        const y = j / this.plot.height;
+        const pred = this.classifier.predict([x, y]);
         this.plot.drawSquare(
-          x,
-          y,
+          i,
+          j,
           TILE_SIZE,
           TILE_SIZE,
           pred > 0.5 ? C2_BG_COLOR : C1_BG_COLOR
