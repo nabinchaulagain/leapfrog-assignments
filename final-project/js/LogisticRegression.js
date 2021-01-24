@@ -37,14 +37,7 @@ class LogisticRegression {
   }
 
   calcCost(X, Y) {
-    let cost = 0;
-    for (let i = 0; i < X.length; i++) {
-      const prediction = this.predict(X[i]);
-      const label = Y[i];
-      cost +=
-        label * Math.log(prediction) + (1 - label) * Math.log(1 - prediction);
-    }
-    return (-1 / X.length) * cost;
+    return (-1 / X.length) * crossEntropy(this.predictMany(X), Y);
   }
 
   predictMany(X, outputLabels = false) {

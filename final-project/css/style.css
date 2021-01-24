@@ -17,7 +17,7 @@ body {
   margin-bottom: 8px;
 }
 
-.analysis-container {
+.evaluation-container {
   display: inline-block;
 }
 .confusion-matrix {
@@ -36,4 +36,9 @@ body {
   border: 1px solid black;
   font-size: 50px;
   padding: 20px 40px;
+}
+.evaluation-scores {
+  text-align: center;
+  margin-top: 32px;
+  font-size: 22px;
 }

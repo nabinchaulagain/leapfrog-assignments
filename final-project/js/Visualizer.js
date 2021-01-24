@@ -4,27 +4,27 @@ class Visualizer {
     this.algorithm = LogisticRegression;
     this.canvas = this.rootElement.querySelector('.canvas');
     this.plot = new Plot(this.canvas, true);
-    this.initAnalysis();
+    this.initEvaluation();
     this.addEventListeners();
   }
 
-  initAnalysis() {
-    this.analysisContainer = document.createElement('div');
-    this.analysisContainer.classList.add('analysis-container');
-    this.rootElement.appendChild(this.analysisContainer);
-    this.confusionMatrix = new ConfusionMatrix(this.analysisContainer);
+  initEvaluation() {
+    this.evaluationContainer = document.createElement('div');
+    this.evaluationContainer.classList.add('evaluation-container');
+    this.rootElement.appendChild(this.evaluationContainer);
+    this.confusionMatrix = new ConfusionMatrix(this.evaluationContainer);
     this.confusionMatrix.render();
+    this.evaluationScoresDisplayer = document.createElement('div');
+    this.evaluationScoresDisplayer.classList.add('evaluation-scores');
+    this.evaluationScoresDisplayer.innerHTML = 'Accuracy: n/a';
+    this.evaluationContainer.appendChild(this.evaluationScoresDisplayer);
   }
 
   addEventListeners() {
     const visualizeBtn = this.rootElement.querySelector('.vis-btn');
     visualizeBtn.addEventListener('click', () => {
       this.visualizeBoundary();
-      const pointsScaled = this.scaler.scale(this.plot.points);
-      this.confusionMatrix.update(
-        this.plot.pointLabels,
-        this.classifier.predictMany(pointsScaled, true)
-      );
+      this.evaluate();
     });
   }
 
@@ -52,5 +52,13 @@ class Visualizer {
       }
     }
     this.plot.redraw();
+  }
+
+  evaluate() {
+    const pointsScaled = this.scaler.scale(this.plot.points);
+    const predictions = this.classifier.predictMany(pointsScaled, true);
+    this.confusionMatrix.update(this.plot.pointLabels, predictions);
+    const acc = accuracy(predictions, this.plot.pointLabels);
+    this.evaluationScoresDisplayer.innerHTML = `Accuracy: ${acc.toFixed(2)}%`;
   }
 }
