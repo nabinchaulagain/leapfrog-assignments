@@ -63,11 +63,13 @@ class LogisticRegression {
     return (-1 / X.length) * cost;
   }
 
-  predictMany(X) {
+  predictMany(X, outputLabels = false) {
     const results = [];
     for (let i = 0; i < X.length; i++) {
-      results.push(this.predict(X[i]));
+      const prediction = this.predict(X[i]);
+      results.push(outputLabels ? (prediction > 0.5 ? 1 : 0) : prediction);
     }
+    console.log(results);
     return results;
   }
 
