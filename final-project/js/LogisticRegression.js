@@ -5,7 +5,6 @@ class MinMaxScaler {
   constructor(min, max) {
     this.min = min;
     this.max = max;
-    console.log(max);
   }
 
   scaleSingle(x) {
@@ -30,6 +29,20 @@ class LogisticRegression {
     this.m2 = Math.random();
     this.b = 0;
     this.learningRate = 0.1;
+  }
+
+  static hyperParamDefinition() {
+    return {
+      learningRate: {
+        type: HYPER_PARAM_TYPES.NUMBER,
+        default: 0.1,
+        range: { min: 0.001, max: 5 },
+      },
+      epochs: {
+        type: HYPER_PARAM_TYPES.NUMBER,
+        default: 1000,
+      },
+    };
   }
 
   predict(x) {

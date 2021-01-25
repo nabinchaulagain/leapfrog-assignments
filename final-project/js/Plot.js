@@ -1,22 +1,28 @@
 class Plot {
   /**
-   * @param {HTMLCanvasElement} canvas
+   * @param {HTMLElement} container
    * @param {boolean} isInteractive
    * @param {number} width
    * @param {number} height
    */
-  constructor(canvas, isInteractive, width = 500, height = 500) {
-    this.canvas = canvas;
-    this.width = width;
-    this.height = height;
-    this.canvas.width = width;
-    this.canvas.height = height;
+  constructor(container, isInteractive, width = 500, height = 500) {
+    this.initCanvas(container, width, height);
     this.ctx = this.canvas.getContext('2d');
     if (isInteractive) {
       this.attachControls();
     }
     this.points = [];
     this.pointLabels = [];
+  }
+
+  initCanvas(container, width, height) {
+    this.canvas = document.createElement('canvas');
+    this.canvas.classList.add('canvas');
+    this.width = width;
+    this.height = height;
+    this.canvas.width = width;
+    this.canvas.height = height;
+    container.appendChild(this.canvas);
   }
 
   /**

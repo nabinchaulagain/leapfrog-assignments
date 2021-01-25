@@ -2,10 +2,20 @@ class Visualizer {
   constructor(rootElement) {
     this.rootElement = rootElement;
     this.algorithm = LogisticRegression;
-    this.canvas = this.rootElement.querySelector('.canvas');
-    this.plot = new Plot(this.canvas, true);
+    this.initHyperParams();
+    this.visContainer = document.createElement('div');
+    this.visContainer.classList.add('root-container');
+    this.initPlot();
     this.initEvaluation();
     this.addEventListeners();
+  }
+
+  initPlot() {
+    this.plot = new Plot(this.visContainer, true);
+    this.visBtn = document.createElement('button');
+    this.visBtn.innerHTML = 'Train & Visualize';
+    this.visContainer.appendChild(this.visBtn);
+    this.rootElement.appendChild(this.visContainer);
   }
 
   initEvaluation() {
@@ -20,9 +30,15 @@ class Visualizer {
     this.evaluationContainer.appendChild(this.evaluationScoresDisplayer);
   }
 
+  initHyperParams() {
+    this.hyperParams = new HyperParameterList(
+      this.rootElement,
+      this.algorithm.hyperParamDefinition()
+    );
+  }
+
   addEventListeners() {
-    const visualizeBtn = this.rootElement.querySelector('.vis-btn');
-    visualizeBtn.addEventListener('click', () => {
+    this.visBtn.addEventListener('click', () => {
       this.visualizeBoundary();
       this.evaluate();
     });

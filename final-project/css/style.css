@@ -3,14 +3,36 @@ body {
 }
 .root {
   display: inline-block;
-  margin-top: 32px;
 }
 .root-container {
   float: left;
   text-align: center;
   margin: 0 16px;
 }
+.hyperparam-list {
+  margin: 32px 0;
+}
+.hyperparam-list li {
+  display: inline;
+  margin-right: 24px;
+}
 
+.hyperparam-list label,
+.hyperparam-list input,
+.hyperparam-list select,
+.hyperparam-list option {
+  font-size: 18px;
+  margin-right: 8px;
+  padding: 2px 10px;
+}
+
+.hyperparam-list input[type='range'] {
+  padding: 0;
+}
+
+.hyperparam-list label {
+  font-size: 24px;
+}
 .canvas {
   border: 1px solid black;
   display: block;
