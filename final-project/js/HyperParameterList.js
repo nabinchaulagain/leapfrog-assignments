@@ -26,7 +26,6 @@ class HyperParameterList {
         }
         this.showErrors();
       };
-      handleChange();
       hyperParam.el.addChangeListener(handleChange);
     }
   }
@@ -34,7 +33,10 @@ class HyperParameterList {
   showErrors() {
     const errors = Object.values(this.errors).filter((err) => err);
     if (Object.values(errors).length === 0) {
-      this.errorEl && this.el.removeChild(this.errorEl);
+      if (this.errorEl) {
+        this.el.removeChild(this.errorEl);
+        this.errorEl = null;
+      }
       return;
     }
     if (!this.errorEl) {
