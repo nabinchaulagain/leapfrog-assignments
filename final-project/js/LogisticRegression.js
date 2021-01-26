@@ -41,6 +41,7 @@ class LogisticRegression {
       epochs: {
         type: HYPER_PARAM_TYPES.NUMBER,
         default: 1000,
+        range: { min: 1, max: 1000 },
       },
     };
   }
