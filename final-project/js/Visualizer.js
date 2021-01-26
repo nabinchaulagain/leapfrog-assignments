@@ -37,17 +37,26 @@ class Visualizer {
     );
   }
 
+  validate() {
+    if (this.plot.points.length < 1 || this.hyperParams.hasErrors()) {
+      return false;
+    }
+    this.hyperParams.validateData(this.plot.points);
+    if (this.hyperParams.hasErrors()) {
+      return false;
+    }
+    return true;
+  }
   addEventListeners() {
     this.visBtn.addEventListener('click', () => {
-      this.visualizeBoundary();
-      this.evaluate();
+      if (this.validate()) {
+        this.visualizeBoundary();
+        this.evaluate();
+      }
     });
   }
 
   visualizeBoundary() {
-    if (this.plot.points.length < 1) {
-      return;
-    }
     this.plot.clear();
     this.scaler = new MinMaxScaler([0, 0], [this.plot.width, this.plot.height]);
     const pointsScaled = this.scaler.scale(this.plot.points);

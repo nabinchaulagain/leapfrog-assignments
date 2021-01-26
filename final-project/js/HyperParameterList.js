@@ -8,6 +8,7 @@ class HyperParameterList {
   }
 
   initChildren(hyperParams) {
+    this.list = [];
     this.values = {};
     this.errors = {};
     for (const key in hyperParams) {
@@ -18,6 +19,9 @@ class HyperParameterList {
       this.errors[key] = null;
       const handleChange = () => {
         this.values[key] = hyperParam.el.value;
+        if (!hyperParam.el.validate) {
+          return;
+        }
         const errorMsg = hyperParam.el.validate();
         if (errorMsg) {
           this.errors[key] = `${camelCaseToWord(key)} ${errorMsg}`;
@@ -27,6 +31,7 @@ class HyperParameterList {
         this.showErrors();
       };
       hyperParam.el.addChangeListener(handleChange);
+      this.list.push(hyperParam);
     }
   }
 
@@ -44,12 +49,31 @@ class HyperParameterList {
       this.errorEl.classList.add('error');
       this.el.appendChild(this.errorEl);
     }
-    this.errorEl.innerText = Object.values(errors).join(',');
+    this.errorEl.innerText = strArrayToSentence(Object.values(errors));
+  }
+
+  hasErrors() {
+    const errors = Object.values(this.errors).filter((err) => err);
+    return errors.length !== 0;
+  }
+
+  validateData(data) {
+    for (const hParam of this.list) {
+      if (!hParam.dataValidator) {
+        continue;
+      }
+      const error = hParam.dataValidator(data);
+      if (error) {
+        this.errors[hParam.key] = `${camelCaseToWord(hParam.key)} ${error}`;
+      }
+    }
+    this.showErrors();
   }
 }
 
 class HyperParameter {
   constructor(key, hyperParamSchema) {
+    this.key = key;
     this.li = document.createElement('li');
     this.li.innerHTML = `<label for="${key}">${camelCaseToWord(key)}</label>`;
     switch (hyperParamSchema.type) {
@@ -64,6 +88,9 @@ class HyperParameter {
         break;
     }
     this.el.attach(this.li);
+    if (hyperParamSchema.dataValidator) {
+      this.dataValidator = hyperParamSchema.dataValidator;
+    }
   }
 }
 
@@ -120,6 +147,7 @@ class Enum {
     if (!schema.defaultIdx) {
       schema.defaultIdx = 0;
     }
+    this.value = schema.options[schema.defaultIdx];
     this.init(id, schema.default, schema.options);
   }
 
