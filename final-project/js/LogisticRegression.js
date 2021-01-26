@@ -28,7 +28,6 @@ class LogisticRegression {
     this.m1 = Math.random();
     this.m2 = Math.random();
     this.b = 0;
-    this.learningRate = 0.1;
   }
 
   static hyperParamDefinition() {
@@ -41,7 +40,7 @@ class LogisticRegression {
       epochs: {
         type: HYPER_PARAM_TYPES.NUMBER,
         default: 1000,
-        range: { min: 1, max: 1000 },
+        range: { min: 1, max: 10000 },
       },
     };
   }
@@ -63,7 +62,8 @@ class LogisticRegression {
     return results;
   }
 
-  train(X, Y, epochs = 100) {
+  train(X, Y) {
+    const { learningRate, epochs } = this.hyperParams;
     for (let i = 0; i < epochs; i++) {
       let dM1 = 0;
       let dM2 = 0;
@@ -75,9 +75,9 @@ class LogisticRegression {
         dB += prediction - Y[j];
       }
       // console.log(`epoch ${i}: ${this.calcCost(X, Y)}`);
-      this.m1 -= this.learningRate * dM1;
-      this.m2 -= this.learningRate * dM2;
-      this.b -= this.learningRate * dB;
+      this.m1 -= learningRate * dM1;
+      this.m2 -= learningRate * dM2;
+      this.b -= learningRate * dB;
     }
   }
 }

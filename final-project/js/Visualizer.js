@@ -52,6 +52,7 @@ class Visualizer {
     this.scaler = new MinMaxScaler([0, 0], [this.plot.width, this.plot.height]);
     const pointsScaled = this.scaler.scale(this.plot.points);
     this.classifier = new this.algorithm();
+    this.classifier.hyperParams = this.hyperParams.values; //inject hyperparams into classifier
     this.classifier.train(pointsScaled, this.plot.pointLabels, 1000);
     for (let i = 0; i <= this.plot.width - TILE_SIZE; i += TILE_SIZE) {
       for (let j = 0; j <= this.plot.height - TILE_SIZE; j += TILE_SIZE) {
