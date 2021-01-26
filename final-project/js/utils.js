@@ -14,3 +14,6 @@ const strArrayToSentence = (arr) => {
     ' and '
   );
 };
+
+/** generate random number in range */
+const random = (min, max) => Math.random() * (max - min) + min;
