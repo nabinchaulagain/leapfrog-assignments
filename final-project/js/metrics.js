@@ -9,10 +9,11 @@ function accuracy(preds, labels) {
 }
 
 function crossEntropy(preds, labels) {
+  const [rows] = preds.shape;
   let result = 0;
-  for (let i = 0; i < preds.length; i++) {
-    const pred = preds[i];
-    const label = labels[i];
+  for (let i = 0; i < rows; i++) {
+    const pred = preds.data[i][0];
+    const label = labels.data[i][0];
     result += label * Math.log(pred) + (1 - label) * Math.log(1 - pred);
   }
   return result;

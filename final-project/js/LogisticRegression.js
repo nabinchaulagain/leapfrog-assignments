@@ -24,60 +24,57 @@ class MinMaxScaler {
 }
 
 class LogisticRegression {
+  static requiresDesignMatrix = true;
+
+  static requiresFeatureScaling = true;
+
+  static hyperParamDefinition = {
+    learningRate: {
+      type: HYPER_PARAM_TYPES.NUMBER,
+      default: 0.1,
+      range: { min: 0.001, max: 50 },
+    },
+    epochs: {
+      type: HYPER_PARAM_TYPES.NUMBER,
+      default: 1000,
+      range: { min: 1, max: 10000 },
+    },
+  };
+
   constructor() {
-    this.m1 = Math.random();
-    this.m2 = Math.random();
-    this.b = 0;
+    this.params = Matrix.randomMatrix(3, 1);
   }
 
-  static hyperParamDefinition() {
-    return {
-      learningRate: {
-        type: HYPER_PARAM_TYPES.NUMBER,
-        default: 0.1,
-        range: { min: 0.001, max: 5 },
-      },
-      epochs: {
-        type: HYPER_PARAM_TYPES.NUMBER,
-        default: 1000,
-        range: { min: 1, max: 10000 },
-      },
-    };
-  }
-
-  predict(x) {
-    return sigmoid(this.m1 * x[0] + this.m2 * x[1] + this.b);
+  predict(x, outputLabel = true) {
+    const xVec = new Matrix([[1, ...x]]);
+    let res = xVec.dot(this.params).applyFunc(sigmoid);
+    res = res.flatten();
+    if (outputLabel) {
+      return res > 0.5 ? 1 : 0;
+    }
+    return res;
   }
 
   calcCost(X, Y) {
-    return (-1 / X.length) * crossEntropy(this.predictMany(X), Y);
+    const [len] = X.shape;
+    const preds = this.predictMany(X, false);
+    return (-1 / len) * crossEntropy(preds, Y);
   }
 
-  predictMany(X, outputLabels = false) {
-    const results = [];
-    for (let i = 0; i < X.length; i++) {
-      const prediction = this.predict(X[i]);
-      results.push(outputLabels ? (prediction > 0.5 ? 1 : 0) : prediction);
+  predictMany(X, outputLabels = true) {
+    let result = X.dot(this.params).applyFunc(sigmoid);
+    if (outputLabels) {
+      result = result.applyFunc((pred) => (pred > 0.5 ? 1 : 0));
     }
-    return results;
+    return result;
   }
 
   train(X, Y) {
     const { learningRate, epochs } = this.hyperParams;
     for (let i = 0; i < epochs; i++) {
-      let dM1 = 0;
-      let dM2 = 0;
-      let dB = 0;
-      for (let j = 0; j < X.length; j++) {
-        const prediction = this.predict(X[j]);
-        dM1 += (prediction - Y[j]) * X[j][0];
-        dM2 += (prediction - Y[j]) * X[j][1];
-        dB += prediction - Y[j];
-      }
-      // console.log(`epoch ${i}: ${this.calcCost(X, Y)}`);
-      this.m1 -= learningRate * dM1;
-      this.m2 -= learningRate * dM2;
-      this.b -= learningRate * dB;
+      const yHat = this.predictMany(X, false);
+      const delta = X.transpose().dot(yHat.subtract(Y));
+      this.params = this.params.subtract(delta.scalarMultiply(learningRate));
     }
   }
 }

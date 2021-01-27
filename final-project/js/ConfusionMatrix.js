@@ -10,10 +10,7 @@ class ConfusionMatrix {
 
   initData() {
     this.min = 0;
-    this.matrix = [
-      [0, 0],
-      [0, 0],
-    ];
+    this.matrix = Matrix.zeros(2, 2);
     this.max = 0;
   }
 
@@ -22,28 +19,20 @@ class ConfusionMatrix {
     for (let i = 0; i < labels.length; i++) {
       const label = labels[i];
       const prediction = predictions[i];
-      this.matrix[prediction][label]++;
+      this.matrix.data[prediction][label]++;
     }
-    this.min = Math.min(
-      this.matrix[0][0],
-      this.matrix[0][1],
-      this.matrix[1][0],
-      this.matrix[1][1]
-    );
-    this.max = Math.max(
-      this.matrix[0][0],
-      this.matrix[0][1],
-      this.matrix[1][0],
-      this.matrix[1][1]
-    );
+    this.min = Math.max(...this.matrix.min()); //get min value from entire matrix
+    this.max = Math.max(...this.matrix.max()); //get max value from entire matrix
     this.render();
   }
+
   render() {
     const tds = [];
-    for (let i = 0; i < this.matrix.length; i++) {
+    const [rows, cols] = this.matrix.shape;
+    for (let i = 0; i < rows; i++) {
       tds.push([]);
-      for (let j = 0; j < this.matrix[0].length; j++) {
-        const val = this.matrix[i][j];
+      for (let j = 0; j < cols; j++) {
+        const val = this.matrix.data[i][j];
         let style = `background:rgba(10,50,128,${val / this.max});`;
         style += `color:${val / this.max > 0.5 ? '#fff' : '#000'}`;
         const td = `<td class="data-column" style="${

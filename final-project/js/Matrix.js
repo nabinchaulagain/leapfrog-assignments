@@ -15,11 +15,30 @@ class Matrix {
    * @param {number} min - maximum value of random number
    */
   static randomMatrix(rows, cols, min = -1, max = 1) {
+    return Matrix.generateMatrix(rows, cols, () => random(min, max));
+  }
+
+  /**
+   * generate random matrix
+   * @param {number} rows - no. of rows
+   * @param {number} cols - no. of columns
+   */
+  static zeros(rows, cols) {
+    return Matrix.generateMatrix(rows, cols, () => 0);
+  }
+
+  /**
+   * generate matrix based on generate function
+   * @param {number} rows - no. of rows
+   * @param {number} cols - no. of columns
+   * @param {function} generateFn - element generation function
+   */
+  static generateMatrix(rows, cols, generateFn) {
     const data = [];
     for (let i = 0; i < rows; i++) {
       data[i] = [];
       for (let j = 0; j < cols; j++) {
-        data[i][j] = random(min, max);
+        data[i][j] = generateFn();
       }
     }
     return new Matrix(data);
@@ -100,22 +119,21 @@ class Matrix {
   }
 
   /**
-   * return scalar multiplication of matrix with scalar
-   * @param {number} scalar - multiplier
-   * @returns {Matrix} scalar product result
-   */
-  scalarMultiply(scalar) {
-    const newData = this.data.map((row) => row.map((val) => scalar * val));
-    return new Matrix(newData);
-  }
-
-  /**
    * return element wise addition of 2 matrices
    * @param {Matrix} mat - operand matrix
    * @returns {Matrix} resultant matrix of element-wise addition between this matrix and mat
    */
   add(mat) {
     return this.elementWiseOperation(mat, (val1, val2) => val1 + val2);
+  }
+
+  /**
+   * return element wise difference of 2 matrices
+   * @param {Matrix} mat - operand matrix
+   * @returns {Matrix} resultant matrix of element-wise difference between this matrix and mat
+   */
+  subtract(mat) {
+    return this.elementWiseOperation(mat, (val1, val2) => val1 - val2);
   }
 
   /**
@@ -152,6 +170,87 @@ class Matrix {
     }
     return resArr;
   }
+
+  /**
+   * apply a function to each element in matrix
+   * @param {function} func
+   * @returns {Matrix} matrix containing the results of func being applied to each element in the matrix
+   */
+  applyFunc(func) {
+    const newData = this.data.map((row) => row.map((data) => func(data)));
+    return new Matrix(newData);
+  }
+
+  /**
+   *  return matrix after given scalar addition
+   * @param {number} scalar
+   * @returns {Matrix} new matrix
+   */
+  scalarAddition(scalar) {
+    return this.applyFunc((data) => data + scalar);
+  }
+
+  /**
+   * return scalar multiplication of matrix with scalar
+   * @param {number} scalar - multiplier
+   * @returns {Matrix} scalar product result
+   */
+  scalarMultiply(scalar) {
+    return this.applyFunc((data) => data * scalar);
+  }
+
+  /**
+   * returns a matrix with a inserted a row in this matrix
+   * @param {number[]} val
+   * @returns {Matrix} matrix with inserted row at the end
+   */
+  insertRow(val) {
+    const newData = this.clone().data;
+    newData.push(val);
+    return new Matrix(newData);
+  }
+
+  /**
+   * returns a matrix with column inserted
+   * @param {number | number[]} val
+   * @returns {Matrix} matrix with column inserted at the beginning
+   */
+  insertCol(val) {
+    const newData = this.clone().data;
+    for (let i = 0; i < newData.length; i++) {
+      if (Array.isArray(val)) {
+        newData[i].unshift(val[i]);
+      } else {
+        newData[i].unshift(val);
+      }
+    }
+    return new Matrix(newData);
+  }
+
+  /**
+   * returns copy of matrix
+   * @returns {Matrix} clone of this matrix
+   */
+  clone() {
+    const clonedData = this.data.map((row) => [...row]);
+    return new Matrix(clonedData);
+  }
+  /**
+   * return number or 1d array
+   * @returns {number|number[]} number or vectors
+   */
+  flatten() {
+    const [rows, cols] = this.shape;
+    if (rows === 1 && cols === 1) {
+      return this.data[0][0];
+    } else if (rows === 1) {
+      return this.data[0];
+    } else if (cols === 1) {
+      return this.data.map((row) => row[0]);
+    }
+    throw new Error(`Can't flatten ${rows} X ${cols}`);
+  }
+
   /** print matrix */
   print() {
     console.table(this.data);

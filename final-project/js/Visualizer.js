@@ -33,7 +33,7 @@ class Visualizer {
   initHyperParams() {
     this.hyperParams = new HyperParameterList(
       this.rootElement,
-      this.algorithm.hyperParamDefinition()
+      this.algorithm.hyperParamDefinition
     );
   }
 
@@ -58,11 +58,22 @@ class Visualizer {
 
   visualizeBoundary() {
     this.plot.clear();
-    this.scaler = new MinMaxScaler([0, 0], [this.plot.width, this.plot.height]);
-    const pointsScaled = this.scaler.scale(this.plot.points);
+    let points = this.plot.points;
+    if (this.algorithm.requiresFeatureScaling) {
+      const scaler = new MinMaxScaler(
+        [0, 0],
+        [this.plot.width, this.plot.height]
+      );
+      points = scaler.scale(this.plot.points);
+    }
     this.classifier = new this.algorithm();
     this.classifier.hyperParams = this.hyperParams.values; //inject hyperparams into classifier
-    this.classifier.train(pointsScaled, this.plot.pointLabels, 1000);
+    this.X = new Matrix(points);
+    if (this.algorithm.requiresDesignMatrix) {
+      this.X = this.X.insertCol(1); // insert 1 at the start of each row to make design matrix
+    }
+    this.Y = new Matrix([this.plot.pointLabels]).transpose();
+    this.classifier.train(this.X, this.Y);
     for (let i = 0; i <= this.plot.width - TILE_SIZE; i += TILE_SIZE) {
       for (let j = 0; j <= this.plot.height - TILE_SIZE; j += TILE_SIZE) {
         const x = i / this.plot.width;
@@ -81,8 +92,8 @@ class Visualizer {
   }
 
   evaluate() {
-    const pointsScaled = this.scaler.scale(this.plot.points);
-    const predictions = this.classifier.predictMany(pointsScaled, true);
+    let predictions = this.classifier.predictMany(this.X, this.Y);
+    predictions = predictions.flatten(); // flatten matrix to array
     this.confusionMatrix.update(this.plot.pointLabels, predictions);
     const acc = accuracy(predictions, this.plot.pointLabels);
     this.evaluationScoresDisplayer.innerHTML = `Accuracy: ${acc.toFixed(2)}%`;
