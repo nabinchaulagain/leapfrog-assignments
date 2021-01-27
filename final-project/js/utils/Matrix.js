@@ -237,6 +237,7 @@ class Matrix {
     const clonedData = this.data.map((row) => [...row]);
     return new Matrix(clonedData);
   }
+
   /**
    * return number or 1d array
    * @returns {number|number[]} number or vectors

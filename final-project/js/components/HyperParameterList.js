@@ -1,7 +1,12 @@
 import { camelCaseToWord, strArrayToSentence } from '../utils/misc.js';
 import HyperParameter from './hyperparams/HyperParameter.js';
 
+/** represents a list of hyperparameters */
 class HyperParameterList {
+  /**
+   * @param {HTMLElement} rootElem
+   * @param {Object} hyperParams
+   */
   constructor(rootElem, hyperParams) {
     this.rootElem = rootElem;
     this.el = document.createElement('ul');
@@ -10,6 +15,10 @@ class HyperParameterList {
     rootElem.appendChild(this.el);
   }
 
+  /**
+   * initialize li's of hyper paramters
+   * @param {Object} hyperParams
+   */
   initChildren(hyperParams) {
     this.list = [];
     this.values = {};
@@ -38,9 +47,9 @@ class HyperParameterList {
     }
   }
 
+  /** show errors on each hyperparameter */
   showErrors() {
-    const errors = Object.values(this.errors).filter((err) => err);
-    if (Object.values(errors).length === 0) {
+    if (!this.hasErrors()) {
       if (this.errorEl) {
         this.el.removeChild(this.errorEl);
         this.errorEl = null;
@@ -52,14 +61,31 @@ class HyperParameterList {
       this.errorEl.classList.add('error');
       this.el.appendChild(this.errorEl);
     }
-    this.errorEl.innerText = strArrayToSentence(Object.values(errors));
+    this.errorEl.innerText = strArrayToSentence(this.getErrors());
   }
 
-  hasErrors() {
+  /**
+   * returns array of errors
+   * @returns {string[]} array of error messages
+   */
+  getErrors() {
     const errors = Object.values(this.errors).filter((err) => err);
+    return errors;
+  }
+
+  /**
+   * returns whether or not any hyperparmater has any errors
+   * @returns {boolean} boolean indicating whether any hyperparameter has any error or not
+   */
+  hasErrors() {
+    const errors = this.getErrors();
     return errors.length !== 0;
   }
 
+  /**
+   *  validate each of the hyperparameters on the plot data
+   * @param {number[][]} data - 2d array of points
+   */
   validateData(data) {
     for (const hParam of this.list) {
       if (!hParam.dataValidator) {

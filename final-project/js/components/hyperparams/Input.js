@@ -1,4 +1,8 @@
 class Input {
+  /**
+   * @param {string} id - id of element
+   * @param {Object} schema - hyperparam schema
+   */
   constructor(id, schema) {
     if (schema.default === undefined) {
       schema.default = 0;
@@ -7,6 +11,13 @@ class Input {
     this.init(id, schema.type, schema.range, schema.default);
   }
 
+  /**
+   * initialize input element
+   * @param {string} id - id of element
+   * @param {string} type - input type
+   * @param {Object} range - range of input
+   * @param {number} def - default value
+   */
   init(id, type, range, def) {
     this.input = document.createElement('input');
     this.input.setAttribute('id', id);
@@ -20,6 +31,7 @@ class Input {
     }
   }
 
+  /** validate input based on min and max constraints defined in schema*/
   validate() {
     if (isNaN(this.value)) {
       return 'should be a number';
@@ -34,6 +46,10 @@ class Input {
     }
   }
 
+  /**
+   * attach listener to change event
+   * @param {function} cb
+   */
   addChangeListener(cb) {
     this.input.addEventListener('change', (ev) => {
       this.value = parseFloat(ev.target.value);
@@ -41,6 +57,10 @@ class Input {
     });
   }
 
+  /**
+   * attach to parent element
+   * @param {HTMLElement} parent
+   */
   attach(parent) {
     parent.appendChild(this.input);
   }

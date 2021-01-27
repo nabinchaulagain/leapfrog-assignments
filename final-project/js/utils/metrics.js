@@ -1,3 +1,9 @@
+/**
+ * returns accuracy of prediction
+ * @param {number[]} preds - predicted labels
+ * @param {number[]} labels - actual labels
+ * @returns {number} accuracy
+ */
 export function accuracy(preds, labels) {
   let correct = 0;
   for (let i = 0; i < preds.length; i++) {
@@ -8,6 +14,12 @@ export function accuracy(preds, labels) {
   return (correct / preds.length) * 100;
 }
 
+/**
+ * returns cross entropy error
+ * @param {number[]} preds - predicted labels
+ * @param {number[]} labels - actual labels
+ * @returns {number} cross entropy error
+ */
 export function crossEntropy(preds, labels) {
   const [rows] = preds.shape;
   let result = 0;

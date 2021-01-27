@@ -1,6 +1,5 @@
-import LogisticRegression, {
-  MinMaxScaler,
-} from '../algorithms/LogisticRegression.js';
+import LogisticRegression from '../algorithms/LogisticRegression.js';
+import Scaler from '../utils/Scaler.js';
 import HyperParameterList from './HyperParameterList.js';
 import Plot from './Plot.js';
 import Matrix from '../utils/Matrix.js';
@@ -70,10 +69,7 @@ class Visualizer {
     this.plot.clear();
     let points = this.plot.points;
     if (this.algorithm.requiresFeatureScaling) {
-      const scaler = new MinMaxScaler(
-        [0, 0],
-        [this.plot.width, this.plot.height]
-      );
+      const scaler = new Scaler([0, 0], [this.plot.width, this.plot.height]);
       points = scaler.scale(this.plot.points);
     }
     this.classifier = new this.algorithm();

@@ -1,4 +1,8 @@
 class Enum {
+  /**
+   * @param {string} id - id of element
+   * @param {Object} schema - hyperparam schema
+   */
   constructor(id, schema) {
     if (!schema.defaultIdx) {
       schema.defaultIdx = 0;
@@ -7,6 +11,12 @@ class Enum {
     this.init(id, schema.default, schema.options);
   }
 
+  /**
+   *
+   * @param {string} id - id of element
+   * @param {number} defaultIdx - which index should be selected by default
+   * @param {number[]} options - options list
+   */
   init(id, defaultIdx, options) {
     this.select = document.createElement('select');
     this.select.id = id;

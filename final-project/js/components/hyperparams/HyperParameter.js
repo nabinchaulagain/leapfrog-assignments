@@ -4,6 +4,10 @@ import Input from './Input.js';
 import Enum from './Enum.js';
 
 class HyperParameter {
+  /**
+   * @param {string} key - hyperparam name
+   * @param {Object} hyperParamSchema - schema of hyper parameter
+   */
   constructor(key, hyperParamSchema) {
     this.key = key;
     this.li = document.createElement('li');

@@ -1,6 +1,9 @@
 import Matrix from '../utils/Matrix.js';
 
 class ConfusionMatrix {
+  /**
+   * @param {HTMLElement} root - root element
+   */
   constructor(root) {
     this.root = root;
     this.initData();
@@ -10,12 +13,18 @@ class ConfusionMatrix {
     this.root.appendChild(this.table);
   }
 
+  /** initialize data regarding the confusion matrix */
   initData() {
     this.min = 0;
     this.matrix = Matrix.zeros(2, 2);
     this.max = 0;
   }
 
+  /**
+   * update the data based on labels and predictions
+   * @param {number[]} labels - actual classes
+   * @param {number[]} predictions - predicted classes
+   */
   update(labels, predictions) {
     this.initData();
     for (let i = 0; i < labels.length; i++) {
@@ -28,6 +37,7 @@ class ConfusionMatrix {
     this.render();
   }
 
+  /** show the confusion matrix */
   render() {
     const tds = [];
     const [rows, cols] = this.matrix.shape;

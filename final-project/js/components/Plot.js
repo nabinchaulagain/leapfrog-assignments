@@ -17,6 +17,12 @@ class Plot {
     this.pointLabels = [];
   }
 
+  /**
+   * create and initialize properties of canvas
+   * @param {HTMLElement} container - container of the canvas
+   * @param {number} width - width of canvas
+   * @param {number} height - height of canvas
+   */
   initCanvas(container, width, height) {
     this.canvas = document.createElement('canvas');
     this.canvas.classList.add('canvas');
