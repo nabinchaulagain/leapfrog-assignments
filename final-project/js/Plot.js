@@ -1,3 +1,5 @@
+import { C1_COLOR, C2_COLOR, PLOT_POINT_RADIUS } from './constants.js';
+
 class Plot {
   /**
    * @param {HTMLElement} container
@@ -87,3 +89,5 @@ class Plot {
     }
   }
 }
+
+export default Plot;

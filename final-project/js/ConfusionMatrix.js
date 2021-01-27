@@ -1,3 +1,5 @@
+import Matrix from './Matrix.js';
+
 class ConfusionMatrix {
   constructor(root) {
     this.root = root;
@@ -60,3 +62,5 @@ class ConfusionMatrix {
     `;
   }
 }
+
+export default ConfusionMatrix;

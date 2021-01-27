@@ -1,3 +1,5 @@
+import { random } from './utils.js';
+
 class Matrix {
   /**
    * @param {number[][]} data
@@ -256,3 +258,5 @@ class Matrix {
     console.table(this.data);
   }
 }
+
+export default Matrix;

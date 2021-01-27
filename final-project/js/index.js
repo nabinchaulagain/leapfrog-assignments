@@ -1,1 +1,3 @@
-const visualizer = new Visualizer(document.querySelector('.root'));
+import Visualizer from './Visualizer.js';
+
+new Visualizer(document.querySelector('.root'));

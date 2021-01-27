@@ -1,4 +1,4 @@
-function accuracy(preds, labels) {
+export function accuracy(preds, labels) {
   let correct = 0;
   for (let i = 0; i < preds.length; i++) {
     if (preds[i] === labels[i]) {
@@ -8,7 +8,7 @@ function accuracy(preds, labels) {
   return (correct / preds.length) * 100;
 }
 
-function crossEntropy(preds, labels) {
+export function crossEntropy(preds, labels) {
   const [rows] = preds.shape;
   let result = 0;
   for (let i = 0; i < rows; i++) {

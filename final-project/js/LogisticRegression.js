@@ -1,7 +1,11 @@
+import { HYPER_PARAM_TYPES } from './constants.js';
+import Matrix from './Matrix.js';
+
 function sigmoid(x) {
   return 1 / (1 + Math.exp(-x));
 }
-class MinMaxScaler {
+
+export class MinMaxScaler {
   constructor(min, max) {
     this.min = min;
     this.max = max;
@@ -78,3 +82,5 @@ class LogisticRegression {
     }
   }
 }
+
+export default LogisticRegression;

@@ -1,3 +1,11 @@
+import LogisticRegression, { MinMaxScaler } from './LogisticRegression.js';
+import HyperParameterList from './HyperParameterList.js';
+import Plot from './Plot.js';
+import Matrix from './Matrix.js';
+import ConfusionMatrix from './ConfusionMatrix.js';
+import { C1_BG_COLOR, C2_BG_COLOR, TILE_SIZE } from './constants.js';
+import { accuracy } from './metrics.js';
+
 class Visualizer {
   constructor(rootElement) {
     this.rootElement = rootElement;
@@ -84,7 +92,7 @@ class Visualizer {
           j,
           TILE_SIZE,
           TILE_SIZE,
-          pred > 0.5 ? C2_BG_COLOR : C1_BG_COLOR
+          pred == 1 ? C2_BG_COLOR : C1_BG_COLOR
         );
       }
     }
@@ -99,3 +107,5 @@ class Visualizer {
     this.evaluationScoresDisplayer.innerHTML = `Accuracy: ${acc.toFixed(2)}%`;
   }
 }
+
+export default Visualizer;

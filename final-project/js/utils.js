@@ -1,12 +1,12 @@
 /** convert camel case string to word */
-const camelCaseToWord = (str) => {
+export const camelCaseToWord = (str) => {
   let formatted = str.replace(/([A-Z])/g, ' $1');
   formatted = formatted.charAt(0).toUpperCase() + formatted.slice(1);
   return formatted;
 };
 
 /** convert string array to sentence*/
-const strArrayToSentence = (arr) => {
+export const strArrayToSentence = (arr) => {
   if (arr.length === 1) {
     return arr[0];
   }
@@ -16,4 +16,4 @@ const strArrayToSentence = (arr) => {
 };
 
 /** generate random number in range */
-const random = (min, max) => Math.random() * (max - min) + min;
+export const random = (min, max) => Math.random() * (max - min) + min;
