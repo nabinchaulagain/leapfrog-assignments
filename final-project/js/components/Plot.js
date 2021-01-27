@@ -1,4 +1,4 @@
-import { C1_COLOR, C2_COLOR, PLOT_POINT_RADIUS } from './constants.js';
+import { C1_COLOR, C2_COLOR, PLOT_POINT_RADIUS } from '../constants.js';
 
 class Plot {
   /**

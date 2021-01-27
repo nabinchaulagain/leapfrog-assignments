@@ -1,5 +1,5 @@
-import { HYPER_PARAM_TYPES } from './constants.js';
-import Matrix from './Matrix.js';
+import { HYPER_PARAM_TYPES } from '../constants.js';
+import Matrix from '../utils/Matrix.js';
 
 function sigmoid(x) {
   return 1 / (1 + Math.exp(-x));

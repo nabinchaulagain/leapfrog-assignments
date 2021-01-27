@@ -1,10 +1,12 @@
-import LogisticRegression, { MinMaxScaler } from './LogisticRegression.js';
+import LogisticRegression, {
+  MinMaxScaler,
+} from '../algorithms/LogisticRegression.js';
 import HyperParameterList from './HyperParameterList.js';
 import Plot from './Plot.js';
-import Matrix from './Matrix.js';
+import Matrix from '../utils/Matrix.js';
 import ConfusionMatrix from './ConfusionMatrix.js';
-import { C1_BG_COLOR, C2_BG_COLOR, TILE_SIZE } from './constants.js';
-import { accuracy } from './metrics.js';
+import { C1_BG_COLOR, C2_BG_COLOR, TILE_SIZE } from '../constants.js';
+import { accuracy } from '../utils/metrics.js';
 
 class Visualizer {
   constructor(rootElement) {

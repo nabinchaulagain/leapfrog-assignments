@@ -1,4 +1,4 @@
-import Matrix from './Matrix.js';
+import Matrix from '../utils/Matrix.js';
 
 class ConfusionMatrix {
   constructor(root) {
