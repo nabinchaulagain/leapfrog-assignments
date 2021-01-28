@@ -9,7 +9,11 @@ import { accuracy } from '../utils/metrics.js';
 import FileManager from './FileManager.js';
 import { saveFile } from '../utils/file.js';
 
+/** represents a classification algorithm visualizer */
 class Visualizer {
+  /**
+   * @param {HTMLElement} rootElement
+   */
   constructor(rootElement) {
     this.rootElement = rootElement;
     this.algorithm = LogisticRegression;
@@ -22,24 +26,21 @@ class Visualizer {
     this.addEventListeners();
   }
 
+  /** initialize plot */
   initPlot() {
     this.plot = new Plot(this.visContainer, true);
     this.rootElement.appendChild(this.visContainer);
   }
 
+  /** iniitalize train, upload and download button */
   initButtons() {
     this.visBtn = document.createElement('button');
     this.visBtn.innerHTML = 'Train & Visualize';
     this.visContainer.appendChild(this.visBtn);
     this.fileManager = new FileManager(this.visContainer);
-    this.fileManager.addDownloadListeners(() => {
-      this.downloadData();
-    });
-    this.fileManager.addUploadListener((text) => {
-      this.uploadData(text);
-    });
   }
 
+  /** download plot data */
   downloadData() {
     saveFile(
       JSON.stringify({
@@ -51,13 +52,19 @@ class Visualizer {
     );
   }
 
+  /**
+   * handle upload of plot data
+   * @param {Object} data - plot data
+   */
   uploadData(data) {
     const { features, labels } = data;
     for (let i = 0; i < features.length; i++) {
       this.plot.addPoint(...features[i], labels[i]);
     }
   }
-
+  /**
+   * start evaluation of algorithm results
+   */
   initEvaluation() {
     this.evaluationContainer = document.createElement('div');
     this.evaluationContainer.classList.add('evaluation-container');
@@ -70,13 +77,17 @@ class Visualizer {
     this.evaluationContainer.appendChild(this.evaluationScoresDisplayer);
   }
 
+  /** initialize hyper parameter of given algorithm */
   initHyperParams() {
     this.hyperParams = new HyperParameterList(
       this.rootElement,
       this.algorithm.hyperParamDefinition
     );
   }
-
+  /**
+   *  returns whether everything is valid
+   *  @returns {boolean} - are plot points and hyperparams valid
+   */
   validate() {
     if (this.plot.points.length < 1 || this.hyperParams.hasErrors()) {
       return false;
@@ -88,6 +99,7 @@ class Visualizer {
     return true;
   }
 
+  /** add event listeners to buttons */
   addEventListeners() {
     this.visBtn.addEventListener('click', () => {
       if (this.validate()) {
@@ -95,8 +107,15 @@ class Visualizer {
         this.evaluate();
       }
     });
+    this.fileManager.addDownloadListeners(() => {
+      this.downloadData();
+    });
+    this.fileManager.addUploadListener((text) => {
+      this.uploadData(text);
+    });
   }
 
+  /** visualize colored decision boundary */
   visualizeBoundary() {
     this.plot.clear();
     let points = this.plot.points;
@@ -129,6 +148,7 @@ class Visualizer {
     this.plot.redraw();
   }
 
+  /** show confusion matrix and other metrics */
   evaluate() {
     let predictions = this.classifier.predictMany(this.X, this.Y);
     predictions = predictions.flatten(); // flatten matrix to array
