@@ -3,3 +3,9 @@
   clear: both;
   content: '';
 }
+
+.error {
+  margin-top: 16px;
+  font-size: 16px;
+  color: red;
+}

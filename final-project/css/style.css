@@ -36,9 +36,6 @@ body {
 
 .hyperparam-list .error {
   display: block;
-  margin-top: 16px;
-  font-size: 16px;
-  color: red;
 }
 .canvas {
   border: 1px solid black;
@@ -70,4 +67,12 @@ body {
   text-align: center;
   margin-top: 32px;
   font-size: 22px;
+}
+
+.file-btns {
+  margin-top: 8px;
+}
+
+.file-btn {
+  margin-right: 8px;
 }

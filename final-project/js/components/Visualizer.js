@@ -4,8 +4,16 @@ import HyperParameterList from './HyperParameterList.js';
 import Plot from './Plot.js';
 import Matrix from '../utils/Matrix.js';
 import ConfusionMatrix from './ConfusionMatrix.js';
-import { C1_BG_COLOR, C2_BG_COLOR, TILE_SIZE } from '../constants.js';
+import {
+  C1_BG_COLOR,
+  C1_COLOR,
+  C2_BG_COLOR,
+  C2_COLOR,
+  TILE_SIZE,
+} from '../constants.js';
 import { accuracy } from '../utils/metrics.js';
+import FileManager from './FileManager.js';
+import { saveFile } from '../utils/file.js';
 
 class Visualizer {
   constructor(rootElement) {
@@ -15,16 +23,48 @@ class Visualizer {
     this.visContainer = document.createElement('div');
     this.visContainer.classList.add('root-container');
     this.initPlot();
+    this.initButtons();
     this.initEvaluation();
     this.addEventListeners();
   }
 
   initPlot() {
     this.plot = new Plot(this.visContainer, true);
+    this.rootElement.appendChild(this.visContainer);
+  }
+
+  initButtons() {
     this.visBtn = document.createElement('button');
     this.visBtn.innerHTML = 'Train & Visualize';
     this.visContainer.appendChild(this.visBtn);
-    this.rootElement.appendChild(this.visContainer);
+    this.fileManager = new FileManager(this.visContainer);
+    this.fileManager.addDownloadListeners(() => {
+      this.downloadData();
+    });
+    this.fileManager.addUploadListener((text) => {
+      this.uploadData(text);
+    });
+  }
+
+  downloadData() {
+    saveFile(
+      JSON.stringify({
+        features: this.plot.points,
+        labels: this.plot.pointLabels,
+      }),
+      'data.json',
+      'application/json'
+    );
+  }
+
+  uploadData(data) {
+    const { features, labels } = data;
+    for (let i = 0; i < features.length; i++) {
+      this.plot.ctx.fillStyle = labels[i] === 0 ? C1_COLOR : C2_COLOR;
+      this.plot.scatter(...features[i]);
+      this.plot.points.push(features[i]);
+      this.plot.pointLabels.push(labels[i]);
+    }
   }
 
   initEvaluation() {
@@ -56,6 +96,7 @@ class Visualizer {
     }
     return true;
   }
+
   addEventListeners() {
     this.visBtn.addEventListener('click', () => {
       if (this.validate()) {

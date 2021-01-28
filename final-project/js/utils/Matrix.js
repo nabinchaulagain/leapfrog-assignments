@@ -10,6 +10,39 @@ class Matrix {
   }
 
   /**
+   *  returns if data is vector of numbers
+   * @param {number[]} data
+   * @returns {boolean} whether data is a vector of numbers or not
+   */
+  static isVector(data) {
+    if (!Array.isArray(data)) {
+      return false;
+    }
+    return data.every((val) => typeof val === 'number');
+  }
+
+  /**
+   * returns if data is a rank-2 matrix
+   * @param {number[][]} data
+   * @returns {boolean} whether data is a matrix of nogt
+   */
+  static isMatrix(data) {
+    if (!Array.isArray(data)) {
+      return false;
+    }
+    let rowSize;
+    for (let i = 0; i < data.length; i++) {
+      if (!rowSize) {
+        rowSize = data[i].length;
+      }
+      if (rowSize !== data[i].length) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  /**
    * generate random matrix
    * @param {number} rows - no. of rows
    * @param {number} cols - no. of columns

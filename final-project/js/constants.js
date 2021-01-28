@@ -11,3 +11,5 @@ export const HYPER_PARAM_TYPES = {
   ENUM: 'enum',
   RANGE: 'range',
 };
+
+export const UPLOAD_MAX_SIZE = 1000000; //1 megabyte
