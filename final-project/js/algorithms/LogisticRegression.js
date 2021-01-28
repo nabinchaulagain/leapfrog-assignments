@@ -1,6 +1,7 @@
 import { HYPER_PARAM_TYPES } from '../constants.js';
 import Matrix from '../utils/Matrix.js';
 import { sigmoid } from '../utils/activations.js';
+import { crossEntropy } from '../utils/metrics.js';
 
 class LogisticRegression {
   static requiresDesignMatrix = true;
@@ -77,6 +78,7 @@ class LogisticRegression {
       const yHat = this.predictMany(X, false);
       const delta = X.transpose().dot(yHat.subtract(Y));
       this.params = this.params.subtract(delta.scalarMultiply(learningRate));
+      // console.log(this.calcCost(X, Y));
     }
   }
 }

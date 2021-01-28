@@ -44,6 +44,19 @@ class Plot {
     this.ctx.fill();
   }
 
+  /**
+   * add scatter point
+   * @param {number} x - x co-ordinate
+   * @param {number} y - y co-ordinate
+   * @param {number} cls - 0 or 1 class
+   */
+  addPoint(x, y, cls) {
+    this.ctx.fillStyle = cls === 0 ? C1_COLOR : C2_COLOR;
+    this.points.push([x, y]);
+    this.pointLabels.push(cls);
+    this.scatter(x, y);
+  }
+
   /** react to click events */
   attachControls() {
     this.canvas.addEventListener('contextmenu', (ev) => {
@@ -52,17 +65,15 @@ class Plot {
     this.canvas.addEventListener('mousedown', (ev) => {
       const x = ev.clientX - this.canvas.offsetLeft;
       const y = ev.clientY - this.canvas.offsetTop;
-      this.points.push([x, y]);
+      let cls;
       if (ev.button === 0) {
-        this.ctx.fillStyle = C1_COLOR;
-        this.pointLabels.push(0);
+        cls = 0;
       } else if (ev.button === 2) {
-        this.ctx.fillStyle = C2_COLOR;
-        this.pointLabels.push(1);
+        cls = 1;
       } else {
         return;
       }
-      this.scatter(x, y);
+      this.addPoint(x, y, cls);
     });
   }
 

@@ -4,13 +4,7 @@ import HyperParameterList from './HyperParameterList.js';
 import Plot from './Plot.js';
 import Matrix from '../utils/Matrix.js';
 import ConfusionMatrix from './ConfusionMatrix.js';
-import {
-  C1_BG_COLOR,
-  C1_COLOR,
-  C2_BG_COLOR,
-  C2_COLOR,
-  TILE_SIZE,
-} from '../constants.js';
+import { C1_BG_COLOR, C2_BG_COLOR, TILE_SIZE } from '../constants.js';
 import { accuracy } from '../utils/metrics.js';
 import FileManager from './FileManager.js';
 import { saveFile } from '../utils/file.js';
@@ -60,10 +54,7 @@ class Visualizer {
   uploadData(data) {
     const { features, labels } = data;
     for (let i = 0; i < features.length; i++) {
-      this.plot.ctx.fillStyle = labels[i] === 0 ? C1_COLOR : C2_COLOR;
-      this.plot.scatter(...features[i]);
-      this.plot.points.push(features[i]);
-      this.plot.pointLabels.push(labels[i]);
+      this.plot.addPoint(...features[i], labels[i]);
     }
   }
 
