@@ -1,16 +1,25 @@
 import Matrix from '../utils/Matrix.js';
+import HeatMap from './Heatmap.js';
 
 class ConfusionMatrix {
   /**
    * @param {HTMLElement} root - root element
    */
   constructor(root) {
-    this.root = root;
     this.initData();
-    this.table = document.createElement('table');
-    this.table.classList.add('confusion-matrix');
-    this.render();
-    this.root.appendChild(this.table);
+    this.initHeatmap(root);
+  }
+
+  /**
+   * initialize heatmap
+   * @param {HTMLElement} root - root element
+   */
+  initHeatmap(root) {
+    const rowLabels = ['Actually red', 'Actually green'];
+    const colLabels = ['Predicted Red', 'Predicted Green'];
+    this.heatmap = new HeatMap(root, colLabels, rowLabels);
+    this.heatmap.addClass('confusion-matrix');
+    this.heatmap.render(this.matrix);
   }
 
   /** initialize data regarding the confusion matrix */
@@ -26,7 +35,7 @@ class ConfusionMatrix {
    * @param {number[]} predictions - predicted classes
    */
   update(labels, predictions) {
-    this.initData();
+    this.initData(); //reset any previous existing data
     for (let i = 0; i < labels.length; i++) {
       const label = labels[i];
       const prediction = predictions[i];
@@ -34,42 +43,7 @@ class ConfusionMatrix {
     }
     this.min = Math.max(...this.matrix.min()); //get min value from entire matrix
     this.max = Math.max(...this.matrix.max()); //get max value from entire matrix
-    this.render();
-  }
-
-  /** show the confusion matrix */
-  render() {
-    const tds = [];
-    const [rows, cols] = this.matrix.shape;
-    for (let i = 0; i < rows; i++) {
-      tds.push([]);
-      for (let j = 0; j < cols; j++) {
-        const val = this.matrix.data[i][j];
-        let style = `background:rgba(10,50,128,${val / this.max});`;
-        style += `color:${val / this.max > 0.5 ? '#fff' : '#000'}`;
-        const td = `<td class="data-column" style="${
-          this.max === this.min ? '' : style
-        }">${val}</td>`;
-        tds[i][j] = td;
-      }
-    }
-    this.table.innerHTML = `
-      <thead>
-        <th class="empty-column"></th>
-        <th>Actually red</th>
-        <th>Actually green</th>
-      </thead>
-      <tbody>
-        <tr>
-          <th>Predicted red</th>
-          ${tds[0].join('')}
-        </tr>
-        <tr>
-          <th>Predicted green</th>
-         ${tds[1].join('')}
-        </tr>
-      </tbody>
-    `;
+    this.heatmap.render(this.matrix, this.min, this.max);
   }
 }
 

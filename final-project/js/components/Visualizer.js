@@ -70,7 +70,6 @@ class Visualizer {
     this.evaluationContainer.classList.add('evaluation-container');
     this.rootElement.appendChild(this.evaluationContainer);
     this.confusionMatrix = new ConfusionMatrix(this.evaluationContainer);
-    this.confusionMatrix.render();
     this.evaluationScoresDisplayer = document.createElement('div');
     this.evaluationScoresDisplayer.classList.add('evaluation-scores');
     this.evaluationScoresDisplayer.innerHTML = 'Accuracy: n/a';
