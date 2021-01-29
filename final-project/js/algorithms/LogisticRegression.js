@@ -22,7 +22,7 @@ class LogisticRegression {
   };
 
   constructor() {
-    this.params = Matrix.randomMatrix(3, 1);
+    this.params = Matrix.zeros(3, 1);
   }
 
   /**
