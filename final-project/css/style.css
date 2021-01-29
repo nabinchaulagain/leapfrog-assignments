@@ -46,22 +46,17 @@ body {
 .evaluation-container {
   display: inline-block;
 }
-.confusion-matrix {
-  border-collapse: collapse;
-  padding: 50px;
-}
 
-.confusion-matrix th,
-.confusion-matrix td {
-  font-size: 24px;
-  font-weight: normal;
-  padding: 10px 20px;
+.classification-report {
+  margin-top: 16px;
 }
-
-.confusion-matrix .data-column {
-  border: 1px solid black;
+.classification-report .data-column {
   font-size: 50px;
-  padding: 20px 40px;
+}
+
+.classification-report th,
+.classification-report td {
+  padding: 20px 50px;
 }
 .evaluation-scores {
   text-align: center;

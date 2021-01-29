@@ -19,7 +19,7 @@ class ConfusionMatrix {
     const colLabels = ['Predicted Red', 'Predicted Green'];
     this.heatmap = new HeatMap(root, colLabels, rowLabels);
     this.heatmap.addClass('confusion-matrix');
-    this.heatmap.render(this.matrix);
+    this.heatmap.render(this.matrix, this.min, this.max);
   }
 
   /** initialize data regarding the confusion matrix */

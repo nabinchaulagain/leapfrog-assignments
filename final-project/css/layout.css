@@ -9,3 +9,26 @@
   font-size: 16px;
   color: red;
 }
+
+.heatmap {
+  border-collapse: collapse;
+  padding: 50px;
+  margin: auto;
+}
+
+.heatmap th,
+.heatmap td {
+  font-size: 24px;
+  font-weight: normal;
+  padding: 8px 40px;
+}
+
+.heatmap th {
+  padding: 20px 20px;
+}
+
+.heatmap .data-column {
+  border: 1px solid black;
+  font-size: 60px;
+  padding: 30px 40px;
+}

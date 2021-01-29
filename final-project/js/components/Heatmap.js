@@ -11,6 +11,8 @@ class Heatmap {
     this.colHeadings = colHeadings;
     this.root = root;
     this.el = document.createElement('table');
+    this.el.classList.add('heatmap');
+
     this.root.appendChild(this.el);
   }
 

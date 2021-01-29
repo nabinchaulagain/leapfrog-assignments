@@ -8,6 +8,7 @@ import { C1_BG_COLOR, C2_BG_COLOR, TILE_SIZE } from '../constants.js';
 import { accuracy } from '../utils/metrics.js';
 import FileManager from './FileManager.js';
 import { saveFile } from '../utils/file.js';
+import ClassificationReport from './ClassificationReport.js';
 
 /** represents a classification algorithm visualizer */
 class Visualizer {
@@ -70,6 +71,9 @@ class Visualizer {
     this.evaluationContainer.classList.add('evaluation-container');
     this.rootElement.appendChild(this.evaluationContainer);
     this.confusionMatrix = new ConfusionMatrix(this.evaluationContainer);
+    this.classificationReport = new ClassificationReport(
+      this.evaluationContainer
+    );
     this.evaluationScoresDisplayer = document.createElement('div');
     this.evaluationScoresDisplayer.classList.add('evaluation-scores');
     this.evaluationScoresDisplayer.innerHTML = 'Accuracy: n/a';
@@ -152,6 +156,7 @@ class Visualizer {
     let predictions = this.classifier.predictMany(this.X, this.Y);
     predictions = predictions.flatten(); // flatten matrix to array
     this.confusionMatrix.update(this.plot.pointLabels, predictions);
+    this.classificationReport.update(this.confusionMatrix.matrix);
     const acc = accuracy(predictions, this.plot.pointLabels);
     this.evaluationScoresDisplayer.innerHTML = `Accuracy: ${acc.toFixed(2)}%`;
   }
