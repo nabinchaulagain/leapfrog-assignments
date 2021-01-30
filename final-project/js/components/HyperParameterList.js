@@ -91,7 +91,7 @@ class HyperParameterList {
       if (!hParam.dataValidator) {
         continue;
       }
-      const error = hParam.dataValidator(data);
+      const error = hParam.dataValidator(data, hParam.el.value);
       if (error) {
         this.errors[hParam.key] = `${camelCaseToWord(hParam.key)} ${error}`;
       }

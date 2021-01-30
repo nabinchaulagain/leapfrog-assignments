@@ -37,3 +37,31 @@ export const random = (min, max) => Math.random() * (max - min) + min;
  * @returns {number} harmonic mean between val1 and val2
  */
 export const harmonicMean = (val1, val2) => (2 * val1 * val2) / (val1 + val2);
+
+/**
+ * returns manhattan distance between 2 points
+ * @param {number[]} point1 - array of co-ordinates
+ * @param {number[]} point2 - array of co-ordinates
+ * @returns {number} manhattan distance
+ */
+export const manhattanDistance = (point1, point2) => {
+  let dist = 0;
+  for (let i = 0; i < point1.length; i++) {
+    dist += Math.abs(point2[i] - point1[i]);
+  }
+  return dist;
+};
+
+/**
+ * returns euclidean distance between 2 points
+ * @param {number[]} point1 - array of co-ordinates
+ * @param {number[]} point2 - array of co-ordinates
+ * @returns {number} euclidean distance
+ */
+export const euclideanDistance = (point1, point2) => {
+  let dist = 0;
+  for (let i = 0; i < point1.length; i++) {
+    dist += (point2[i] - point1[i]) ** 2;
+  }
+  return dist;
+};

@@ -1,20 +1,21 @@
 import { HYPER_PARAM_TYPES } from '../constants.js';
 import Matrix from '../utils/Matrix.js';
+import { euclideanDistance, manhattanDistance } from '../utils/misc.js';
 
-function distance(point1, point2) {
-  let dist = 0;
-  for (let i = 0; i < point1.length; i++) {
-    dist += (point2[i] - point1[i]) ** 2;
-  }
-  return dist;
-}
+const distanceMetrics = [euclideanDistance, manhattanDistance];
 
 class KNearestNeigbors {
   static hyperParamDefinition = {
-    numNeighbors: {
+    k: {
       type: HYPER_PARAM_TYPES.NUMBER,
-      default: 3,
-      range: { min: 1, max: 50 },
+      default: 1,
+      range: { min: 1, max: 19 },
+      // validate that value of k is less than total number of points
+      dataValidator: (data, val) => {
+        if (val > data.length) {
+          return 'should be less than total number of points';
+        }
+      },
     },
     distanceMetric: {
       type: HYPER_PARAM_TYPES.ENUM,
@@ -32,7 +33,7 @@ class KNearestNeigbors {
     let distances = [];
     for (let i = 0; i < this.X.shape[0]; i++) {
       distances.push({
-        distance: distance(this.X.data[i], x),
+        distance: this.distanceFn(this.X.data[i], x),
         class: this.Y.data[i][0],
       });
     }
@@ -71,9 +72,9 @@ class KNearestNeigbors {
    * @param {Matrix} Y labels
    */
   train(X, Y) {
-    const { numNeighbors, distanceMetric } = this.hyperParams;
-    this.k = numNeighbors;
-    this.distanceMetric = distanceMetric;
+    const { k, distanceMetric } = this.hyperParams;
+    this.k = k;
+    this.distanceFn = distanceMetrics[distanceMetric];
     this.X = X;
     this.Y = Y;
   }
