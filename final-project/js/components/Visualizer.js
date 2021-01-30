@@ -3,12 +3,12 @@ import Scaler from '../utils/Scaler.js';
 import HyperParameterList from './HyperParameterList.js';
 import Plot from './Plot.js';
 import Matrix from '../utils/Matrix.js';
-import ConfusionMatrix from './ConfusionMatrix.js';
+import ConfusionMatrix from './evaluation/ConfusionMatrix.js';
 import { C1_BG_COLOR, C2_BG_COLOR, TILE_SIZE } from '../constants.js';
 import { accuracy } from '../utils/metrics.js';
 import FileManager from './FileManager.js';
 import { saveFile } from '../utils/file.js';
-import ClassificationReport from './ClassificationReport.js';
+import ClassificationReport from './evaluation/ClassificationReport.js';
 
 /** represents a classification algorithm visualizer */
 class Visualizer {
@@ -136,9 +136,11 @@ class Visualizer {
     this.classifier.train(this.X, this.Y);
     for (let i = 0; i <= this.plot.width - TILE_SIZE; i += TILE_SIZE) {
       for (let j = 0; j <= this.plot.height - TILE_SIZE; j += TILE_SIZE) {
-        const x = i / this.plot.width;
-        const y = j / this.plot.height;
-        const pred = this.classifier.predict([x, y]);
+        let feature = [i, j];
+        if (this.algorithm.requiresFeatureScaling) {
+          feature = [i / this.plot.width, j / this.plot.height]; // scaling between 0-1
+        }
+        const pred = this.classifier.predict(feature);
         this.plot.drawSquare(
           i,
           j,
