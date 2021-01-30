@@ -1,4 +1,5 @@
 import LogisticRegression from '../algorithms/LogisticRegression.js';
+import KNearestNeighbors from '../algorithms/KNearestNeighbors.js';
 import Scaler from '../utils/Scaler.js';
 import HyperParameterList from './HyperParameterList.js';
 import Plot from './Plot.js';
@@ -17,7 +18,7 @@ class Visualizer {
    */
   constructor(rootElement) {
     this.rootElement = rootElement;
-    this.algorithm = LogisticRegression;
+    this.algorithm = KNearestNeighbors;
     this.initHyperParams();
     this.visContainer = document.createElement('div');
     this.visContainer.classList.add('root-container');
