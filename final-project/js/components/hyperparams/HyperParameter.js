@@ -2,6 +2,7 @@ import { HYPER_PARAM_TYPES } from '../../constants.js';
 import { camelCaseToWord } from '../../utils/misc.js';
 import Input from './Input.js';
 import Enum from './Enum.js';
+import Range from './Range.js';
 
 class HyperParameter {
   /**
@@ -20,7 +21,7 @@ class HyperParameter {
         this.el = new Input(key, hyperParamSchema);
         break;
       case HYPER_PARAM_TYPES.RANGE:
-        this.el = new Input(key, hyperParamSchema);
+        this.el = new Range(key, hyperParamSchema);
         break;
     }
     this.el.attach(this.li);
