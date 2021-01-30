@@ -9,8 +9,21 @@ body {
   text-align: center;
   margin: 0 16px;
 }
-.hyperparam-list {
+.alg-chooser-container {
   margin: 32px 0;
+}
+.alg-chooser-container select,
+.alg-chooser-container label {
+  font-size: 30px;
+  margin-right: 8px;
+}
+.alg-chooser-container select {
+  font-size: 20px;
+  padding: 4px 8px;
+}
+
+.hyperparam-list {
+  margin-bottom: 20px;
 }
 .hyperparam-list li {
   display: inline;

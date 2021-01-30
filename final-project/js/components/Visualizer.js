@@ -10,6 +10,7 @@ import { accuracy } from '../utils/metrics.js';
 import FileManager from './FileManager.js';
 import { saveFile } from '../utils/file.js';
 import ClassificationReport from './evaluation/ClassificationReport.js';
+import AlgorithmChooser from './AlgorithmChooser.js';
 
 /** represents a classification algorithm visualizer */
 class Visualizer {
@@ -18,14 +19,29 @@ class Visualizer {
    */
   constructor(rootElement) {
     this.rootElement = rootElement;
-    this.algorithm = KNearestNeighbors;
-    this.initHyperParams();
     this.visContainer = document.createElement('div');
     this.visContainer.classList.add('root-container');
+    this.initChooser();
+    this.initHyperParams();
     this.initPlot();
     this.initButtons();
     this.initEvaluation();
     this.addEventListeners();
+  }
+
+  /** set this.algorithm to selected algorithm */
+  setCurrAlgorithm() {
+    this.algorithm = this.chooser.getCurrAlgorithm();
+  }
+
+  /** initialize algorithm chooser */
+  initChooser() {
+    this.chooser = new AlgorithmChooser(this.rootElement);
+    this.setCurrAlgorithm();
+    this.chooser.addChangeListener(() => {
+      this.setCurrAlgorithm();
+      this.reinitHyperParams();
+    });
   }
 
   /** initialize plot */
@@ -81,13 +97,20 @@ class Visualizer {
     this.evaluationContainer.appendChild(this.evaluationScoresDisplayer);
   }
 
-  /** initialize hyper parameter of given algorithm */
+  /** initialize hyper parameter of selected algorithm */
   initHyperParams() {
     this.hyperParams = new HyperParameterList(
       this.rootElement,
       this.algorithm.hyperParamDefinition
     );
   }
+
+  /** re initliaze hyper parameters of selected algorith */
+  reinitHyperParams() {
+    this.hyperParams.el.innerHTML = '';
+    this.hyperParams.initChildren(this.algorithm.hyperParamDefinition);
+  }
+
   /**
    *  returns whether everything is valid
    *  @returns {boolean} - are plot points and hyperparams valid
