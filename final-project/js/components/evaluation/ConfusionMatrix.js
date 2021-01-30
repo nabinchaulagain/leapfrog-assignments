@@ -1,5 +1,5 @@
-import Matrix from '../utils/Matrix.js';
-import HeatMap from './Heatmap.js';
+import Matrix from '../../utils/Matrix.js';
+import HeatMap from '../Heatmap.js';
 
 class ConfusionMatrix {
   /**
