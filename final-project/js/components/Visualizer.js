@@ -181,6 +181,9 @@ class Visualizer {
   evaluate() {
     let predictions = this.classifier.predictMany(this.X, this.Y);
     predictions = predictions.flatten(); // flatten matrix to array
+    if (typeof predictions === 'number') {
+      predictions = [predictions]; //if matrix is flattened to number change it to a array
+    }
     this.confusionMatrix.update(this.plot.pointLabels, predictions);
     this.classificationReport.update(this.confusionMatrix.matrix);
     const acc = accuracy(predictions, this.plot.pointLabels);
