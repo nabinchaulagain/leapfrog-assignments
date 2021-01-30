@@ -1,3 +1,4 @@
+import { CONF_MAT_COL_SCHEME } from '../../constants.js';
 import Matrix from '../../utils/Matrix.js';
 import HeatMap from '../Heatmap.js';
 
@@ -19,7 +20,7 @@ class ConfusionMatrix {
     const colLabels = ['Predicted Red', 'Predicted Green'];
     this.heatmap = new HeatMap(root, colLabels, rowLabels);
     this.heatmap.addClass('confusion-matrix');
-    this.heatmap.render(this.matrix, this.min, this.max);
+    this.heatmap.render(this.matrix, this.min, this.max, CONF_MAT_COL_SCHEME);
   }
 
   /** initialize data regarding the confusion matrix */
@@ -43,7 +44,7 @@ class ConfusionMatrix {
     }
     this.min = Math.max(...this.matrix.min()); //get min value from entire matrix
     this.max = Math.max(...this.matrix.max()); //get max value from entire matrix
-    this.heatmap.render(this.matrix, this.min, this.max);
+    this.heatmap.render(this.matrix, this.min, this.max, CONF_MAT_COL_SCHEME);
   }
 }
 

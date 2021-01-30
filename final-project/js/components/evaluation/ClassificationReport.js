@@ -1,3 +1,4 @@
+import { CLF_REPORT_COL_SCHEME } from '../../constants.js';
 import Matrix from '../../utils/Matrix.js';
 import { harmonicMean } from '../../utils/misc.js';
 import Heatmap from '../Heatmap.js';
@@ -14,7 +15,7 @@ class ClassificationReport {
       ['Precision', 'Recall', 'f1-score']
     );
     this.heatmap.addClass('classification-report');
-    this.heatmap.render(this.data, 0, 1);
+    this.heatmap.render(this.data, 0, 1, CLF_REPORT_COL_SCHEME);
   }
 
   /**
@@ -39,7 +40,7 @@ class ClassificationReport {
     this.data = this.data.applyFunc((num) =>
       isNaN(num) || num == 0 ? 0 : num.toFixed(2)
     );
-    this.heatmap.render(this.data, 0, 1);
+    this.heatmap.render(this.data, 0, 1, CLF_REPORT_COL_SCHEME);
   }
 }
 

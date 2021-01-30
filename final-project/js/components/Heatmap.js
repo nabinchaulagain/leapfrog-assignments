@@ -73,7 +73,7 @@ class Heatmap {
    * @param {max} max - maximum value
    * @param {number[]} - color scheme of heatmap in rgb array
    */
-  render(matrix, min = 0, max = 1, colorScheme = [10, 50, 128]) {
+  render(matrix, min = 0, max = 1, colorScheme) {
     const thList = this.getThList();
     const trList = this.getTrList(matrix, min, max, colorScheme);
     this.el.innerHTML = `
