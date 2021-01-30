@@ -1,10 +1,13 @@
 import { HYPER_PARAM_TYPES } from '../constants.js';
 import Matrix from '../utils/Matrix.js';
 import { euclideanDistance, manhattanDistance } from '../utils/misc.js';
+import ClassificationAlgorithm from './ClassificationAlgorithm.js';
 
 const distanceMetrics = [euclideanDistance, manhattanDistance];
 
-class KNearestNeigbors {
+class KNearestNeigbors extends ClassificationAlgorithm {
+  static requiresFeatureScaling = true;
+
   static hyperParamDefinition = {
     k: {
       type: HYPER_PARAM_TYPES.NUMBER,
@@ -22,7 +25,6 @@ class KNearestNeigbors {
       options: ['Euclidean distance', 'Manhattan distance'],
     },
   };
-  static requiresFeatureScaling = true;
 
   /**
    * returns the prediction of features
@@ -54,16 +56,6 @@ class KNearestNeigbors {
       }
     }
     return maxClass;
-  }
-
-  /**
-   * returns predictions of given features
-   * @param {Matrix} X - feature matrix
-   * @returns {Matrix} predictions
-   */
-  predictMany(X) {
-    let result = X.data.map((feature) => this.predict(feature));
-    return new Matrix([result]).transpose();
   }
 
   /**

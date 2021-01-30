@@ -2,8 +2,9 @@ import { HYPER_PARAM_TYPES } from '../constants.js';
 import Matrix from '../utils/Matrix.js';
 import { sigmoid } from '../utils/activations.js';
 import { crossEntropy } from '../utils/metrics.js';
+import ClassificationAlgorithm from './ClassificationAlgorithm.js';
 
-class LogisticRegression {
+class LogisticRegression extends ClassificationAlgorithm {
   static requiresDesignMatrix = true;
 
   static requiresFeatureScaling = true;
@@ -22,6 +23,7 @@ class LogisticRegression {
   };
 
   constructor() {
+    super();
     this.params = Matrix.zeros(3, 1);
   }
 
