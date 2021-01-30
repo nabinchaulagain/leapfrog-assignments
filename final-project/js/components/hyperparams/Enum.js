@@ -7,7 +7,7 @@ class Enum {
     if (!schema.defaultIdx) {
       schema.defaultIdx = 0;
     }
-    this.value = schema.options[schema.defaultIdx];
+    this.value = schema.defaultIdx;
     this.init(id, schema.default, schema.options);
   }
 
@@ -22,16 +22,16 @@ class Enum {
     this.select.id = id;
     let html = '';
     for (let i = 0; i < options.length; i++) {
-      html += `<option value="${options[i]}" ${
-        i === defaultIdx ? 'selected' : ''
-      }>${options[i]}</option>`;
+      html += `<option value="${i}" ${i === defaultIdx ? 'selected' : ''}>${
+        options[i]
+      }</option>`;
     }
     this.select.innerHTML = html;
   }
 
   addChangeListener(cb) {
     this.select.addEventListener('change', (ev) => {
-      this.value = parseFloat(ev.target.value);
+      this.value = parseInt(ev.target.value);
       cb();
     });
   }
