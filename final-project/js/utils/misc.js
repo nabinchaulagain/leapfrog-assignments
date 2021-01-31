@@ -65,3 +65,41 @@ export const euclideanDistance = (point1, point2) => {
   }
   return dist;
 };
+
+/**
+ * get most common element in array
+ * @param {number[]} arr
+ */
+export const getMostCommon = (arr) => {
+  const vals = {};
+  let mostCommonVal;
+  let mostCommonValCount = Number.MIN_VALUE;
+  for (const val of arr) {
+    if (!vals[val]) {
+      vals[val] = 0;
+    }
+    vals[val]++;
+    if (vals[val] > mostCommonValCount) {
+      mostCommonValCount = vals[val];
+      mostCommonVal = val;
+    }
+  }
+  return mostCommonVal;
+};
+
+/**
+ * index array with list of indices
+ * @param {number[]} arr - array to index
+ * @param {number[]} idxArr - array containing indices to access arr
+ * @returns {number} array of indexed values
+ */
+export const lookupArray = (arr, idxArr) => {
+  const res = [];
+  for (let i = 0; i < idxArr.length; i++) {
+    const index = idxArr[i];
+    res.push(arr[index]);
+  }
+  return res;
+};
+
+window.lookupArray = lookupArray;
