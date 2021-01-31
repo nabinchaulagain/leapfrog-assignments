@@ -63,6 +63,7 @@ export const euclideanDistance = (point1, point2) => {
   for (let i = 0; i < point1.length; i++) {
     dist += (point2[i] - point1[i]) ** 2;
   }
+  dist = Math.sqrt(dist);
   return dist;
 };
 
