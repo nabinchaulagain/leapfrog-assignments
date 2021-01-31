@@ -1,8 +1,10 @@
 import ClassificationAlgorithm from '../algorithms/ClassificationAlgorithm.js';
 import KNearestNeigbors from '../algorithms/KNearestNeighbors.js';
 import LogisticRegression from '../algorithms/LogisticRegression.js';
+import MultiLayerPerceptron from '../algorithms/MultiLayerPerceptron.js';
 
 const algorithms = {
+  'Multi-layer perceptron': MultiLayerPerceptron,
   'Logistic regression': LogisticRegression,
   'K-nearest neighbors': KNearestNeigbors,
 };
