@@ -31,6 +31,15 @@ export const strArrayToSentence = (arr) => {
 export const random = (min, max) => Math.random() * (max - min) + min;
 
 /**
+ * generate random integer
+ * @param {number} min - minimum
+ * @param {number} max - maximum
+ */
+export const randomInt = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+};
+
+/**
  * calculate harmonic mean of two values
  * @param {number} val1
  * @param {number} val2
