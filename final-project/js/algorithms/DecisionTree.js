@@ -1,5 +1,5 @@
 import { HYPER_PARAM_TYPES } from '../constants.js';
-import { getMostCommon, lookupArray } from '../utils/misc.js';
+import { mode, lookupArray } from '../utils/misc.js';
 import ClassificationAlgorithm from './ClassificationAlgorithm.js';
 
 /**
@@ -79,6 +79,12 @@ class DecisionTree extends ClassificationAlgorithm {
     },
   };
 
+  /**
+   * predicts class of x
+   * @param {number[]} x - feature
+   * @param {DecisionNode} curr - node that is being visited currently
+   * @returns {number} predicted label
+   */
   predict(x, curr) {
     curr = curr || this.root;
     if (curr.isLeaf()) {
@@ -111,7 +117,7 @@ class DecisionTree extends ClassificationAlgorithm {
   expand(X, Y, depth = 0) {
     const numSamples = X.length;
     if (numSamples <= this.minSamples || isPure(Y) || depth >= this.maxDepth) {
-      return new DecisionNode(null, null, null, null, getMostCommon(Y)); //expand to leaf node
+      return new DecisionNode(null, null, null, null, mode(Y)); //expand to leaf node
     }
     const { featureIdx, threshold } = this.getBestSplit(X, Y);
     const column = X.map((x) => x[featureIdx]);

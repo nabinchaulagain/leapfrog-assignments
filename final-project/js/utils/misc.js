@@ -79,8 +79,9 @@ export const euclideanDistance = (point1, point2) => {
 /**
  * get most common element in array
  * @param {number[]} arr
+ * @returns {number} mode of arr
  */
-export const getMostCommon = (arr) => {
+export const mode = (arr) => {
   const vals = {};
   let mostCommonVal;
   let mostCommonValCount = Number.MIN_VALUE;

@@ -1,6 +1,6 @@
 import { HYPER_PARAM_TYPES } from '../constants.js';
 import Matrix from '../utils/Matrix.js';
-import { getMostCommon, randomInt } from '../utils/misc.js';
+import { mode, randomInt } from '../utils/misc.js';
 import ClassificationAlgorithm from './ClassificationAlgorithm.js';
 import DecisionTree from './DecisionTree.js';
 
@@ -56,7 +56,7 @@ class RandomForest extends ClassificationAlgorithm {
    */
   predict(x) {
     const treePreds = this.trees.map((tree) => tree.predict(x));
-    return getMostCommon(treePreds);
+    return mode(treePreds);
   }
 }
 
