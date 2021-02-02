@@ -128,7 +128,7 @@ class Visualizer {
   addEventListeners() {
     this.visBtn.addEventListener('click', () => {
       if (this.validate()) {
-        this.visualizeBoundary();
+        this.visualize();
         this.evaluate();
       }
     });
@@ -140,9 +140,45 @@ class Visualizer {
     });
   }
 
+  /** preprocess data, train classifier and visualize boundary */
+  visualize() {
+    this.plot.clear();
+    this.preprocessData();
+    this.classifier.train(this.X, this.Y);
+    this.visualizeBoundary();
+    this.plot.redraw();
+  }
+
   /** visualize colored decision boundary */
   visualizeBoundary() {
-    this.plot.clear();
+    for (let i = 0; i <= this.plot.width - TILE_SIZE; i += TILE_SIZE) {
+      for (let j = 0; j <= this.plot.height - TILE_SIZE; j += TILE_SIZE) {
+        let feature = [i, j];
+        if (this.algorithm.requiresFeatureScaling) {
+          feature = [i / this.plot.width, j / this.plot.height]; // scaling between 0-1
+        }
+        let predColor;
+        let intensity = 1;
+        if (this.algorithm.outputsProbability) {
+          const predProb = this.classifier.predict(feature, false);
+          if (predProb > 0.5) {
+            intensity = predProb.toFixed(1);
+            predColor = C2_BG_COLOR;
+          } else {
+            intensity = 1 - predProb;
+            predColor = C1_BG_COLOR;
+          }
+        } else {
+          const pred = this.classifier.predict(feature);
+          predColor = pred === 0 ? C1_BG_COLOR : C2_BG_COLOR;
+        }
+        predColor = `rgba(${[...predColor, intensity].join(',')})`; //convert array to rgba
+        this.plot.drawSquare(i, j, TILE_SIZE, TILE_SIZE, predColor);
+      }
+    }
+  }
+  /** preprocess data for training the algorithm */
+  preprocessData() {
     let points = this.plot.points;
     if (this.algorithm.requiresFeatureScaling) {
       const scaler = new Scaler([0, 0], [this.plot.width, this.plot.height]);
@@ -155,33 +191,6 @@ class Visualizer {
       this.X = this.X.insertCol(1); // insert 1 at the start of each row to make design matrix
     }
     this.Y = new Matrix([this.plot.pointLabels]).transpose();
-    this.classifier.train(this.X, this.Y);
-    for (let i = 0; i <= this.plot.width - TILE_SIZE; i += TILE_SIZE) {
-      for (let j = 0; j <= this.plot.height - TILE_SIZE; j += TILE_SIZE) {
-        let feature = [i, j];
-        if (this.algorithm.requiresFeatureScaling) {
-          feature = [i / this.plot.width, j / this.plot.height]; // scaling between 0-1
-        }
-        let predColor;
-        if (this.algorithm.outputsProbability) {
-          const predProb = this.classifier.predict(feature, false);
-          if (predProb > 0.5) {
-            const intensity = predProb.toFixed(1);
-            predColor = `rgba(${C2_BG_COLOR.join(',')},${intensity})`;
-          } else {
-            const intensity = 1 - predProb;
-            predColor = `rgba(${C1_BG_COLOR.join(',')},${intensity})`;
-          }
-        } else {
-          const pred = this.classifier.predict(feature);
-          predColor = pred === 0 ? C1_BG_COLOR : C2_BG_COLOR;
-          predColor = `rgb(${predColor.join(',')})`;
-        }
-
-        this.plot.drawSquare(i, j, TILE_SIZE, TILE_SIZE, predColor);
-      }
-    }
-    this.plot.redraw();
   }
 
   /** show confusion matrix and other metrics */
