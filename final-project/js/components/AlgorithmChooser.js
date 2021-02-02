@@ -4,13 +4,15 @@ import LogisticRegression from '../algorithms/LogisticRegression.js';
 import MultiLayerPerceptron from '../algorithms/MultiLayerPerceptron.js';
 import DecisionTree from '../algorithms/DecisionTree.js';
 import RandomForest from '../algorithms/RandomForest.js';
+import Adaboost from '../algorithms/Adaboost.js';
 
 const algorithms = {
-  'Multi-layer perceptron': MultiLayerPerceptron,
   'Logistic regression': LogisticRegression,
+  'Multi-layer perceptron': MultiLayerPerceptron,
   'K-nearest neighbors': KNearestNeigbors,
   'Decision tree': DecisionTree,
   'Random Forest': RandomForest,
+  Adaboost,
 };
 
 class AlgorithmChooser {
