@@ -1,5 +1,3 @@
-import LogisticRegression from '../algorithms/LogisticRegression.js';
-import KNearestNeighbors from '../algorithms/KNearestNeighbors.js';
 import Scaler from '../utils/Scaler.js';
 import HyperParameterList from './HyperParameterList.js';
 import Plot from './Plot.js';
@@ -164,14 +162,23 @@ class Visualizer {
         if (this.algorithm.requiresFeatureScaling) {
           feature = [i / this.plot.width, j / this.plot.height]; // scaling between 0-1
         }
-        const pred = this.classifier.predict(feature);
-        this.plot.drawSquare(
-          i,
-          j,
-          TILE_SIZE,
-          TILE_SIZE,
-          pred == 1 ? C2_BG_COLOR : C1_BG_COLOR
-        );
+        let predColor;
+        if (this.algorithm.outputsProbability) {
+          const predProb = this.classifier.predict(feature, false);
+          if (predProb > 0.5) {
+            const intensity = predProb.toFixed(1);
+            predColor = `rgba(${C2_BG_COLOR.join(',')},${intensity})`;
+          } else {
+            const intensity = 1 - predProb;
+            predColor = `rgba(${C1_BG_COLOR.join(',')},${intensity})`;
+          }
+        } else {
+          const pred = this.classifier.predict(feature);
+          predColor = pred === 0 ? C1_BG_COLOR : C2_BG_COLOR;
+          predColor = `rgb(${predColor.join(',')})`;
+        }
+
+        this.plot.drawSquare(i, j, TILE_SIZE, TILE_SIZE, predColor);
       }
     }
     this.plot.redraw();

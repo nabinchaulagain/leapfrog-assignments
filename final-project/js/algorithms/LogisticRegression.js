@@ -9,6 +9,8 @@ class LogisticRegression extends ClassificationAlgorithm {
 
   static requiresFeatureScaling = true;
 
+  static outputsProbability = true;
+
   static hyperParamDefinition = {
     learningRate: {
       type: HYPER_PARAM_TYPES.RANGE,

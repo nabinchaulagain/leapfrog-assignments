@@ -6,6 +6,7 @@ import { crossEntropy } from '../utils/metrics.js';
 
 class MultiLayerPerceptron extends ClassificationAlgorithm {
   static requiresFeatureScaling = true;
+  static outputsProbability = true;
 
   static hyperParamDefinition = {
     learningRate: {

@@ -4,6 +4,7 @@ class ClassificationAlgorithm {
   static requiresFeatureScaling = false;
   static requiresDesignMatrix = false;
   static hyperParamDefinition = {};
+  static outputsProbability = false;
 
   /**
    * returns predictions of given features
