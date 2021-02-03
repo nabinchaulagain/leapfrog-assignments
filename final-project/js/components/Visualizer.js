@@ -69,6 +69,7 @@ class Visualizer {
   /** iniitalize train, upload and download button */
   initButtons() {
     this.visBtn = document.createElement('button');
+    this.visBtn.classList.add('vis-btn', 'btn', 'btn-primary');
     this.visBtn.innerHTML = 'Train & Visualize';
     this.visContainer.appendChild(this.visBtn);
     this.fileManager = new FileManager(this.visContainer);

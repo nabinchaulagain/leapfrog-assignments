@@ -19,14 +19,14 @@ class FileManager {
     this.buttonsContainer.classList.add('file-btns');
     //download button
     this.saveBtn = document.createElement('button');
-    this.saveBtn.classList.add('file-btn');
+    this.saveBtn.classList.add('file-btn', 'btn', 'btn-red');
     this.saveBtn.innerHTML = 'Download data';
     //upload field
     this.uploadField = document.createElement('input');
     this.uploadField.setAttribute('type', 'file');
     this.uploadField.setAttribute('accept', '.json');
     this.uploadBtn = document.createElement('button');
-    this.uploadBtn.classList.add('file-btn');
+    this.uploadBtn.classList.add('file-btn', 'btn', 'btn-yellow');
     this.uploadBtn.innerHTML = 'Upload ';
     //emulate a click on the actual input field by clicking on the button
     this.uploadBtn.addEventListener('click', () => {
