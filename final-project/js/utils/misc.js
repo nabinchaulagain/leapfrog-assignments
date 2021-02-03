@@ -113,4 +113,13 @@ export const lookupArray = (arr, idxArr) => {
   return res;
 };
 
-window.lookupArray = lookupArray;
+/**
+ * returns a promise that resolves after given time
+ * @param {number} time - how many milliseconds to wait for
+ * @returns {Promise} a promise that resolves after 'time' milliseconds
+ */
+export const waitFor = (time) => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, time);
+  });
+};

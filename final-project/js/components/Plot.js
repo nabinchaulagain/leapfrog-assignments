@@ -41,6 +41,7 @@ class Plot {
   scatter(x, y) {
     this.ctx.beginPath();
     this.ctx.arc(x, y, PLOT_POINT_RADIUS, 0, 2 * Math.PI);
+    this.ctx.globalCompositeOperation = 'source-over'; //draw over existing content
     this.ctx.fill();
   }
 
@@ -85,8 +86,7 @@ class Plot {
    * @param {string} color - square color
    */
   drawSquare(x, y, w, h, color) {
-    this.ctx.globalCompositeOperation = 'source-over';
-
+    this.ctx.globalCompositeOperation = 'destination-over'; // draw behind existing content
     this.ctx.beginPath();
     this.ctx.fillStyle = color;
     this.ctx.fillRect(x, y, w, h);

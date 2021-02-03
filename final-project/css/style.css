@@ -4,6 +4,50 @@ body {
 .root {
   display: inline-block;
 }
+
+.instructions-container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+.instructions {
+  position: fixed;
+  background: #d3d3d9;
+  top: 100px;
+  width: 40em;
+  border-radius: 8px;
+}
+.instructions .close-icon {
+  font-size: 48px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+.instructions .close-icon:hover {
+  color: #656364;
+}
+.instructions h1 {
+  font-size: 40px;
+  padding: 0 32px;
+  padding-top: 16px;
+}
+.instructions ul {
+  list-style: none;
+  text-align: left;
+  padding: 0 32px;
+}
+.instructions li {
+  margin: 24px 0;
+  font-size: 20px;
+}
+.instructions .instruction-note {
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 32px;
+}
 .root-container {
   float: left;
   text-align: center;
@@ -37,6 +81,7 @@ body {
   font-size: 18px;
   margin-right: 8px;
   padding: 2px 10px;
+  vertical-align: middle;
 }
 
 .hyperparam-list input[type='range'] {
@@ -49,6 +94,7 @@ body {
 
 .hyperparam-list .range-indicator {
   font-size: 20px;
+  vertical-align: middle;
 }
 
 .hyperparam-list .error {
@@ -56,6 +102,7 @@ body {
 }
 .canvas {
   border: 1px solid black;
+  background: white;
   display: block;
   margin-bottom: 8px;
 }
@@ -67,14 +114,12 @@ body {
 .classification-report {
   margin-top: 16px;
 }
-.classification-report .data-column {
-  font-size: 50px;
-}
 
 .classification-report th,
 .classification-report td {
-  padding: 20px 50px;
+  padding: 15px 24px;
 }
+
 .evaluation-scores {
   text-align: center;
   margin-top: 32px;

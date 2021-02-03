@@ -3,12 +3,20 @@ import HyperParameterList from './HyperParameterList.js';
 import Plot from './Plot.js';
 import Matrix from '../utils/Matrix.js';
 import ConfusionMatrix from './evaluation/ConfusionMatrix.js';
-import { C1_BG_COLOR, C2_BG_COLOR, TILE_SIZE } from '../constants.js';
+import {
+  C1_BG_COLOR,
+  C2_BG_COLOR,
+  TILE_SIZE,
+  UPLOAD_ANIM_TIME,
+  VIS_ANIM_SPEED,
+} from '../constants.js';
 import { accuracy } from '../utils/metrics.js';
 import FileManager from './FileManager.js';
 import { saveFile } from '../utils/file.js';
 import ClassificationReport from './evaluation/ClassificationReport.js';
 import AlgorithmChooser from './AlgorithmChooser.js';
+import { waitFor } from '../utils/misc.js';
+import Instructions from './Instructions.js';
 
 /** represents a classification algorithm visualizer */
 class Visualizer {
@@ -19,6 +27,7 @@ class Visualizer {
     this.rootElement = rootElement;
     this.visContainer = document.createElement('div');
     this.visContainer.classList.add('root-container');
+    this.initInstructions();
     this.initChooser();
     this.initHyperParams();
     this.initPlot();
@@ -30,6 +39,15 @@ class Visualizer {
   /** set this.algorithm to selected algorithm */
   setCurrAlgorithm() {
     this.algorithm = this.chooser.getCurrAlgorithm();
+  }
+
+  /** show instructions if neccessary */
+  initInstructions() {
+    if (!localStorage.getItem('instructionsShown')) {
+      const instructions = new Instructions(this.rootElement);
+      instructions.show();
+      localStorage.setItem('instructionsShown', true);
+    }
   }
 
   /** initialize algorithm chooser */
@@ -72,10 +90,11 @@ class Visualizer {
    * handle upload of plot data
    * @param {Object} data - plot data
    */
-  uploadData(data) {
+  async uploadData(data) {
     const { features, labels } = data;
     for (let i = 0; i < features.length; i++) {
       this.plot.addPoint(...features[i], labels[i]);
+      await waitFor(UPLOAD_ANIM_TIME);
     }
   }
   /**
@@ -126,9 +145,9 @@ class Visualizer {
 
   /** add event listeners to buttons */
   addEventListeners() {
-    this.visBtn.addEventListener('click', () => {
+    this.visBtn.addEventListener('click', async () => {
       if (this.validate()) {
-        this.visualize();
+        await this.visualize();
         this.evaluate();
       }
     });
@@ -141,16 +160,16 @@ class Visualizer {
   }
 
   /** preprocess data, train classifier and visualize boundary */
-  visualize() {
+  async visualize() {
     this.plot.clear();
+    this.plot.redraw();
     this.preprocessData();
     this.classifier.train(this.X, this.Y);
-    this.visualizeBoundary();
-    this.plot.redraw();
+    await this.visualizeBoundary();
   }
 
   /** visualize colored decision boundary */
-  visualizeBoundary() {
+  async visualizeBoundary() {
     for (let i = 0; i <= this.plot.width - TILE_SIZE; i += TILE_SIZE) {
       for (let j = 0; j <= this.plot.height - TILE_SIZE; j += TILE_SIZE) {
         let feature = [i, j];
@@ -175,8 +194,12 @@ class Visualizer {
         predColor = `rgba(${[...predColor, intensity].join(',')})`; //convert array to rgba
         this.plot.drawSquare(i, j, TILE_SIZE, TILE_SIZE, predColor);
       }
+      if (i % VIS_ANIM_SPEED === 0) {
+        await waitFor(1);
+      }
     }
   }
+
   /** preprocess data for training the algorithm */
   preprocessData() {
     let points = this.plot.points;

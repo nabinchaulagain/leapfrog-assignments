@@ -1,3 +1,12 @@
+body {
+  background: #fdf8fb;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
 .clearfix::after {
   display: block;
   clear: both;
@@ -12,23 +21,23 @@
 
 .heatmap {
   border-collapse: collapse;
-  padding: 50px;
+  padding: 10px;
   margin: auto;
 }
 
 .heatmap th,
 .heatmap td {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: normal;
-  padding: 8px 40px;
+  padding: 8px 20px;
 }
 
 .heatmap th {
-  padding: 20px 20px;
+  padding: 10px;
 }
 
 .heatmap .data-column {
   border: 1px solid black;
-  font-size: 60px;
-  padding: 30px 40px;
+  font-size: 40px;
+  padding: 20px 10px;
 }
