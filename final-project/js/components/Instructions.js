@@ -39,7 +39,6 @@ class Instructions {
     window.addEventListener('resize', this.resizeHandler);
     const closeIcon = this.el.querySelector('.close-icon');
     const closeHandler = (ev) => {
-      console.log('chicken hawk');
       if (ev.target === this.el || ev.target === closeIcon) {
         //if clicked outside the information box or on the close icon
         this.destroy();

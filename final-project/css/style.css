@@ -12,6 +12,7 @@ body {
   left: 0;
   top: 0;
   background: rgba(0, 0, 0, 0.6);
+  z-index: 3;
 }
 .instructions {
   position: fixed;
@@ -66,8 +67,11 @@ body {
   padding: 4px 8px;
 }
 
-.hyperparam-list {
+.hyperparams-container {
   margin-bottom: 20px;
+}
+
+.hyperparam-list {
   list-style: none;
   display: flex;
   flex-wrap: wrap;

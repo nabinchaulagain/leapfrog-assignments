@@ -123,9 +123,10 @@ class Visualizer {
     );
   }
 
-  /** re initliaze hyper parameters of selected algorith */
+  /** re initliaze hyper parameters of selected algorithm */
   reinitHyperParams() {
-    this.hyperParams.el.innerHTML = '';
+    this.hyperParams.container.innerHTML = ''; //empty container
+    this.hyperParams.el.innerHTML = ''; //empty ul element
     this.hyperParams.initChildren(this.algorithm.hyperParamDefinition);
   }
 

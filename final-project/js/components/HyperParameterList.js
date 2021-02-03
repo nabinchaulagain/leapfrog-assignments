@@ -7,12 +7,14 @@ class HyperParameterList {
    * @param {HTMLElement} rootElem
    * @param {Object} hyperParams
    */
-  constructor(rootElem, hyperParams) {
-    this.rootElem = rootElem;
+  constructor(root, hyperParams) {
+    this.root = root;
+    this.container = document.createElement('div');
+    this.container.classList.add('hyperparams-container');
     this.el = document.createElement('ul');
     this.el.classList.add('hyperparam-list');
     this.initChildren(hyperParams);
-    rootElem.appendChild(this.el);
+    root.appendChild(this.container);
   }
 
   /**
@@ -23,6 +25,7 @@ class HyperParameterList {
     this.list = [];
     this.values = {};
     this.errors = {};
+    this.errorEl = null;
     for (const key in hyperParams) {
       const hyperParamSchema = hyperParams[key];
       const hyperParam = new HyperParameter(key, hyperParamSchema);
@@ -45,21 +48,22 @@ class HyperParameterList {
       hyperParam.el.addChangeListener(handleChange);
       this.list.push(hyperParam);
     }
+    this.container.appendChild(this.el);
   }
 
   /** show errors on each hyperparameter */
   showErrors() {
     if (!this.hasErrors()) {
       if (this.errorEl) {
-        this.el.removeChild(this.errorEl);
+        this.container.removeChild(this.errorEl);
         this.errorEl = null;
       }
       return;
     }
     if (!this.errorEl) {
-      this.errorEl = document.createElement('li');
+      this.errorEl = document.createElement('div');
       this.errorEl.classList.add('error');
-      this.el.appendChild(this.errorEl);
+      this.container.appendChild(this.errorEl);
     }
     this.errorEl.innerText = strArrayToSentence(this.getErrors());
   }
@@ -87,16 +91,18 @@ class HyperParameterList {
    * @param {number[][]} data - 2d array of points
    */
   validateData(data) {
+    let hasError = false;
     for (const hParam of this.list) {
       if (!hParam.dataValidator) {
         continue;
       }
       const error = hParam.dataValidator(data, hParam.el.value);
       if (error) {
+        hasError = true;
         this.errors[hParam.key] = `${camelCaseToWord(hParam.key)} ${error}`;
       }
     }
-    this.showErrors();
+    hasError && this.showErrors();
   }
 }
 
