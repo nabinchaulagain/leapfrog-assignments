@@ -15,7 +15,7 @@ export const HYPER_PARAM_TYPES = {
 export const UPLOAD_MAX_SIZE = 1000000; //1 megabyte
 
 export const CONF_MAT_COL_SCHEME = [10, 50, 128]; //color scheme of confusion matrix in rgb
-export const CLF_REPORT_COL_SCHEME = [195, 59, 28]; //color scheme of classification report in rgb
+export const CLF_REPORT_COL_SCHEME = [140, 10, 50]; //color scheme of classification report in rgb
 
 export const EPSILON = 0.00001; // for avoiding NaN and inifinity during division or logarithm
 
