@@ -50,10 +50,8 @@ class Instructions {
 
   /** align the container properly */
   setPosition() {
-    this.container.style.left =
-      (window.innerWidth - this.container.clientWidth) / 2 + 'px'; //center horizontally
-    this.container.style.top =
-      (window.innerHeight - this.container.clientHeight) / 4 + 'px'; //align vertically with a margin of about 25% from top
+    this.container.style.left = (window.innerWidth - this.container.clientWidth) / 2 + 'px'; //center horizontally
+    this.container.style.top = (window.innerHeight - this.container.clientHeight) / 4 + 'px'; //align vertically with a margin of about 25% from top
   }
 
   /** remove element from DOM and remove all event listeners used by component */

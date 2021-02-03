@@ -18,12 +18,12 @@ class KNearestNeigbors extends ClassificationAlgorithm {
         if (val > data.length) {
           return 'should be less than total number of points';
         }
-      },
+      }
     },
     distanceMetric: {
       type: HYPER_PARAM_TYPES.ENUM,
-      options: ['Euclidean distance', 'Manhattan distance'],
-    },
+      options: ['Euclidean distance', 'Manhattan distance']
+    }
   };
 
   /**
@@ -36,7 +36,7 @@ class KNearestNeigbors extends ClassificationAlgorithm {
     for (let i = 0; i < this.X.shape[0]; i++) {
       distances.push({
         distance: this.distanceFn(this.X.data[i], x),
-        class: this.Y.data[i][0],
+        class: this.Y.data[i][0]
       });
     }
     distances.sort((point1, point2) => point1.distance - point2.distance);

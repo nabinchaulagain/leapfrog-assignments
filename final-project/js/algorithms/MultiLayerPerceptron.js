@@ -12,18 +12,18 @@ class MultiLayerPerceptron extends ClassificationAlgorithm {
     learningRate: {
       type: HYPER_PARAM_TYPES.NUMBER,
       default: 1,
-      range: { min: 0.01, max: 10, step: 0.01 },
+      range: { min: 0.01, max: 10, step: 0.01 }
     },
     epochs: {
       type: HYPER_PARAM_TYPES.NUMBER,
       default: 100,
-      range: { min: 1, max: 10000 },
+      range: { min: 1, max: 10000 }
     },
     hiddenUnits: {
       type: HYPER_PARAM_TYPES.RANGE,
       default: 10,
-      range: { min: 2, max: 100 },
-    },
+      range: { min: 2, max: 100 }
+    }
   };
 
   /**
@@ -89,10 +89,7 @@ class MultiLayerPerceptron extends ClassificationAlgorithm {
         const label = Y.data[j];
         this.forwardProp(feature);
         const dz2 = this.a2.scalarAddition(-label);
-        const dz1 = this.w2
-          .transpose()
-          .dot(dz2)
-          .multiply(this.z1.applyFunc(sigmoidPrime));
+        const dz1 = this.w2.transpose().dot(dz2).multiply(this.z1.applyFunc(sigmoidPrime));
         const dw2 = dz2.dot(this.a1.transpose());
         const dw1 = dz1.dot(this.a0.transpose());
         const db2 = dz2.clone();

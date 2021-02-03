@@ -29,8 +29,8 @@ class RandomForest extends ClassificationAlgorithm {
     trees: {
       type: HYPER_PARAM_TYPES.RANGE,
       range: { min: 3, max: 21 },
-      default: 5,
-    },
+      default: 5
+    }
   };
 
   /**

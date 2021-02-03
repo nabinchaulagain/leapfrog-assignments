@@ -1,19 +1,4 @@
-import ClassificationAlgorithm from '../algorithms/ClassificationAlgorithm.js';
-import KNearestNeigbors from '../algorithms/KNearestNeighbors.js';
-import LogisticRegression from '../algorithms/LogisticRegression.js';
-import MultiLayerPerceptron from '../algorithms/MultiLayerPerceptron.js';
-import DecisionTree from '../algorithms/DecisionTree.js';
-import RandomForest from '../algorithms/RandomForest.js';
-import Adaboost from '../algorithms/Adaboost.js';
-
-const algorithms = {
-  'Logistic regression': LogisticRegression,
-  'Multi-layer perceptron': MultiLayerPerceptron,
-  'K-nearest neighbors': KNearestNeigbors,
-  'Decision tree': DecisionTree,
-  'Random Forest': RandomForest,
-  Adaboost,
-};
+import algorithms from '../algorithms/index.js';
 
 class AlgorithmChooser {
   /**
@@ -33,16 +18,8 @@ class AlgorithmChooser {
   initSelect(container) {
     this.select = document.createElement('select');
     this.select.id = 'alg-chooser';
-    let options = Object.keys(algorithms).map(
-      (algName) => `<option value="${algName}">${algName}</option>`
-    );
+    let options = Object.keys(algorithms).map((algName) => `<option value="${algName}">${algName}</option>`);
     this.select.innerHTML = options.join(''); // show all option tags one after another
-
-    // const label = document.createElement('label');
-    // label.id = 'alg-chooser';
-    // label.innerHTML = 'Algorithm';
-
-    // container.appendChild(label);
     container.appendChild(this.select);
   }
 

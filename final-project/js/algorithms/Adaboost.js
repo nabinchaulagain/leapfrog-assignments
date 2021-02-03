@@ -24,8 +24,8 @@ class Adaboost extends ClassificationAlgorithm {
     stumps: {
       type: HYPER_PARAM_TYPES.RANGE,
       range: { min: 2, max: 40 },
-      default: 20,
-    },
+      default: 20
+    }
   };
 
   prepLabels(Y) {
@@ -65,15 +65,9 @@ class Adaboost extends ClassificationAlgorithm {
           }
         }
       }
-      let votingPower =
-        (1 / 2) * Math.log((1 - minError + EPSILON) / (minError + EPSILON));
+      let votingPower = (1 / 2) * Math.log((1 - minError + EPSILON) / (minError + EPSILON));
       votingPower = isNaN(votingPower) ? 0 : votingPower;
-      const stump = new DecisionStump(
-        bestFeaturePolarity,
-        votingPower,
-        bestFeatureIdx,
-        bestFeatureThresh
-      );
+      const stump = new DecisionStump(bestFeaturePolarity, votingPower, bestFeatureIdx, bestFeatureThresh);
       const predictions = X.data.map((x) => stump.predict(x));
       weights = this.updateWeights(weights, predictions, labels, votingPower);
       this.stumps.push(stump);

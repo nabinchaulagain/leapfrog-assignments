@@ -90,11 +90,7 @@ class FileManager {
     let hasError = false;
     try {
       const { labels, features } = JSON.parse(content);
-      if (
-        !Matrix.isVector(labels) ||
-        !Matrix.isMatrix(features) ||
-        labels.length !== features.length
-      ) {
+      if (!Matrix.isVector(labels) || !Matrix.isMatrix(features) || labels.length !== features.length) {
         hasError = true;
       }
     } catch (err) {

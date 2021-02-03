@@ -17,9 +17,7 @@ export const strArrayToSentence = (arr) => {
   if (arr.length === 1) {
     return arr[0];
   }
-  return [arr.slice(0, arr.length - 1).join(', '), arr[arr.length - 1]].join(
-    ' and '
-  ); // join all but last element by a comma into an array and join that array with the last element with 'and'
+  return [arr.slice(0, arr.length - 1).join(', '), arr[arr.length - 1]].join(' and '); // join all but last element by a comma into an array and join that array with the last element with 'and'
 };
 
 /**

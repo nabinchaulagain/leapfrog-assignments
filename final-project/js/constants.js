@@ -9,7 +9,7 @@ export const C2_COLOR = '#029902';
 export const HYPER_PARAM_TYPES = {
   NUMBER: 'number',
   ENUM: 'enum',
-  RANGE: 'range',
+  RANGE: 'range'
 };
 
 export const UPLOAD_MAX_SIZE = 1000000; //1 megabyte

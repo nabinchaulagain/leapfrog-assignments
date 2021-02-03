@@ -130,9 +130,7 @@ class Matrix {
     const [row1, col1] = this.shape;
     const [row2, col2] = mat.shape;
     if (row1 !== row2 || col1 !== col2) {
-      throw new Error(
-        `Dimensions(${row1} X ${col1} and ${row2} X ${col2}) are unequal`
-      );
+      throw new Error(`Dimensions(${row1} X ${col1} and ${row2} X ${col2}) are unequal`);
     }
     const newData = [];
     for (let i = 0; i < row1; i++) {

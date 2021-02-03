@@ -15,10 +15,7 @@ class Scaler {
    * @returns {number} scaled value between 0 and 1
    */
   scaleSingle(x) {
-    return [
-      (x[0] - this.min[0]) / (this.max[0] - this.min[0]),
-      (x[1] - this.min[1]) / (this.max[1] - this.min[1]),
-    ];
+    return [(x[0] - this.min[0]) / (this.max[0] - this.min[0]), (x[1] - this.min[1]) / (this.max[1] - this.min[1])];
   }
 
   /**

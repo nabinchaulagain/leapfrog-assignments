@@ -28,10 +28,7 @@ const entropy = (Y) => {
   const total = pos + neg;
   let probPos = pos / total;
   let probNeg = neg / total;
-  return -(
-    (probPos > 0 ? probPos * Math.log2(probPos) : 0) +
-    (probNeg > 0 ? probNeg * Math.log2(probNeg) : 0)
-  );
+  return -((probPos > 0 ? probPos * Math.log2(probPos) : 0) + (probNeg > 0 ? probNeg * Math.log2(probNeg) : 0));
 };
 
 /** Represents a single node of decision tree */
@@ -65,18 +62,18 @@ class DecisionTree extends ClassificationAlgorithm {
       type: HYPER_PARAM_TYPES.RANGE,
       range: {
         min: 1,
-        max: 10,
+        max: 10
       },
-      default: 4,
+      default: 4
     },
     maxDepth: {
       type: HYPER_PARAM_TYPES.RANGE,
       range: {
         min: 1,
-        max: 10,
+        max: 10
       },
-      default: 3,
-    },
+      default: 3
+    }
   };
 
   /**
@@ -123,16 +120,8 @@ class DecisionTree extends ClassificationAlgorithm {
     const column = X.map((x) => x[featureIdx]);
 
     const { leftIdxs, rightIdxs } = this.splitData(threshold, column);
-    const left = this.expand(
-      lookupArray(X, leftIdxs),
-      lookupArray(Y, leftIdxs),
-      depth + 1
-    );
-    const right = this.expand(
-      lookupArray(X, rightIdxs),
-      lookupArray(Y, rightIdxs),
-      depth + 1
-    );
+    const left = this.expand(lookupArray(X, leftIdxs), lookupArray(Y, leftIdxs), depth + 1);
+    const right = this.expand(lookupArray(X, rightIdxs), lookupArray(Y, rightIdxs), depth + 1);
     return new DecisionNode(left, right, threshold, featureIdx, null);
   }
 
@@ -176,9 +165,7 @@ class DecisionTree extends ClassificationAlgorithm {
     const totalSize = leftSize + rightSize;
     const entropyLeftChild = entropy(lookupArray(Y, leftIdxs));
     const entropyRightChild = entropy(lookupArray(Y, rightIdxs));
-    const entropyAvg =
-      (leftSize / totalSize) * entropyLeftChild +
-      (rightSize / totalSize) * entropyRightChild;
+    const entropyAvg = (leftSize / totalSize) * entropyLeftChild + (rightSize / totalSize) * entropyRightChild;
     return entropyParent - entropyAvg;
   }
 

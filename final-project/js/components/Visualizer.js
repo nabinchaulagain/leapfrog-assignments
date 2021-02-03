@@ -3,13 +3,7 @@ import HyperParameterList from './HyperParameterList.js';
 import Plot from './Plot.js';
 import Matrix from '../utils/Matrix.js';
 import ConfusionMatrix from './evaluation/ConfusionMatrix.js';
-import {
-  C1_BG_COLOR,
-  C2_BG_COLOR,
-  TILE_SIZE,
-  UPLOAD_ANIM_TIME,
-  VIS_ANIM_SPEED,
-} from '../constants.js';
+import { C1_BG_COLOR, C2_BG_COLOR, TILE_SIZE, UPLOAD_ANIM_TIME, VIS_ANIM_SPEED } from '../constants.js';
 import { accuracy } from '../utils/metrics.js';
 import FileManager from './FileManager.js';
 import { saveFile } from '../utils/file.js';
@@ -80,7 +74,7 @@ class Visualizer {
     saveFile(
       JSON.stringify({
         features: this.plot.points,
-        labels: this.plot.pointLabels,
+        labels: this.plot.pointLabels
       }),
       'data.json',
       'application/json'
@@ -106,9 +100,7 @@ class Visualizer {
     this.evaluationContainer.classList.add('evaluation-container');
     this.rootElement.appendChild(this.evaluationContainer);
     this.confusionMatrix = new ConfusionMatrix(this.evaluationContainer);
-    this.classificationReport = new ClassificationReport(
-      this.evaluationContainer
-    );
+    this.classificationReport = new ClassificationReport(this.evaluationContainer);
     this.evaluationScoresDisplayer = document.createElement('div');
     this.evaluationScoresDisplayer.classList.add('evaluation-scores');
     this.evaluationScoresDisplayer.innerHTML = 'Accuracy: n/a';
@@ -117,10 +109,7 @@ class Visualizer {
 
   /** initialize hyper parameter of selected algorithm */
   initHyperParams() {
-    this.hyperParams = new HyperParameterList(
-      this.rootElement,
-      this.algorithm.hyperParamDefinition
-    );
+    this.hyperParams = new HyperParameterList(this.rootElement, this.algorithm.hyperParamDefinition);
   }
 
   /** re initliaze hyper parameters of selected algorithm */

@@ -22,9 +22,7 @@ class Enum {
     this.select.id = id;
     let html = '';
     for (let i = 0; i < options.length; i++) {
-      html += `<option value="${i}" ${i === defaultIdx ? 'selected' : ''}>${
-        options[i]
-      }</option>`;
+      html += `<option value="${i}" ${i === defaultIdx ? 'selected' : ''}>${options[i]}</option>`;
     }
     this.select.innerHTML = html;
   }

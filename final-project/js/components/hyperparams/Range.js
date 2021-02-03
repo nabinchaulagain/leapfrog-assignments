@@ -12,10 +12,7 @@ class Range extends Input {
     this.indicator = document.createElement('span'); //span that shows range value
     this.indicator.classList.add('range-indicator');
     this.indicator.innerHTML = this.value;
-    this.input.addEventListener(
-      'change',
-      (ev) => (this.indicator.innerHTML = ev.target.value)
-    );
+    this.input.addEventListener('change', (ev) => (this.indicator.innerHTML = ev.target.value));
   }
   /**
    * attach to parent element
