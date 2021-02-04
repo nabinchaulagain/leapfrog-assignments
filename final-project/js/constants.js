@@ -20,4 +20,7 @@ export const CLF_REPORT_COL_SCHEME = [140, 10, 50]; //color scheme of classifica
 export const EPSILON = 0.00001; // for avoiding NaN and inifinity during division or logarithm
 
 export const VIS_ANIM_SPEED = 3; // how quickly to visualize colored decision boundary
-export const UPLOAD_ANIM_TIME = 50; // how
+export const UPLOAD_ANIM_TIME = 20; // time delay to add points when uploading or randomly generating
+
+export const datasets = ['3linear', 'blobs', 'dense', 'linear', 'non-linear', 'spiral'];
+export const GEN_DATASET_NOISE = 5; //upper limit of noise to be added to generated dataset

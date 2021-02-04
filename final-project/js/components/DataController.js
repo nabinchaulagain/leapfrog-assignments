@@ -1,5 +1,6 @@
 import { UPLOAD_ANIM_TIME } from '../constants.js';
 import { waitFor } from '../utils/misc.js';
+import { genRandomDataset } from '../utils/data.js';
 
 class DataController {
   /**
@@ -45,19 +46,19 @@ class DataController {
 
   /** add event listeners to buttons */
   addEventListeners() {
-    const features = [
-      [100, 120],
-      [120, 130]
-    ];
-    const labels = [0, 1];
-    this.generateBtn.addEventListener('click', () => {
+    this.generateBtn.addEventListener('click', async () => {
+      const { features, labels } = await genRandomDataset();
+      this.clearData();
       this.addPoints(features, labels);
     });
-    this.clearBtn.addEventListener('click', () => {
-      this.plot.clear();
-      this.plot.points = [];
-      this.plot.pointLabels = [];
-    });
+    this.clearBtn.addEventListener('click', this.clearData.bind(this));
+  }
+
+  /** clear plot and data */
+  clearData() {
+    this.plot.clear();
+    this.plot.points = [];
+    this.plot.pointLabels = [];
   }
 
   /**returns data on plot
