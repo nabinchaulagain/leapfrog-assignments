@@ -23,4 +23,4 @@ export const VIS_ANIM_SPEED = 3; // how quickly to visualize colored decision bo
 export const UPLOAD_ANIM_TIME = 20; // time delay to add points when uploading or randomly generating
 
 export const datasets = ['3linear', 'blobs', 'dense', 'linear', 'non-linear', 'spiral'];
-export const GEN_DATASET_NOISE = 25; //upper limit of noise to be added to generated dataset
+export const GEN_DATASET_NOISE = 10; //upper limit of noise to be added to generated dataset
