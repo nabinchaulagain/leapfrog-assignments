@@ -39,6 +39,15 @@ class Visualizer {
 
   /** show instructions if neccessary */
   initInstructions() {
+    const instructionsBtn = document.createElement('button');
+    instructionsBtn.classList.add('show-instructions-btn');
+    instructionsBtn.innerHTML = '&#9432;';
+    instructionsBtn.addEventListener('click', () => {
+      const instructions = new Instructions(this.rootElement);
+      instructions.show();
+    });
+    this.rootElement.appendChild(instructionsBtn);
+    //show instructions if opening site for first time
     if (!localStorage.getItem('instructionsShown')) {
       const instructions = new Instructions(this.rootElement);
       instructions.show();
