@@ -9,9 +9,9 @@ class KNearestNeigbors extends ClassificationAlgorithm {
   static requiresFeatureScaling = true;
 
   static hyperParamDefinition = {
-    k: {
-      type: HYPER_PARAM_TYPES.NUMBER,
-      default: 1,
+    numNeighbors: {
+      type: HYPER_PARAM_TYPES.RANGE,
+      default: 5,
       range: { min: 1, max: 19 },
       // validate that value of k is less than total number of points
       dataValidator: (data, val) => {
@@ -64,8 +64,8 @@ class KNearestNeigbors extends ClassificationAlgorithm {
    * @param {Matrix} Y labels
    */
   train(X, Y) {
-    const { k, distanceMetric } = this.hyperParams;
-    this.k = k;
+    const { numNeighbors, distanceMetric } = this.hyperParams;
+    this.k = numNeighbors;
     this.distanceFn = distanceMetrics[distanceMetric];
     this.X = X;
     this.Y = Y;

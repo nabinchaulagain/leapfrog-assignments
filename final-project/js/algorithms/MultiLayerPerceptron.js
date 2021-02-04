@@ -16,7 +16,7 @@ class MultiLayerPerceptron extends ClassificationAlgorithm {
     },
     epochs: {
       type: HYPER_PARAM_TYPES.NUMBER,
-      default: 100,
+      default: 700,
       range: { min: 1, max: 10000 }
     },
     hiddenUnits: {

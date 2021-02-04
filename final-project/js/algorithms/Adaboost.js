@@ -23,7 +23,7 @@ class Adaboost extends ClassificationAlgorithm {
   static hyperParamDefinition = {
     stumps: {
       type: HYPER_PARAM_TYPES.RANGE,
-      range: { min: 2, max: 40 },
+      range: { min: 2, max: 60 },
       default: 20
     }
   };

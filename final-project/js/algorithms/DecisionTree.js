@@ -35,7 +35,6 @@ const entropy = (Y) => {
 /** Represents a single node of decision tree */
 class DecisionNode {
   /**
-   *
    * @param {DecisionNode} left - left node
    * @param {DecisionNode} right - right node
    * @param {number} threshold - threshold value that represents next step
@@ -62,10 +61,10 @@ class DecisionTree extends ClassificationAlgorithm {
     minSamples: {
       type: HYPER_PARAM_TYPES.RANGE,
       range: {
-        min: 1,
+        min: 0,
         max: 10
       },
-      default: 4
+      default: 2
     },
     maxDepth: {
       type: HYPER_PARAM_TYPES.RANGE,
@@ -73,7 +72,7 @@ class DecisionTree extends ClassificationAlgorithm {
         min: 1,
         max: 10
       },
-      default: 3
+      default: 2
     }
   };
 

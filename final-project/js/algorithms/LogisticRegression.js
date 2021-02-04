@@ -13,14 +13,14 @@ class LogisticRegression extends ClassificationAlgorithm {
 
   static hyperParamDefinition = {
     learningRate: {
-      type: HYPER_PARAM_TYPES.RANGE,
-      default: 1,
+      type: HYPER_PARAM_TYPES.NUMBER,
+      default: 0.1,
       range: { min: 0.01, max: 10, step: 0.01 }
     },
     epochs: {
       type: HYPER_PARAM_TYPES.NUMBER,
-      default: 1000,
-      range: { min: 1, max: 10000 }
+      range: { min: 1, max: 100000 },
+      default: 10000
     }
   };
 

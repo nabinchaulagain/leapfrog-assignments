@@ -22,7 +22,7 @@ class Input {
     this.input = document.createElement('input');
     this.input.setAttribute('id', id);
     this.input.setAttribute('type', type);
-    def && this.input.setAttribute('value', def);
+    def !== undefined && this.input.setAttribute('value', def);
     if (range) {
       this.range = range;
       range.min && this.input.setAttribute('min', range.min);
