@@ -33,7 +33,7 @@ class AlgorithmChooser {
 
   /**
    * returns the currently selected algorithm
-   * @returns {ClassificationAlgorithm} currently selected algorithm
+   * @returns {class} currently selected algorithm class
    */
   getCurrAlgorithm() {
     return algorithms[this.select.value];

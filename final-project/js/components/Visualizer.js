@@ -3,7 +3,7 @@ import HyperParameterList from './HyperParameterList.js';
 import Plot from './Plot.js';
 import Matrix from '../utils/Matrix.js';
 import ConfusionMatrix from './evaluation/ConfusionMatrix.js';
-import { C1_BG_COLOR, C2_BG_COLOR, TILE_SIZE, UPLOAD_ANIM_TIME, VIS_ANIM_SPEED } from '../constants.js';
+import { C1_BG_COLOR, C2_BG_COLOR, TILE_SIZE, VIS_ANIM_SPEED } from '../constants.js';
 import { accuracy } from '../utils/metrics.js';
 import FileManager from './FileManager.js';
 import { saveFile } from '../utils/file.js';
@@ -11,6 +11,7 @@ import ClassificationReport from './evaluation/ClassificationReport.js';
 import AlgorithmChooser from './AlgorithmChooser.js';
 import { waitFor } from '../utils/misc.js';
 import Instructions from './Instructions.js';
+import DataController from './DataController.js';
 
 /** represents a classification algorithm visualizer */
 class Visualizer {
@@ -26,6 +27,7 @@ class Visualizer {
     this.initHyperParams();
     this.initPlot();
     this.initButtons();
+    this.rootElement.appendChild(this.visContainer);
     this.initEvaluation();
     this.addEventListeners();
   }
@@ -57,7 +59,6 @@ class Visualizer {
   /** initialize plot */
   initPlot() {
     this.plot = new Plot(this.visContainer, true);
-    this.rootElement.appendChild(this.visContainer);
   }
 
   /** iniitalize train, upload and download button */
@@ -66,19 +67,13 @@ class Visualizer {
     this.visBtn.classList.add('vis-btn', 'btn', 'btn-primary');
     this.visBtn.innerHTML = 'Train & Visualize';
     this.visContainer.appendChild(this.visBtn);
-    this.fileManager = new FileManager(this.visContainer);
+    this.dataController = new DataController(this.visContainer, this.plot); // generate and clear button
+    this.fileManager = new FileManager(this.visContainer); // upload and download button
   }
 
   /** download plot data */
   downloadData() {
-    saveFile(
-      JSON.stringify({
-        features: this.plot.points,
-        labels: this.plot.pointLabels
-      }),
-      'data.json',
-      'application/json'
-    );
+    saveFile(JSON.stringify(this.dataController.getData()), 'data.json', 'application/json');
   }
 
   /**
@@ -87,10 +82,7 @@ class Visualizer {
    */
   async uploadData(data) {
     const { features, labels } = data;
-    for (let i = 0; i < features.length; i++) {
-      this.plot.addPoint(...features[i], labels[i]);
-      await waitFor(UPLOAD_ANIM_TIME);
-    }
+    this.dataController.addPoints(features, labels);
   }
   /**
    * start evaluation of algorithm results
@@ -193,10 +185,11 @@ class Visualizer {
 
   /** preprocess data for training the algorithm */
   preprocessData() {
-    let points = this.plot.points;
+    const { features, labels } = this.dataController.getData();
+    let points = features;
     if (this.algorithm.requiresFeatureScaling) {
       const scaler = new Scaler([0, 0], [this.plot.width, this.plot.height]);
-      points = scaler.scale(this.plot.points);
+      points = scaler.scale(features);
     }
     this.classifier = new this.algorithm();
     this.classifier.hyperParams = this.hyperParams.values; //inject hyperparams into classifier
@@ -204,7 +197,7 @@ class Visualizer {
     if (this.algorithm.requiresDesignMatrix) {
       this.X = this.X.insertCol(1); // insert 1 at the start of each row to make design matrix
     }
-    this.Y = new Matrix([this.plot.pointLabels]).transpose();
+    this.Y = new Matrix([labels]).transpose();
   }
 
   /** show confusion matrix and other metrics */

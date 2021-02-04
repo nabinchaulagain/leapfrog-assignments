@@ -181,8 +181,12 @@ body {
   font-size: 22px;
 }
 
-.file-btns {
-  margin-top: 8px;
+.data-control-btns {
+  margin: 8px 0;
+}
+
+.data-control-btns .btn {
+  margin-right: 8px;
 }
 
 .file-btn {
