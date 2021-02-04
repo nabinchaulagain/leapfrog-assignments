@@ -67,8 +67,29 @@ class Visualizer {
     this.visBtn.classList.add('vis-btn', 'btn', 'btn-primary');
     this.visBtn.innerHTML = 'Train & Visualize';
     this.visContainer.appendChild(this.visBtn);
-    this.dataController = new DataController(this.visContainer, this.plot); // generate and clear button
+    this.dataController = new DataController(
+      this.visContainer,
+      this.plot,
+      this.enableButtons.bind(this),
+      this.disableButtons.bind(this)
+    ); // generate and clear button
     this.fileManager = new FileManager(this.visContainer); // upload and download button
+  }
+
+  /** disable all buttons */
+  disableButtons() {
+    this.rootElement.querySelectorAll('.btn').forEach((btn) => {
+      btn.classList.add('disabled');
+      btn.disabled = true;
+    });
+  }
+
+  /** enable all buttons */
+  enableButtons() {
+    this.rootElement.querySelectorAll('.btn').forEach((btn) => {
+      btn.classList.remove('disabled');
+      btn.disabled = false;
+    });
   }
 
   /** download plot data */
@@ -130,8 +151,10 @@ class Visualizer {
   addEventListeners() {
     this.visBtn.addEventListener('click', async () => {
       if (this.validate()) {
+        this.disableButtons();
         await this.visualize();
         this.evaluate();
+        this.enableButtons();
       }
     });
     this.fileManager.addDownloadListeners(() => {

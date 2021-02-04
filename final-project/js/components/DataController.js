@@ -7,9 +7,11 @@ class DataController {
    * @param {HTMLElement} root
    * @param {Plot} plot
    */
-  constructor(root, plot) {
+  constructor(root, plot, enableButtons, disableButtons) {
     this.root = root;
     this.plot = plot;
+    this.enableButtons = enableButtons;
+    this.disableButtons = disableButtons;
     this.initEl();
     this.addEventListeners();
   }
@@ -38,10 +40,12 @@ class DataController {
    * @returns {Promise}
    */
   async addPoints(features, labels) {
+    this.disableButtons();
     for (let i = 0; i < features.length; i++) {
       this.plot.addPoint(...features[i], labels[i]);
       await waitFor(UPLOAD_ANIM_TIME);
     }
+    this.enableButtons();
   }
 
   /** add event listeners to buttons */

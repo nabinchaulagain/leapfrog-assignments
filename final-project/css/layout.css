@@ -72,3 +72,19 @@ body {
   color: #000000;
   opacity: 0.8;
 }
+
+.btn.disabled {
+  cursor: not-allowed;
+}
+
+.btn.disabled:hover {
+  opacity: 0.9;
+}
+
+.btn-red.disabled {
+  opacity: 0.85;
+}
+
+.btn-yellow.disabled {
+  opacity: 0.8;
+}
