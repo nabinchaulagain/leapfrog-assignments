@@ -1,4 +1,4 @@
-import { random } from './misc.js';
+import { random } from './random.js';
 
 class Matrix {
   /**

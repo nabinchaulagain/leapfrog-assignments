@@ -1,5 +1,6 @@
 import { HYPER_PARAM_TYPES } from '../constants.js';
-import { mode, lookupArray } from '../utils/misc.js';
+import { lookupArray } from '../utils/misc.js';
+import { mode } from '../utils/math.js';
 import ClassificationAlgorithm from './ClassificationAlgorithm.js';
 
 /**

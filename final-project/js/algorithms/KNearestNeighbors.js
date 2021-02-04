@@ -1,6 +1,6 @@
 import { HYPER_PARAM_TYPES } from '../constants.js';
 import Matrix from '../utils/Matrix.js';
-import { euclideanDistance, manhattanDistance } from '../utils/misc.js';
+import { euclideanDistance, manhattanDistance } from '../utils/math.js';
 import ClassificationAlgorithm from './ClassificationAlgorithm.js';
 
 const distanceMetrics = [euclideanDistance, manhattanDistance];

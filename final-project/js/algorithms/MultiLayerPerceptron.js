@@ -1,5 +1,5 @@
 import { HYPER_PARAM_TYPES } from '../constants.js';
-import { sigmoid, sigmoidPrime } from '../utils/activations.js';
+import { sigmoid, sigmoidPrime } from '../utils/math.js';
 import Matrix from '../utils/Matrix.js';
 import ClassificationAlgorithm from './ClassificationAlgorithm.js';
 import { crossEntropy } from '../utils/metrics.js';

@@ -1,6 +1,6 @@
 import { UPLOAD_ANIM_TIME } from '../constants.js';
 import { waitFor } from '../utils/misc.js';
-import { genRandomDataset } from '../utils/data.js';
+import { genRandomDataset } from '../utils/random.js';
 
 class DataController {
   /**

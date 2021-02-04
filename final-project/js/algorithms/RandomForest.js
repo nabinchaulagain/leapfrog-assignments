@@ -1,6 +1,7 @@
 import { HYPER_PARAM_TYPES } from '../constants.js';
 import Matrix from '../utils/Matrix.js';
-import { mode, randomInt } from '../utils/misc.js';
+import { randomInt } from '../utils/random.js';
+import { mode } from '../utils/math.js';
 import ClassificationAlgorithm from './ClassificationAlgorithm.js';
 import DecisionTree from './DecisionTree.js';
 

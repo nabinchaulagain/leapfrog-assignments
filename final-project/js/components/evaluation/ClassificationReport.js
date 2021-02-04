@@ -1,6 +1,6 @@
 import { CLF_REPORT_COL_SCHEME } from '../../constants.js';
 import Matrix from '../../utils/Matrix.js';
-import { harmonicMean } from '../../utils/misc.js';
+import { harmonicMean } from '../../utils/math.js';
 import Heatmap from '../Heatmap.js';
 
 class ClassificationReport {
