@@ -28,6 +28,12 @@ module.exports = {
 
     return record;
   },
+  readWhere: async function (entity, key, val) {
+    const entityData = await this.read(entity);
+    const filteredData = entityData.filter((record) => record[key] === val);
+
+    return filteredData;
+  },
   update: async function (entity, data) {
     const entityData = await this.read(entity);
     const recordIdx = entityData.findIndex((record) => record.id === data.id);
