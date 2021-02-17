@@ -13,6 +13,8 @@ module.exports = {
     const newRecord = { id: getLatestId(entityData) + 1, ...data };
     entityData.push(newRecord);
     await writeFile(getEntityFile(entity), entityData);
+
+    return newRecord;
   },
   read: async function (entity) {
     const filename = getEntityFile(entity);
@@ -31,6 +33,8 @@ module.exports = {
     const recordIdx = entityData.findIndex((record) => record.id === data.id);
     entityData[recordIdx] = { ...data };
     await writeFile(getEntityFile(entity), entityData);
+
+    return entityData[recordIdx];
   },
   delete: async function (entity, id) {
     const entityData = await this.read(entity);
