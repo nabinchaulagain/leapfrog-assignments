@@ -23,4 +23,11 @@ const writeFile = (filename, content) => {
   );
 };
 
-module.exports = { readFile, writeFile };
+const doesFileExist = (filename) =>
+  fs.existsSync(path.join(basePath, filename));
+
+const mkdir = (dir) => {
+  return callAsPromise(fs.mkdir, path.join(basePath, dir));
+};
+
+module.exports = { readFile, writeFile, doesFileExist, mkdir };
