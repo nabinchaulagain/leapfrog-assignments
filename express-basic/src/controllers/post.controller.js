@@ -21,10 +21,14 @@ const addPost = async (req, res) => {
   sendResponse(res, 200, newPost);
 };
 
-const updatePost = async (req, res) => {
-  const post = { id: parseInt(req.params.id), ...req.body };
-  const updatedPost = await model.update('post', post);
-  sendResponse(res, 200, updatedPost);
+const updatePost = async (req, res, next) => {
+  try {
+    const post = { id: parseInt(req.params.id), ...req.body };
+    const updatedPost = await model.update('post', post);
+    sendResponse(res, 200, updatedPost);
+  } catch (err) {
+    next(err);
+  }
 };
 
 const deletePost = async (req, res) => {

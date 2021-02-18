@@ -1,4 +1,5 @@
 const { Router } = require('express');
+const requireEntityExistence = require('../middlewares/requireEntityExistence');
 const {
   getPosts,
   addPost,
@@ -13,10 +14,10 @@ router.get('/', getPosts);
 
 router.post('/', addPost);
 
-router.patch('/:id', updatePost);
+router.patch('/:id', requireEntityExistence('post'), updatePost);
 
-router.delete('/:id', deletePost);
+router.delete('/:id', requireEntityExistence('post'), deletePost);
 
-router.get('/:id', getPost);
+router.get('/:id', requireEntityExistence('post'), getPost);
 
 module.exports = router;

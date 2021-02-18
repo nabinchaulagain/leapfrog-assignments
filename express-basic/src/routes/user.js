@@ -6,6 +6,7 @@ const {
   deleteUser,
   getUser,
 } = require('../controllers/user.controller');
+const requireEntityExistence = require('../middlewares/requireEntityExistence');
 
 const router = Router();
 
@@ -13,10 +14,10 @@ router.get('/', getUsers);
 
 router.post('/', addUser);
 
-router.patch('/:id', updateUser);
+router.patch('/:id', requireEntityExistence('user'), updateUser);
 
-router.delete('/:id', deleteUser);
+router.delete('/:id', requireEntityExistence('user'), deleteUser);
 
-router.get('/:id', getUser);
+router.get('/:id', requireEntityExistence('user'), getUser);
 
 module.exports = router;

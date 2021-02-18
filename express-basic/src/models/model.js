@@ -1,6 +1,7 @@
 const { readFile, writeFile } = require('../utils/file');
 
-const getEntityFile = (entity) => `${entity}s.json`;
+const getEntityFile = (entity) => `${entity}s.json`; // for eg: entity post has file posts.json
+
 const getLatestId = (entityData) => {
   const latestData = entityData[entityData.length - 1];
 
@@ -8,6 +9,11 @@ const getLatestId = (entityData) => {
 };
 
 module.exports = {
+  doesRecordExist: async function (entity, id) {
+    const entityData = await this.read(entity);
+
+    return entityData.some((record) => record.id === id); // is there any record with id provided in parameter
+  },
   create: async function (entity, data) {
     const entityData = await this.read(entity);
     const newRecord = { id: getLatestId(entityData) + 1, ...data };

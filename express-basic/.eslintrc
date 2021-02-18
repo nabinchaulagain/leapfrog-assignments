@@ -9,6 +9,7 @@
   },
   "rules": {
     "no-console": "off",
-    "padding-line-between-statements": "off"
+    "padding-line-between-statements": "off",
+    "newline-before-return": "off"
   }
 }
