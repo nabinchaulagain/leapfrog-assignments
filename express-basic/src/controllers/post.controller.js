@@ -1,5 +1,6 @@
 const model = require('../models/model');
 const sendResponse = require('../utils/sendResponse');
+const postValidator = require('../validators/postValidator');
 
 const getPosts = async (req, res) => {
   let posts;
@@ -16,13 +17,19 @@ const getPost = async (req, res) => {
   sendResponse(res, 200, post);
 };
 
-const addPost = async (req, res) => {
-  const newPost = await model.create('post', req.body);
-  sendResponse(res, 200, newPost);
+const addPost = async (req, res, next) => {
+  try {
+    postValidator(req.body);
+    const newPost = await model.create('post', req.body);
+    sendResponse(res, 200, newPost);
+  } catch (err) {
+    next(err);
+  }
 };
 
 const updatePost = async (req, res, next) => {
   try {
+    postValidator(req.body);
     const post = { id: parseInt(req.params.id), ...req.body };
     const updatedPost = await model.update('post', post);
     sendResponse(res, 200, updatedPost);
