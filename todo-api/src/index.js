@@ -2,17 +2,22 @@ require('./env');
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const authRoutes = require('./routes/auth.routes');
 const errorHandler = require('./middlewares/errorHandler');
+
+const authRoutes = require('./routes/auth.routes');
+const todosRoutes = require('./routes/todos.routes');
+const userParser = require('./middlewares/userParser');
+const requireAuth = require('./middlewares/requireAuth');
+
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get('/', (req, res) => {
-  res.send({ msg: 'hello' });
-});
+app.use(userParser);
+
 app.use('/api/auth', authRoutes);
+app.use('/api/todos', requireAuth, todosRoutes);
 
 app.use(errorHandler);
 

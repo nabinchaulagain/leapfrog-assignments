@@ -22,7 +22,7 @@ const login = async (req, res, next) => {
       err.message = { error: 'Invalid crendentials', detail: errMsg };
       throw err;
     }
-    const token = createJWT(username);
+    const token = createJWT(user);
     sendResponse(res, { message: 'Login successful', token });
   } catch (err) {
     next(err);

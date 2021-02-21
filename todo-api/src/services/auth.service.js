@@ -14,7 +14,7 @@ const createUser = async ({ username, password }) => {
 
 const getUserByUsername = async (username) => {
   const users = await db('users')
-    .select('username', 'password', 'id')
+    .select('username', 'password', 'id', 'created_at')
     .where({ username });
   return users[0];
 };
@@ -23,8 +23,8 @@ const doesPassMatch = (raw, encrypted) => {
   return bcrypt.compare(raw, encrypted);
 };
 
-const createJWT = ({ id, username }) => {
-  return jwt.sign({ id, username }, process.env.JWT_SECRET);
+const createJWT = ({ id, username, created_at }) => {
+  return jwt.sign({ id, username, created_at }, process.env.JWT_SECRET);
 };
 
 const decodeJWT = (token) => {
