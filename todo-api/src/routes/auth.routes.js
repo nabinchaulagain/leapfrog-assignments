@@ -4,6 +4,7 @@ const {
   validateUser,
   validateDuplicateUsername
 } = require('../validators/user.validator');
+const requireAuth = require('../middlewares/requireAuth');
 
 const router = Router();
 
@@ -15,5 +16,7 @@ router.post(
 );
 
 router.post('/login', authController.login);
+
+router.get('/', requireAuth, authController.getCurrentUser);
 
 module.exports = router;

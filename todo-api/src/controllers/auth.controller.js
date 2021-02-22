@@ -14,7 +14,7 @@ const login = async (req, res, next) => {
     if (!user) {
       errMsg = { username: 'Invalid username' };
     } else if (!(await doesPassMatch(password, user.password))) {
-      errMsg = { username: 'Invalid password' };
+      errMsg = { password: 'Invalid password' };
     }
     if (errMsg) {
       const err = new Error();
@@ -38,4 +38,12 @@ const signup = async (req, res, next) => {
   }
 };
 
-module.exports = { login, signup };
+const getCurrentUser = (req, res, next) => {
+  try {
+    sendResponse(res, req.user);
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports = { login, signup, getCurrentUser };
