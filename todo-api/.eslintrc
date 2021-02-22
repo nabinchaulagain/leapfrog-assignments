@@ -1,0 +1,17 @@
+{
+  "env": {
+    "es6": true,
+    "node": true,
+    "mocha": true
+  },
+  "extends": ["eslint-config-leapfrog"],
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
+  "rules": {
+    "no-console": "off",
+    "padding-line-between-statements": "off",
+    "newline-before-return": "off",
+    "camelcase": "off"
+  }
+}
